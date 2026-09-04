@@ -152,6 +152,40 @@ details[open] summary{border-bottom:1px solid var(--line)}
   display:inline-block; min-width:52px; border-bottom:1px solid var(--line-2);
   height:1.15em; vertical-align:baseline;
 }
+/* ---------- interactive log ---------- */
+.logtool{background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:16px 18px; margin:18px 0}
+.logrow{border-top:1px solid var(--line); padding:14px 0}
+.logrow:first-of-type{border-top:0; padding-top:4px}
+.logrow h5{margin:0 0 3px; font-size:15.5px; display:flex; gap:8px; align-items:baseline; flex-wrap:wrap}
+.slotk{font-family:var(--mono); font-size:12px; color:var(--ink-3); font-weight:700}
+.phbadge{font-size:10.5px; letter-spacing:.06em; text-transform:uppercase; font-weight:700;
+  padding:2px 6px; border-radius:4px; background:var(--accent-soft); color:var(--accent)}
+.tgt{font-size:13px; color:var(--ink-3); margin:0 0 8px}
+.sets{display:flex; gap:8px; align-items:center; flex-wrap:wrap}
+.sets span{font-size:12px; color:var(--ink-3)}
+.sets input{width:64px; font-family:var(--mono); font-size:16px; padding:7px 8px;
+  border:1px solid var(--line-2); border-radius:7px; background:var(--bg); color:var(--ink)}
+.sets input:focus{outline:2px solid var(--accent); outline-offset:1px}
+.vd{margin-top:9px; font-size:14px; padding:8px 11px; border-radius:7px;
+  border-left:3px solid var(--line-2); background:var(--bg)}
+.vd.close{border-left-color:var(--warn); background:var(--warn-soft); color:var(--warn)}
+.vd.up{border-left-color:var(--good); background:var(--good-soft); color:var(--good); font-weight:600}
+.vd.back{border-left-color:var(--stop); background:var(--stop-soft); color:var(--stop)}
+.vd.done{border-left-color:var(--accent); background:var(--accent-soft); color:var(--accent); font-weight:600}
+.btn{font-family:inherit; font-size:14px; font-weight:600; padding:9px 16px; border-radius:8px;
+  border:1px solid var(--accent); background:var(--accent); color:var(--bg); cursor:pointer}
+.btn:hover{opacity:.88}
+.btn.sec{background:transparent; color:var(--ink-2); border-color:var(--line-2)}
+.btn.sec:hover{color:var(--accent); border-color:var(--accent)}
+.btnrow{display:flex; gap:9px; flex-wrap:wrap; margin-top:15px; align-items:center}
+.meta{display:flex; gap:12px; flex-wrap:wrap; align-items:flex-end; margin-bottom:4px}
+.meta span{font-size:12px; color:var(--ink-3); display:block; margin-bottom:3px}
+.meta input{font-family:var(--mono); font-size:15px; padding:7px 9px;
+  border:1px solid var(--line-2); border-radius:7px; background:var(--bg); color:var(--ink)}
+#histlist .h{border-top:1px solid var(--line); padding:9px 0; font-size:14px}
+#histlist .h:first-child{border-top:0}
+#saveMsg{font-size:14px; margin-left:4px}
+@media print{ .logtool,.btnrow{display:none} }
 footer{margin-top:60px; padding-top:22px; border-top:1px solid var(--line); font-size:14px; color:var(--ink-3)}
 @media print{
   /* Always print light, whatever the screen theme is */
@@ -196,11 +230,14 @@ footer{margin-top:60px; padding-top:22px; border-top:1px solid var(--line); font
   <a href="#session">The session</a>
   <a href="#exercises">Exercises</a>
   <a href="#progress">Getting harder</a>
+  <a href="#log">Your log</a>
   <a href="#numbers">Food numbers</a>
   <a href="#foods">Food list</a>
   <a href="#shakes">Shakes</a>
   <a href="#day">Your day</a>
+  <a href="#week">7-day plan</a>
   <a href="#recipes">Recipes</a>
+  <a href="#shopping">Shopping list</a>
   <a href="#appetite">Appetite</a>
   <a href="#track">Tracking</a>
   <a href="#sources">Sources</a>
@@ -248,7 +285,7 @@ footer{margin-top:60px; padding-top:22px; border-top:1px solid var(--line); font
 
 <p><strong>2. The training is the easy part.</strong> Every source in the research folder agrees on this and they're right. Three sessions a week is under three hours. The eating happens every single day, and the eating is what will actually decide whether this works. If you nail the training and half-do the food, nothing happens. That's the honest version.</p>
 
-<p><strong>3. Being light is an advantage right now.</strong> Every exercise in here lifts your own bodyweight, and at 43&nbsp;kg that's easier than it'll be at 50. Make the most of it — and read the bit in <a href="#track">section 13</a> about what happens to your rep counts around month four, because it's going to look like bad news and it won't be.</p>
+<p><strong>3. Being light is an advantage right now.</strong> Every exercise in here lifts your own bodyweight, and at 43&nbsp;kg that's easier than it'll be at 50. Make the most of it — and read the bit in <a href="#track">section 16</a> about what happens to your rep counts around month four, because it's going to look like bad news and it won't be.</p>
 
 <p><strong>4. There are no supplements in this plan.</strong> No protein powder, no creatine, no weight gainer. Four of the seven bulking videos recommend them. You're 13, and everything you actually need is available as food. If that changes later it's a conversation with a parent and a GP, not something to decide off a YouTube video.</p>
 
@@ -555,8 +592,229 @@ footer{margin-top:60px; padding-top:22px; border-top:1px solid var(--line); font
 </div>
 </details>
 
+<!-- ===================== LOG ===================== -->
+<h2 id="log"><span class="n">07</span>Your log</h2>
+<h3>Type your reps in. It tells you when to move up, and to what.</h3>
+
+<p>Fill this in after each session on your phone. It saves <strong>on this device only</strong> — nothing is sent anywhere and nobody else can see it. It applies the progression rule for you, so you never have to work out for yourself whether you have earned a step up.</p>
+
+<div class="note" id="storeWarn" hidden>
+  <span class="lbl">Saving is not available here</span>
+  <p>You can still type numbers in and read the verdicts, but they will disappear when you close the tab. This usually means the file is open in a preview panel rather than a real browser. Open the file directly and it will save properly.</p>
+</div>
+
+<div class="logtool">
+  <div class="meta">
+    <label><span>Session date</span><input type="date" id="sDate"></label>
+    <label><span>Bodyweight (kg, optional)</span><input type="number" id="sWeight" inputmode="decimal" step="0.1" min="20" max="120" placeholder="43.0"></label>
+  </div>
+  <p class="tgt" style="margin-top:10px">Enter the reps you completed on each of your three sets. Leave blank anything you did not do.</p>
+  <div id="logRows"></div>
+  <div class="btnrow">
+    <button class="btn" id="saveBtn" type="button">Save this session</button>
+    <button class="btn sec" id="clearFormBtn" type="button">Clear the boxes</button>
+    <span id="saveMsg"></span>
+  </div>
+</div>
+
+<details>
+<summary>Where each exercise is now — and what it changes to next</summary>
+<div class="dbody">
+<p>Every slot climbs its own ladder. When the log says you have earned a step up, press the button and the exercise name changes everywhere in this tool.</p>
+<div id="phaseRows"></div>
+</div>
+</details>
+
+<details>
+<summary>Session history</summary>
+<div class="dbody">
+<div id="histlist"></div>
+<div class="btnrow">
+  <button class="btn sec" id="exportBtn" type="button">Show my data as text</button>
+  <button class="btn sec" id="wipeBtn" type="button">Delete everything</button>
+</div>
+<textarea id="exportBox" hidden rows="7" style="width:100%;margin-top:12px;font-family:var(--mono);font-size:12px;padding:10px;border:1px solid var(--line-2);border-radius:8px;background:var(--bg);color:var(--ink)"></textarea>
+</div>
+</details>
+
+<div class="note good">
+  <span class="lbl">The rule it is applying</span>
+  <p><strong>Top of the rep range on all three sets, two sessions running → move up a rung.</strong> Any set under the bottom of the range means step back down. Only one slot moves per session — so if two light up at once, take the weaker one first and let the other wait a session.</p>
+</div>
+
+<script>
+(function(){
+  var SLOTS=[
+   {k:'A1',u:'reps',min:6,max:10,ph:['Pike push-up (parallettes)','Pike push-up, feet on chair','Pike push-up, feet on sofa','Wall handstand push-up']},
+   {k:'A2',u:'reps',min:8,max:12,ph:['Table row, overhand, straight legs','Table row, feet on chair','Table row + 5-sec lowering','One-arm assisted row']},
+   {k:'B1',u:'reps',min:8,max:12,ph:['Deficit push-up (parallettes)','Deficit push-up, feet on chair','Feet on sofa + 3-sec lowering','Archer push-up']},
+   {k:'B2',u:'reps',min:8,max:12,ph:['Table row, underhand','Underhand row, feet on chair','Underhand row + 3-sec lowering','One-arm assisted underhand row']},
+   {k:'C1',u:'reps',min:8,max:12,ph:['Decline push-up, feet on sofa seat','Decline push-up + 3-sec lowering','Feet on the sofa back','Archer decline push-up']},
+   {k:'C2',u:'reps',min:3,max:5,ph:['Wall walk','Wall walk + 45 degree hold','Wall walk + vertical hold','Wall handstand hold']},
+   {k:'D1',u:'reps each leg',min:8,max:12,ph:['Split squat','Back foot elevated (Bulgarian)','Step-up onto chair','Assisted pistol squat']},
+   {k:'D2',u:'reps',min:8,max:12,ph:['Kneeling hip hinge (heels under sofa)','Hip hinge, arms crossed','Hip hinge, arms overhead','Nordic negative']},
+   {k:'E1',u:'reps each leg',min:12,max:15,ph:['Single-leg calf raise','Plus 3-sec pause at the top','Plus 3-sec lowering','Deficit raise on stairs']},
+   {k:'E2',u:'seconds',min:20,max:40,ph:['Hollow body hold','Hollow rocks','Parallette tuck L-sit','One-leg-out L-sit']}
+  ];
+  var KEY='firstarc-log-v1', canStore=true;
+
+  function load(){
+    try{ var r=localStorage.getItem(KEY); return r?JSON.parse(r):{sessions:[],phase:{}}; }
+    catch(e){ canStore=false; return {sessions:[],phase:{}}; }
+  }
+  function save(d){
+    try{ localStorage.setItem(KEY,JSON.stringify(d)); return true; }
+    catch(e){ canStore=false; return false; }
+  }
+  var data=load();
+  try{ localStorage.setItem(KEY+'-t','1'); localStorage.removeItem(KEY+'-t'); }catch(e){ canStore=false; }
+  if(!canStore){ var w=document.getElementById('storeWarn'); if(w) w.hidden=false; }
+
+  function phaseOf(k){ return data.phase[k]||1; }
+  function nameOf(s){ return s.ph[phaseOf(s.k)-1]; }
+
+  function lastTwo(k){
+    var out=[];
+    for(var i=data.sessions.length-1;i>=0&&out.length<2;i--){
+      var r=data.sessions[i].reps[k];
+      if(r){ var f=r.filter(function(x){return x>0;}); if(f.length) out.push(f); }
+    }
+    return out;
+  }
+  function topped(a,s){ return a.length>=2 && Math.min.apply(null,a)>=s.max; }
+
+  function verdict(s){
+    var v=lastTwo(s.k), ph=phaseOf(s.k);
+    if(!v.length) return {c:'',t:'Nothing logged for this one yet.'};
+    var low=Math.min.apply(null,v[0]);
+    if(low<s.min) return {c:'back',t:'Lowest set was '+low+', under the floor of '+s.min+'. Step back a rung and rebuild.'};
+    if(v.length>=2 && topped(v[0],s) && topped(v[1],s)){
+      if(ph>=4) return {c:'done',t:'Top of Phase 4 on this slot. The ladder is finished here.'};
+      return {c:'up',t:'Earned it. Move up to: '+s.ph[ph]};
+    }
+    if(topped(v[0],s)) return {c:'close',t:'Top of the range hit. Do it once more next session and you move up.'};
+    return {c:'',t:'Keep adding reps. Aim for '+s.max+' on all three sets.'};
+  }
+
+  function drawRows(){
+    var host=document.getElementById('logRows'); if(!host) return;
+    host.innerHTML='';
+    SLOTS.forEach(function(s){
+      var vd=verdict(s), d=document.createElement('div'); d.className='logrow';
+      var boxes='';
+      for(var i=0;i<3;i++){
+        boxes+='<span>Set '+(i+1)+'</span><input type="number" inputmode="numeric" min="0" max="300" data-slot="'+s.k+'" data-set="'+i+'" aria-label="'+s.k+' set '+(i+1)+'">';
+      }
+      d.innerHTML='<h5><span class="slotk">'+s.k+'</span> '+nameOf(s)+' <span class="phbadge">Phase '+phaseOf(s.k)+'</span></h5>'+
+        '<p class="tgt">Target '+s.min+' to '+s.max+' '+s.u+' on every set</p>'+
+        '<div class="sets">'+boxes+'</div>'+
+        '<div class="vd '+vd.c+'">'+vd.t+'</div>';
+      host.appendChild(d);
+    });
+  }
+
+  function drawPhases(){
+    var host=document.getElementById('phaseRows'); if(!host) return;
+    host.innerHTML='';
+    SLOTS.forEach(function(s){
+      var ph=phaseOf(s.k), vd=verdict(s), d=document.createElement('div'); d.className='logrow';
+      var nxt = ph<4 ? '<p class="tgt" style="margin:6px 0 0">Next rung: '+s.ph[ph]+'</p>'
+                     : '<p class="tgt" style="margin:6px 0 0">Final rung of this ladder.</p>';
+      var btns='<div class="btnrow" style="margin-top:10px">';
+      if(ph<4) btns+='<button class="btn'+(vd.c==='up'?'':' sec')+'" data-up="'+s.k+'" type="button">Move up to Phase '+(ph+1)+'</button>';
+      if(ph>1) btns+='<button class="btn sec" data-down="'+s.k+'" type="button">Back to Phase '+(ph-1)+'</button>';
+      btns+='</div>';
+      d.innerHTML='<h5><span class="slotk">'+s.k+'</span> '+nameOf(s)+' <span class="phbadge">Phase '+ph+'</span></h5>'+nxt+btns;
+      host.appendChild(d);
+    });
+  }
+
+  function drawHist(){
+    var host=document.getElementById('histlist'); if(!host) return;
+    if(!data.sessions.length){ host.innerHTML='<p class="tgt">Nothing logged yet.</p>'; return; }
+    host.innerHTML='';
+    data.sessions.slice().reverse().forEach(function(ss){
+      var bits=[];
+      SLOTS.forEach(function(s){
+        var r=ss.reps[s.k];
+        if(r){ var f=r.filter(function(x){return x>0;}); if(f.length) bits.push(s.k+' '+f.join('/')); }
+      });
+      var d=document.createElement('div'); d.className='h';
+      d.innerHTML='<strong>'+ss.date+'</strong>'+(ss.weight?' &middot; '+ss.weight+' kg':'')+
+        '<br><span style="color:var(--ink-3);font-family:var(--mono);font-size:12.5px">'+
+        (bits.join(' &middot; ')||'no reps recorded')+'</span>';
+      host.appendChild(d);
+    });
+  }
+
+  function readForm(){
+    var reps={}, any=false;
+    SLOTS.forEach(function(s){
+      var a=[0,0,0];
+      for(var i=0;i<3;i++){
+        var el=document.querySelector('input[data-slot="'+s.k+'"][data-set="'+i+'"]');
+        var v=(el&&el.value!=='')?parseInt(el.value,10):0;
+        if(!isNaN(v)&&v>0){ a[i]=v; any=true; }
+      }
+      reps[s.k]=a;
+    });
+    return any?reps:null;
+  }
+  function clearForm(){
+    Array.prototype.forEach.call(document.querySelectorAll('#logRows input'),function(i){ i.value=''; });
+  }
+  function msg(t,ok){
+    var m=document.getElementById('saveMsg'); if(!m) return;
+    m.textContent=t; m.style.color=ok?'var(--good)':'var(--stop)';
+    setTimeout(function(){ m.textContent=''; },4000);
+  }
+
+  var dEl=document.getElementById('sDate');
+  if(dEl&&!dEl.value){ dEl.value=new Date().toISOString().slice(0,10); }
+
+  var sb=document.getElementById('saveBtn');
+  if(sb) sb.addEventListener('click',function(){
+    var reps=readForm();
+    if(!reps){ msg('Type some reps in first.',false); return; }
+    var wEl=document.getElementById('sWeight');
+    data.sessions.push({
+      date:(dEl&&dEl.value)||new Date().toISOString().slice(0,10),
+      weight:(wEl&&wEl.value)?parseFloat(wEl.value):null,
+      reps:reps
+    });
+    data.sessions.sort(function(a,b){ return a.date<b.date?-1:1; });
+    var ok=save(data);
+    clearForm(); drawRows(); drawPhases(); drawHist();
+    msg(ok?'Saved. Check the verdicts above.':'Shown, but could not save on this device.',ok);
+  });
+
+  var cf=document.getElementById('clearFormBtn');
+  if(cf) cf.addEventListener('click',clearForm);
+
+  document.addEventListener('click',function(e){
+    var t=e.target; if(!t||!t.getAttribute) return;
+    var up=t.getAttribute('data-up'), dn=t.getAttribute('data-down');
+    if(up){ data.phase[up]=Math.min(4,phaseOf(up)+1); save(data); drawRows(); drawPhases(); }
+    if(dn){ data.phase[dn]=Math.max(1,phaseOf(dn)-1); save(data); drawRows(); drawPhases(); }
+  });
+
+  var ex=document.getElementById('exportBtn');
+  if(ex) ex.addEventListener('click',function(){
+    var b=document.getElementById('exportBox'); if(!b) return;
+    b.hidden=!b.hidden; b.value=JSON.stringify(data,null,1);
+  });
+  var wp=document.getElementById('wipeBtn');
+  if(wp) wp.addEventListener('click',function(){
+    if(!confirm('Delete every logged session and reset all phases? This cannot be undone.')) return;
+    data={sessions:[],phase:{}}; save(data); drawRows(); drawPhases(); drawHist();
+  });
+
+  drawRows(); drawPhases(); drawHist();
+})();
+</script>
+
 <!-- ===================== NUMBERS ===================== -->
-<h2 id="numbers"><span class="n">07</span>Food numbers</h2>
+<h2 id="numbers"><span class="n">08</span>Food numbers</h2>
 <h3>Your targets, and the maths behind them</h3>
 
 <div class="grid">
@@ -589,7 +847,7 @@ footer{margin-top:60px; padding-top:22px; border-top:1px solid var(--line); font
 </div>
 
 <!-- ===================== FOODS ===================== -->
-<h2 id="foods"><span class="n">08</span>The food list</h2>
+<h2 id="foods"><span class="n">09</span>The food list</h2>
 <h3>Ranked by calories per unit of fullness</h3>
 
 <p>This is the ranking that actually matters for you. Not "healthiest" — <em>most calories for the least stomach space</em>, within whole foods. The rule from the research: <strong>low water, low fibre, high fat = calorie dense.</strong> Fat carries 9 calories per gram against 4 for protein and carbs, which is why the top of this list is fatty.</p>
@@ -659,7 +917,7 @@ footer{margin-top:60px; padding-top:22px; border-top:1px solid var(--line); font
 </div>
 
 <!-- ===================== SHAKES ===================== -->
-<h2 id="shakes"><span class="n">09</span>The shakes</h2>
+<h2 id="shakes"><span class="n">10</span>The shakes</h2>
 <h3>Two a day — about 1,200 calories you don't have to chew</h3>
 
 <p>This is the thing that makes the whole plan work. Liquid empties from your stomach much faster than solid food and makes you far less full for the same calories. Every single source in the folder arrived at this independently — it's the one piece of advice they all agree on. Two shakes a day carry roughly 45% of your calories.</p>
@@ -762,7 +1020,7 @@ footer{margin-top:60px; padding-top:22px; border-top:1px solid var(--line); font
 </div>
 
 <!-- ===================== A DAY ===================== -->
-<h2 id="day"><span class="n">10</span>Your day</h2>
+<h2 id="day"><span class="n">11</span>Your day</h2>
 <h3>Six eating occasions, built around your timetable</h3>
 
 <div class="scroll"><table>
@@ -790,8 +1048,104 @@ footer{margin-top:60px; padding-top:22px; border-top:1px solid var(--line); font
   <p><strong>9–10 hours, which means lights out by 9:30 for a 6:30 alarm.</strong> The bulking videos all say 7–8 hours; that's adult advice. You need more, and growth hormone and testosterone — the two things actually driving muscle growth at your age — are released mostly during deep sleep. You will get more out of fixing your bedtime than out of any change to the training or the food. If only one thing on this page gets followed properly, make it this.</p>
 </div>
 
+<!-- ===================== SEVEN DAY ===================== -->
+<h2 id="week"><span class="n">12</span>The seven-day plan</h2>
+<h3>A full week, with the weekend built differently</h3>
+
+<p>Every shake and every meal is rotated so nothing repeats two days running. Dinners are chosen so that <strong>each one leaves leftovers for the next day's wrap</strong> — that's why the order matters and why you shouldn't shuffle days around casually.</p>
+
+<div class="note">
+  <span class="lbl">Saturday and Sunday work differently</span>
+  <ul style="margin-bottom:0">
+    <li><strong>No packed wrap.</strong> You're at home, so lunch is cooked and hot — which means it can be far bigger. This is the single biggest reason the weekend totals are higher, and it's deliberate.</li>
+    <li><strong>Both are rest days</strong> (training is Mon / Wed / Fri), so there's no session to fit around.</li>
+    <li><strong>Sunday is batch-cook day.</strong> Patties for the freezer, chapatis for the week.</li>
+    <li><strong>Wake later if you want, but don't let bedtime drift.</strong> Sliding to 11pm on a Saturday wrecks Monday, and sleep is doing more work than anything else in this plan.</li>
+  </ul>
+</div>
+
+<div class="scroll"><table>
+<thead><tr>
+  <th>Day</th><th>Breakfast shake</th><th>Break</th><th>Lunch</th><th>PM shake</th><th>Dinner</th><th>Bed</th><th class="num">Total</th>
+</tr></thead>
+<tbody>
+<tr>
+  <td><strong>Mon</strong><br><span style="color:var(--accent);font-size:12.5px">train</span></td>
+  <td>Banana peanut butter</td><td>Nuts, apricots, cheese</td>
+  <td>Chicken &amp; avocado wrap</td><td>Berry (small)</td>
+  <td>Spiced chicken and rice</td><td>Milk</td><td class="num">3,185</td>
+</tr>
+<tr>
+  <td><strong>Tue</strong><br><span style="color:var(--ink-3);font-size:12.5px">rest</span></td>
+  <td>Date and oat</td><td>Nuts, apricots, cheese</td>
+  <td>Chicken &amp; cheese wrap</td><td>Banana PB (small)</td>
+  <td>Beef mince, potatoes and peas</td><td>Yoghurt, honey, nuts</td><td class="num">3,255</td>
+</tr>
+<tr>
+  <td><strong>Wed</strong><br><span style="color:var(--accent);font-size:12.5px">train</span></td>
+  <td>Berry yoghurt</td><td>Nuts, raisins, cheese</td>
+  <td>Spiced beef mince wrap</td><td>Date and oat (small)</td>
+  <td>One-pot chicken rice</td><td>Milk</td><td class="num">3,245</td>
+</tr>
+<tr>
+  <td><strong>Thu</strong><br><span style="color:var(--ink-3);font-size:12.5px">rest</span></td>
+  <td>Banana peanut butter</td><td>Nuts, apricots, cheese</td>
+  <td>Chicken &amp; avocado wrap</td><td>Mango (small)</td>
+  <td>Egg curry</td><td>Yoghurt, honey, nuts</td><td class="num">3,261</td>
+</tr>
+<tr>
+  <td><strong>Fri</strong><br><span style="color:var(--accent);font-size:12.5px">train</span><br><span style="color:var(--ink-3);font-size:12px">school ends 2:30</span></td>
+  <td>Mango</td><td>Nuts, raisins, cheese</td>
+  <td>Egg &amp; cheese wrap</td><td>Banana PB (small)</td>
+  <td>Mackerel, spiced potatoes</td><td>Milk</td><td class="num">3,166</td>
+</tr>
+<tr style="background:var(--accent-soft)">
+  <td><strong>Sat</strong><br><span style="color:var(--ink-3);font-size:12.5px">rest · no school</span></td>
+  <td>Date and oat</td><td>Nuts and dried fruit</td>
+  <td><strong>Hot:</strong> tuna rice bowl</td><td>Berry (small)</td>
+  <td>Chicken patties, chapatis, yoghurt</td><td>Yoghurt, honey, nuts</td><td class="num">3,448</td>
+</tr>
+<tr style="background:var(--accent-soft)">
+  <td><strong>Sun</strong><br><span style="color:var(--ink-3);font-size:12.5px">rest · batch cook</span></td>
+  <td>Berry yoghurt</td><td>Nuts and dried fruit</td>
+  <td><strong>Hot:</strong> chickpeas and potatoes</td><td>Date and oat (small)</td>
+  <td>Spiced chicken and rice</td><td>Milk</td><td class="num">3,425</td>
+</tr>
+<tr class="total"><td colspan="7">Weekly average per day</td><td class="num">3,283</td></tr>
+</tbody>
+</table></div>
+
+<div class="note warn">
+  <span class="lbl">Why it's written to 3,283 when your target is 2,800</span>
+  <p>That's about 17% of headroom, and it's on purpose — nobody finishes everything, appetite varies day to day, and it is far better to aim high and land on target than to aim exactly and fall short every single day.</p>
+  <p><strong>But if you genuinely do finish all of it, every day, you'll gain faster than 0.4 kg a week.</strong> That's too fast and the extra goes on as fat. If the weigh-in says that's happening, cut the afternoon shake back by about 200 calories — don't cut meals.</p>
+</div>
+
+<h4>The night-before list</h4>
+<p>Almost everything that goes wrong with this plan goes wrong in the morning, when you're tired and short of time. These five minutes the night before are what stop that.</p>
+
+<div class="scroll"><table>
+<thead><tr><th>Night</th><th>Do this before bed</th></tr></thead>
+<tbody>
+<tr><td><strong>Every night</strong></td><td>Blend tomorrow's breakfast shake, seal it, fridge. Pack the wrap if it's a school night.</td></tr>
+<tr><td><strong>Sun</strong></td><td>Cook double chicken → Monday's dinner is faster and Tuesday's wrap is already done.</td></tr>
+<tr><td><strong>Mon</strong></td><td>Cook double chicken at dinner. Tuesday's wrap filling is the leftovers.</td></tr>
+<tr><td><strong>Tue</strong></td><td>Cook double mince. Wednesday's wrap is sorted.</td></tr>
+<tr><td><strong>Wed</strong></td><td>Cook extra one-pot chicken rice for Thursday's wrap.</td></tr>
+<tr><td><strong>Thu</strong></td><td>Boil or air-fry the eggs for Friday's wrap.</td></tr>
+<tr><td><strong>Sat</strong></td><td>Nothing — the patties from batch cooking cover Sunday.</td></tr>
+</tbody>
+</table></div>
+
+<h4>Sunday batch cook — about 45 minutes</h4>
+<ol>
+<li><strong>Triple batch of patties.</strong> Cook four for tonight, freeze the rest raw with baking paper between them. From frozen they're 18–20 minutes in the air fryer, which makes them the emergency dinner for any evening that gets away from you.</li>
+<li><strong>Eight chapatis.</strong> They keep all week in a sealed bag and cover both the wraps and the dinners.</li>
+<li><strong>Portion the nuts and dried fruit</strong> into five small bags — one per school day. The break snack is 350 calories and it's the one most easily skipped, because it's the one that needs remembering.</li>
+</ol>
+
 <!-- ===================== RECIPES ===================== -->
-<h2 id="recipes"><span class="n">11</span>Recipes</h2>
+<h2 id="recipes"><span class="n">13</span>Recipes</h2>
 <h3>School wraps, home dinners, and how to stop it tasting of nothing</h3>
 
 <div class="note">
@@ -1119,8 +1473,136 @@ footer{margin-top:60px; padding-top:22px; border-top:1px solid var(--line); font
 <li>Brush with olive oil while hot, and stack them under a cloth so the steam keeps them soft.</li>
 </ol>
 
+<!-- ===================== SHOPPING ===================== -->
+<h2 id="shopping"><span class="n">14</span>Shopping list</h2>
+<h3>Everything the seven-day plan needs</h3>
+
+<p>Quantities are for <strong>one week of the plan in section 12</strong>. The last column matters — spices and oil last for weeks, so buying them every shop is a waste of money. Buy the whole list once, then most weeks you only need the rows marked <em>weekly</em>.</p>
+
+<h4>Dairy and eggs</h4>
+<div class="scroll"><table>
+<thead><tr><th>Item</th><th class="num">Amount</th><th>How often</th></tr></thead>
+<tbody>
+<tr><td>Whole milk <span style="color:var(--ink-3)">— not skimmed or semi</span></td><td class="num">5 litres</td><td>Weekly</td></tr>
+<tr><td>Greek yoghurt, full fat <span style="color:var(--ink-3)">— not 0%</span></td><td class="num">1.5 kg</td><td>Weekly</td></tr>
+<tr><td>Cheddar, full fat, block</td><td class="num">500 g</td><td>Weekly</td></tr>
+<tr><td>Eggs, large</td><td class="num">18</td><td>Weekly</td></tr>
+</tbody>
+</table></div>
+
+<h4>Meat and fish</h4>
+<div class="scroll"><table>
+<thead><tr><th>Item</th><th class="num">Amount</th><th>How often</th></tr></thead>
+<tbody>
+<tr><td>Chicken thigh, boneless, skinless <span style="color:var(--ink-3)">— not breast</span></td><td class="num">600 g</td><td>Weekly</td></tr>
+<tr><td>Chicken thigh mince</td><td class="num">450 g</td><td>Weekly</td></tr>
+<tr><td>Beef mince, 15–20% fat <span style="color:var(--ink-3)">— not 5%</span></td><td class="num">300 g</td><td>Weekly</td></tr>
+<tr><td>Mackerel fillets, fresh</td><td class="num">2 fillets</td><td>Weekly</td></tr>
+<tr><td>Mackerel, tinned in olive oil</td><td class="num">2 tins</td><td>Weekly</td></tr>
+<tr><td>Tuna, tinned in olive oil <span style="color:var(--ink-3)">— not brine or spring water</span></td><td class="num">2 tins</td><td>Weekly — this is the cap</td></tr>
+</tbody>
+</table></div>
+
+<h4>Cupboard</h4>
+<div class="scroll"><table>
+<thead><tr><th>Item</th><th class="num">Amount</th><th>How often</th></tr></thead>
+<tbody>
+<tr><td>Rolled oats</td><td class="num">1 kg</td><td>Every 2 weeks</td></tr>
+<tr><td>Basmati rice</td><td class="num">1 kg</td><td>Every 2–3 weeks</td></tr>
+<tr><td>Wholemeal flour <span style="color:var(--ink-3)">— for chapatis</span></td><td class="num">1.5 kg</td><td>Every 3–4 weeks</td></tr>
+<tr><td>Extra virgin olive oil</td><td class="num">1 litre</td><td>Every 3 weeks</td></tr>
+<tr><td>Peanut butter, natural <span style="color:var(--ink-3)">— ingredients: peanuts, salt. Nothing else</span></td><td class="num">1 large jar</td><td>Weekly</td></tr>
+<tr><td>Cashew or almond butter</td><td class="num">1 jar</td><td>Every 2 weeks</td></tr>
+<tr><td>Ground almonds</td><td class="num">200 g</td><td>Every 2 weeks</td></tr>
+<tr><td>Honey</td><td class="num">1 jar</td><td>Every 3 weeks</td></tr>
+<tr><td>Chickpeas, tinned</td><td class="num">2 tins</td><td>Weekly</td></tr>
+<tr><td>Chopped tomatoes, tinned</td><td class="num">2 tins</td><td>Weekly</td></tr>
+<tr><td>Tortilla wraps <span style="color:var(--ink-3)">— only if not making chapatis; check for rapeseed and sunflower oil</span></td><td class="num">1 pack</td><td>Weekly</td></tr>
+</tbody>
+</table></div>
+
+<h4>Nuts and dried fruit</h4>
+<div class="scroll"><table>
+<thead><tr><th>Item</th><th class="num">Amount</th><th>How often</th></tr></thead>
+<tbody>
+<tr><td>Almonds</td><td class="num">500 g</td><td>Every 2 weeks</td></tr>
+<tr><td>Walnuts or cashews</td><td class="num">300 g</td><td>Every 2 weeks</td></tr>
+<tr><td>Medjool dates</td><td class="num">500 g</td><td>Every 2 weeks</td></tr>
+<tr><td>Dried apricots</td><td class="num">500 g</td><td>Every 2 weeks</td></tr>
+<tr><td>Raisins</td><td class="num">500 g</td><td>Every 2–3 weeks</td></tr>
+</tbody>
+</table></div>
+
+<h4>Fresh produce</h4>
+<div class="scroll"><table>
+<thead><tr><th>Item</th><th class="num">Amount</th><th>How often</th></tr></thead>
+<tbody>
+<tr><td>Bananas</td><td class="num">12</td><td>Weekly</td></tr>
+<tr><td>Avocados</td><td class="num">3</td><td>Weekly</td></tr>
+<tr><td>Onions</td><td class="num">1.5 kg</td><td>Weekly</td></tr>
+<tr><td>Tomatoes</td><td class="num">6</td><td>Weekly</td></tr>
+<tr><td>Potatoes</td><td class="num">2 kg</td><td>Weekly</td></tr>
+<tr><td>Garlic</td><td class="num">2 bulbs</td><td>Weekly</td></tr>
+<tr><td>Ginger, fresh</td><td class="num">1 large piece</td><td>Weekly</td></tr>
+<tr><td>Green chillies</td><td class="num">1 pack</td><td>Weekly</td></tr>
+<tr><td>Coriander, fresh</td><td class="num">2 bunches</td><td>Weekly</td></tr>
+<tr><td>Lemons</td><td class="num">4</td><td>Weekly</td></tr>
+</tbody>
+</table></div>
+
+<h4>Frozen</h4>
+<div class="scroll"><table>
+<thead><tr><th>Item</th><th class="num">Amount</th><th>How often</th></tr></thead>
+<tbody>
+<tr><td>Mixed berries</td><td class="num">500 g</td><td>Every 2 weeks</td></tr>
+<tr><td>Mango chunks</td><td class="num">500 g</td><td>Every 2 weeks</td></tr>
+<tr><td>Peas</td><td class="num">1 bag</td><td>Every 3 weeks</td></tr>
+</tbody>
+</table></div>
+
+<h4>Spices — buy once, lasts months</h4>
+<div class="scroll"><table>
+<thead><tr><th>Item</th><th>Used for</th></tr></thead>
+<tbody>
+<tr><td>Turmeric, ground</td><td>Every dish in the plan</td></tr>
+<tr><td>Cumin, ground</td><td>The base</td></tr>
+<tr><td>Coriander, ground</td><td>The base</td></tr>
+<tr><td>Kashmiri chilli powder</td><td>Colour and mild heat</td></tr>
+<tr><td>Chilli powder, hot <span style="color:var(--ink-3)">— or cayenne</span></td><td>The heat dial</td></tr>
+<tr><td>Garam masala</td><td>Finishing only, off the heat</td></tr>
+<tr><td>Cumin seeds, whole</td><td>First into the hot oil</td></tr>
+<tr><td>Salt</td><td>The most important item on this page</td></tr>
+<tr><td>Black peppercorns</td><td>Finishing</td></tr>
+</tbody>
+</table></div>
+
+<h4>Kit — one-off, not food</h4>
+<div class="scroll"><table>
+<thead><tr><th>Item</th><th>Why</th></tr></thead>
+<tbody>
+<tr><td><strong>Blender</strong></td><td>Non-negotiable. Two shakes a day is ~45% of your calories and there is no plan without it.</td></tr>
+<tr><td><strong>Insulated flask or bottle</strong></td><td>So the shake can be sipped over an hour instead of forced down in one go. Genuinely changes whether you finish it.</td></tr>
+<tr><td><strong>Kitchen scales</strong></td><td>For the first two weeks only, to learn what 40 g of oats and 150 g of chicken actually look like. After that you'll eyeball it.</td></tr>
+<tr><td><strong>Bathroom scales</strong></td><td>The weekly weigh-in is the main feedback loop in the whole plan.</td></tr>
+<tr><td><strong>Tape measure</strong></td><td>Height every 8 weeks, waist once a month.</td></tr>
+<tr><td>Foil</td><td>Wraps hold together better in foil than clingfilm.</td></tr>
+<tr><td>Freezer bags and baking paper</td><td>For freezing the patties raw in a stack.</td></tr>
+<tr><td>Five small containers or bags</td><td>For portioning the break snacks on a Sunday.</td></tr>
+</tbody>
+</table></div>
+
+<div class="note stop">
+  <span class="lbl">Four labels worth actually reading</span>
+  <ol style="margin-bottom:0">
+    <li><strong>Peanut butter</strong> — the ingredients should be peanuts and salt. If it lists palm oil or sugar, it's the wrong jar.</li>
+    <li><strong>Tortilla wraps</strong> — most contain rapeseed or sunflower oil. Chapatis avoid the problem entirely.</li>
+    <li><strong>Greek yoghurt</strong> — full fat is about 133 kcal per 100 g, 0% is about 57. Picking up the wrong tub silently removes roughly 300 calories a day from your plan.</li>
+    <li><strong>Beef mince</strong> — buy the fattier one. It's cheaper and it's worth about 100 extra calories a portion.</li>
+  </ol>
+</div>
+
 <!-- ===================== APPETITE ===================== -->
-<h2 id="appetite"><span class="n">12</span>The appetite problem</h2>
+<h2 id="appetite"><span class="n">15</span>The appetite problem</h2>
 <h3>Your actual bottleneck, and what to do about it</h3>
 
 <p>You fill up fast. That's the constraint this entire plan is designed around, and it's harder in your case than in any of the source videos — because their universal answer is pizza, and that answer isn't available here.</p>
@@ -1149,7 +1631,7 @@ footer{margin-top:60px; padding-top:22px; border-top:1px solid var(--line); font
 </div>
 
 <!-- ===================== TRACKING ===================== -->
-<h2 id="track"><span class="n">13</span>Tracking</h2>
+<h2 id="track"><span class="n">16</span>Tracking</h2>
 <h3>Two logs, one weigh-in, and how to read them</h3>
 
 <h4>The weigh-in</h4>
@@ -1201,6 +1683,38 @@ footer{margin-top:60px; padding-top:22px; border-top:1px solid var(--line); font
 </tbody>
 </table></div>
 
+<h4>What the first weeks actually feel like</h4>
+
+<p>A question worth answering early, because it comes up around session two and again around week five: <strong>"I can feel my abs when I tense — is it working?"</strong></p>
+
+<p><strong>Not yet, and that's fine.</strong> In the first 2–6 weeks almost everything you gain is <em>neural</em> — your nervous system learning to recruit muscle fibres you already had. You get genuinely stronger without getting bigger. Muscle tissue does not grow measurably in five days, so if a muscle feels firm when you tense it after two sessions, that is the muscle you already owned, doing what muscles do.</p>
+
+<p>But it does tell you something real: <strong>you can feel it clearly because there is almost nothing on top of it.</strong> That's the advantage of starting lean, and it is not a small one.</p>
+
+<div class="note good">
+  <span class="lbl">You already cleared the hard part of getting abs</span>
+  <p>Most people chasing visible abs have to lose fat first, which is slow and miserable. <strong>You skipped that problem entirely.</strong> At a BMI of 16.8 you are already lean enough — you have been the whole time.</p>
+  <p>Abs become visible when the muscle is thick enough to cast ridges. Lean with no muscle gives you a flat stomach and no definition, which is exactly where you are. <strong>The missing ingredient is not a lower weight. It is more muscle.</strong></p>
+  <p>So gaining to 50&nbsp;kg does not threaten your abs — it is how you get them. Going from roughly 10–12% body fat to 13–15% over this bulk leaves you comfortably lean enough to see them, with far more muscle there to see.</p>
+</div>
+
+<p><strong>And the reframe that matters most:</strong> 50&nbsp;kg is not a gate you pass through to unlock muscle. <em>The muscle is what makes you 50&nbsp;kg.</em> You do not reach a weight and then start growing — the growing <strong>is</strong> the weight gain. Same thing, seen from two directions.</p>
+
+<div class="scroll"><table>
+<thead><tr><th>When</th><th>What's happening</th><th>What you'll notice</th></tr></thead>
+<tbody>
+<tr><td><strong>Weeks 1–6</strong></td><td>Neural adaptation. Better fibre recruitment, better technique.</td><td>Reps climb fast. You look the same. This is normal and not a failure.</td></tr>
+<tr><td><strong>Weeks 6–10</strong></td><td>Real muscle growth becomes measurable.</td><td>Clothes start sitting differently before the mirror shows anything.</td></tr>
+<tr><td><strong>Months 3–4</strong></td><td>Visible change.</td><td>The week-8 and week-16 photos prove it. Day to day you will never see it.</td></tr>
+<tr><td><strong>Months 6+</strong></td><td>Meaningful ab definition, if the eating held up.</td><td>The thing you were actually asking about.</td></tr>
+</tbody>
+</table></div>
+
+<div class="note warn">
+  <span class="lbl">Don't add more ab work</span>
+  <p>The instinct when abs are the goal is to hammer them daily. Resist it. Your core is already loaded hard in <em>every</em> exercise in this plan — wall walks, deficit push-ups, decline push-ups and both table rows all demand a braced trunk — and the hollow hold does the direct work. Abs grow from progressive overload like any other muscle, not from volume. Extra sit-ups would add fatigue and nothing else.</p>
+</div>
+
 <h4>Body fat percentage — how you'd measure it, and why it's the wrong number for you right now</h4>
 
 <p>Straight answer first: here's every way to get the number, what it costs, and how wrong it is.</p>
@@ -1241,7 +1755,7 @@ footer{margin-top:60px; padding-top:22px; border-top:1px solid var(--line); font
 <p>Revisit the question at 50 kg. Once you've got the muscle on, knowing your body fat actually becomes useful, because then there's something to reveal.</p>
 
 <!-- ===================== SOURCES ===================== -->
-<h2 id="sources"><span class="n">14</span>Sources</h2>
+<h2 id="sources"><span class="n">17</span>Sources</h2>
 <h3>What was used, what was overruled, and what was assumed</h3>
 
 <p>Built from 141 video transcripts: 134 from one calisthenics channel (Kevin Zhang) and seven standalone bulking videos from PictureFit, Joe Fazer, Austin Dunham, Jeff Nippard, Tom Beckles, Pierre Dalati and Josh Brett.</p>
@@ -1284,7 +1798,7 @@ footer{margin-top:60px; padding-top:22px; border-top:1px solid var(--line); font
 
 <h4>Assumptions made — correct these if they're wrong</h4>
 <ul>
-<li><strong>Resolved 3 September:</strong> was on school dinners, switching to packed. Lunch rebuilt in section 11 as four wraps rather than rice, so it can be eaten one-handed at school. Flagged there: most supermarket tortillas contain rapeseed or sunflower oil, so a chapati is the cleaner wrap.</li>
+<li><strong>Resolved 3 September:</strong> was on school dinners, switching to packed. Lunch rebuilt in section 13 as four wraps rather than rice, so it can be eaten one-handed at school. Flagged there: most supermarket tortillas contain rapeseed or sunflower oil, so a chapati is the cleaner wrap.</li>
 <li><strong>Bread and chapati are allowed</strong> as minimally-processed staples. If shop-bought bread is out, chapati covers it.</li>
 <li><strong>First weigh-in</strong> is the morning you start week 1.</li>
 <li><strong>No allergies</strong>, and no budget ceiling specified. This plan leans heavily on nuts and dairy — if either becomes a problem, most of the shake section needs rebuilding.</li>

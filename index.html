@@ -182,6 +182,10 @@ details[open] summary{border-bottom:1px solid var(--line)}
 .meta span{font-size:12px; color:var(--ink-3); display:block; margin-bottom:3px}
 .meta input{font-family:var(--mono); font-size:15px; padding:7px 9px;
   border:1px solid var(--line-2); border-radius:7px; background:var(--bg); color:var(--ink)}
+[hidden]{display:none!important}
+.seg{display:inline-flex; gap:0; border:1px solid var(--line-2); border-radius:9px; overflow:hidden}
+.seg .btn{border:0; border-radius:0; padding:9px 18px}
+.seg .btn.sec{background:transparent}
 /* ---------- shopping checkboxes ---------- */
 .chk{width:36px; padding-right:0}
 .chk input{width:19px; height:19px; accent-color:var(--accent); cursor:pointer; margin:3px 0 0}
@@ -1481,66 +1485,173 @@ footer{margin-top:60px; padding-top:22px; border-top:1px solid var(--line); font
 
 <!-- ===================== SHOPPING ===================== -->
 <h2 id="shopping"><span class="n">14</span>Shopping list</h2>
-<h3>Three trips, not one impossible one</h3>
+<h3>A trial week first, then the monthly version if you stick with it</h3>
 
-<p>Organised by <strong>how you'd actually buy it</strong>, not by supermarket aisle. Meat gets bought in bulk once a month and frozen. Milk gets bought twice a week because nobody carries four litres home alongside everything else. Spices get bought once and last months.</p>
+<p>There are two lists. <strong>Trial week</strong> is one normal shop plus a small midweek top-up, sized to run the seven-day plan once without committing to anything. <strong>Monthly</strong> is for once you know you like it: meat bought in bulk and frozen, with a weekly and a midweek shop for the fresh stuff. Switch between them below. It remembers which one you had open last.</p>
 
-<p>Tick things off as you go — <strong>the ticks save on this device</strong>, so the list survives closing the tab and you can work through it in the shop.</p>
+<p>Tick things off as you go. Ticks save on this device, and each list keeps its own ticks, so ticking the trial list doesn't touch the monthly one.</p>
 
-<div class="btnrow" style="margin-top:0">
-  <button class="btn sec" id="shopClear" type="button">Clear all ticks</button>
+<div class="btnrow" style="margin-top:4px">
+  <div class="seg" role="group" aria-label="Choose a shopping list">
+    <button class="btn" type="button" data-shoptab="week" aria-pressed="true">Trial week</button>
+    <button class="btn sec" type="button" data-shoptab="month" aria-pressed="false">Monthly</button>
+  </div>
+  <button class="btn sec" id="shopClear" type="button">Clear this list's ticks</button>
   <span id="shopCount"></span>
 </div>
 
-<h4>Trip 1 · The monthly stock-up</h4>
-<p>Once every four weeks. This is the heavy one, and it's the one that means you don't have to think about meat again for a month.</p>
+<!-- ============ TRIAL WEEK ============ -->
+<div data-shopmode="week">
 
-<p><strong>Meat and fish — portion and freeze the same day you buy it.</strong></p>
+<h4>Trial week · one shop</h4>
+<p>Everything for one run through the seven-day plan. Buy the smallest sensible pack of the cupboard items. Most of them will outlast the week, and if you carry on they're the start of your monthly stock, so none of it is wasted.</p>
+
+<div class="note warn">
+  <span class="lbl">Fresh meat won't last a week in the fridge</span>
+  <p>Raw chicken, mince and fish keep about two days. On the day you shop, <strong>put anything you won't cook within two days straight into the freezer</strong>. For most shops that's the Wednesday and Sunday chicken, and Friday's mackerel. Move each one down to the fridge the night before you need it.</p>
+</div>
+
+<p><strong>Meat and fish</strong></p>
+<div class="scroll"><table>
+<thead><tr><th class="chk"></th><th>Item</th><th class="num">Buy</th><th>What it's for</th></tr></thead>
+<tbody>
+<tr><td class="chk"><input type="checkbox" data-shop="w-chicken"></td><td>Chicken thigh, boneless, skinless <span style="color:var(--ink-3)">(not breast)</span></td><td class="num">750 g</td><td>Mon, Wed and Sun dinners, each cooked with extra for the next day's wrap</td></tr>
+<tr><td class="chk"><input type="checkbox" data-shop="w-chmince"></td><td>Chicken thigh mince</td><td class="num">1 pack (~400 g)</td><td>Saturday's patties. Make the whole pack and freeze the spares raw.</td></tr>
+<tr><td class="chk"><input type="checkbox" data-shop="w-beef"></td><td>Beef mince, 15–20% fat <span style="color:var(--ink-3)">(not 5%)</span></td><td class="num">250 g</td><td>Tuesday dinner, plus Wednesday's wrap</td></tr>
+<tr><td class="chk"><input type="checkbox" data-shop="w-mackerel"></td><td>Mackerel fillets, fresh</td><td class="num">2 fillets</td><td>Friday dinner</td></tr>
+<tr><td class="chk"><input type="checkbox" data-shop="w-tuna"></td><td>Tuna, tinned in olive oil <span style="color:var(--ink-3)">(not brine)</span></td><td class="num">1 tin</td><td>Saturday's rice bowl</td></tr>
+</tbody>
+</table></div>
+
+<p><strong>Dairy and eggs</strong></p>
+<div class="scroll"><table>
+<thead><tr><th class="chk"></th><th>Item</th><th class="num">Buy</th><th>What it's for</th></tr></thead>
+<tbody>
+<tr><td class="chk"><input type="checkbox" data-shop="w-milk"></td><td>Whole milk <span style="color:var(--ink-3)">(not skimmed or semi)</span></td><td class="num">1 × 4-pint</td><td>Lasts to about Wednesday. The second one is on the midweek list.</td></tr>
+<tr><td class="chk"><input type="checkbox" data-shop="w-yoghurt"></td><td>Greek yoghurt, full fat <span style="color:var(--ink-3)">(not 0%)</span></td><td class="num">2 kg</td><td>Every shake, three bedtime snacks, and to finish curries</td></tr>
+<tr><td class="chk"><input type="checkbox" data-shop="w-cheddar"></td><td>Cheddar, full fat, block</td><td class="num">400 g</td><td>Break snacks and the wraps</td></tr>
+<tr><td class="chk"><input type="checkbox" data-shop="w-eggs"></td><td>Eggs, large</td><td class="num">12</td><td>Egg curry, Friday's wrap, and binding the patties</td></tr>
+</tbody>
+</table></div>
+
+<p><strong>Fresh produce</strong></p>
+<div class="scroll"><table>
+<thead><tr><th class="chk"></th><th>Item</th><th class="num">Buy</th><th>Notes</th></tr></thead>
+<tbody>
+<tr><td class="chk"><input type="checkbox" data-shop="w-bananas"></td><td>Bananas</td><td class="num">1 bunch (6–7)</td><td>Four go into shakes. Freeze the rest when they go spotty.</td></tr>
+<tr><td class="chk"><input type="checkbox" data-shop="w-avocado"></td><td>Avocados</td><td class="num">2</td><td>Half each for the Mon and Thu wraps. The spare covers one that ripens badly.</td></tr>
+<tr><td class="chk"><input type="checkbox" data-shop="w-onions"></td><td>Onions</td><td class="num">1.5 kg (~9)</td><td>One per cooked meal</td></tr>
+<tr><td class="chk"><input type="checkbox" data-shop="w-potatoes"></td><td>Potatoes</td><td class="num">1 kg</td><td>Tue, Fri and Sun</td></tr>
+<tr><td class="chk"><input type="checkbox" data-shop="w-tomatoes"></td><td>Tomatoes</td><td class="num">5</td><td></td></tr>
+<tr><td class="chk"><input type="checkbox" data-shop="w-garlic"></td><td>Garlic</td><td class="num">2 bulbs</td><td></td></tr>
+<tr><td class="chk"><input type="checkbox" data-shop="w-ginger"></td><td>Ginger, fresh</td><td class="num">1 piece</td><td>Keep it in the freezer and grate it from frozen</td></tr>
+<tr><td class="chk"><input type="checkbox" data-shop="w-chillies"></td><td>Green chillies</td><td class="num">1 pack</td><td></td></tr>
+<tr><td class="chk"><input type="checkbox" data-shop="w-coriander"></td><td>Coriander, fresh</td><td class="num">1 bunch</td><td>Wilts in a few days, so there's another on the midweek list</td></tr>
+<tr><td class="chk"><input type="checkbox" data-shop="w-lemons"></td><td>Lemons</td><td class="num">5</td><td>A squeeze on nearly every dinner</td></tr>
+</tbody>
+</table></div>
+
+<p><strong>Cupboard</strong>: most of these last longer than a week</p>
+<div class="scroll"><table>
+<thead><tr><th class="chk"></th><th>Item</th><th class="num">Buy</th><th>Used this week</th></tr></thead>
+<tbody>
+<tr><td class="chk"><input type="checkbox" data-shop="w-oats"></td><td>Rolled oats</td><td class="num">1 kg bag</td><td>~340 g</td></tr>
+<tr><td class="chk"><input type="checkbox" data-shop="w-rice"></td><td>Basmati rice</td><td class="num">1 kg bag</td><td>~400 g</td></tr>
+<tr><td class="chk"><input type="checkbox" data-shop="w-flour"></td><td>Wholemeal flour <span style="color:var(--ink-3)">(for chapatis)</span></td><td class="num">1.5 kg bag</td><td>~320 g for 8 chapatis. Skip it if you're buying tortillas.</td></tr>
+<tr><td class="chk"><input type="checkbox" data-shop="w-oil"></td><td>Extra virgin olive oil</td><td class="num">1 litre</td><td>~325 ml. A 500 ml bottle is only just enough.</td></tr>
+<tr><td class="chk"><input type="checkbox" data-shop="w-pb"></td><td>Peanut butter, natural <span style="color:var(--ink-3)">(peanuts and salt only)</span></td><td class="num">1 jar</td><td>~210 g</td></tr>
+<tr><td class="chk"><input type="checkbox" data-shop="w-nutbutter"></td><td>Cashew or almond butter</td><td class="num">1 small jar</td><td>~60 g</td></tr>
+<tr><td class="chk"><input type="checkbox" data-shop="w-galmond"></td><td>Ground almonds</td><td class="num">1 small bag</td><td>~80 g</td></tr>
+<tr><td class="chk"><input type="checkbox" data-shop="w-honey"></td><td>Honey</td><td class="num">1 jar</td><td>~130 g</td></tr>
+<tr><td class="chk"><input type="checkbox" data-shop="w-chickpeas"></td><td>Chickpeas, tinned</td><td class="num">1 tin</td><td>Sunday lunch</td></tr>
+<tr><td class="chk"><input type="checkbox" data-shop="w-wraps"></td><td>Tortilla wraps <span style="color:var(--ink-3)">(only if you're not making chapatis)</span></td><td class="num">1 pack</td><td>5 school lunches. Check the label for rapeseed and sunflower oil.</td></tr>
+</tbody>
+</table></div>
+
+<p><strong>Nuts, dried fruit and frozen</strong></p>
+<div class="scroll"><table>
+<thead><tr><th class="chk"></th><th>Item</th><th class="num">Buy</th><th>Used this week</th></tr></thead>
+<tbody>
+<tr><td class="chk"><input type="checkbox" data-shop="w-almonds"></td><td>Almonds</td><td class="num">200 g</td><td>Break snacks and bedtime</td></tr>
+<tr><td class="chk"><input type="checkbox" data-shop="w-walnuts"></td><td>Walnuts or cashews</td><td class="num">1 small bag</td><td></td></tr>
+<tr><td class="chk"><input type="checkbox" data-shop="w-dates"></td><td>Medjool dates</td><td class="num">400 g</td><td>About 16 dates, all in shakes</td></tr>
+<tr><td class="chk"><input type="checkbox" data-shop="w-apricots"></td><td>Dried apricots</td><td class="num">200 g</td><td></td></tr>
+<tr><td class="chk"><input type="checkbox" data-shop="w-raisins"></td><td>Raisins</td><td class="num">1 small bag</td><td>~150 g</td></tr>
+<tr><td class="chk"><input type="checkbox" data-shop="w-berries"></td><td>Mixed berries, frozen</td><td class="num">500 g bag</td><td>~400 g</td></tr>
+<tr><td class="chk"><input type="checkbox" data-shop="w-mango"></td><td>Mango chunks, frozen</td><td class="num">500 g bag</td><td>~300 g</td></tr>
+<tr><td class="chk"><input type="checkbox" data-shop="w-peas"></td><td>Peas, frozen</td><td class="num">1 small bag</td><td>Only ~80 g. A bag lasts months.</td></tr>
+</tbody>
+</table></div>
+
+<h4>Trial week · midweek top-up</h4>
+<p>Wednesday or Thursday. Two things, five minutes.</p>
+<div class="scroll"><table>
+<thead><tr><th class="chk"></th><th>Item</th><th class="num">Buy</th><th>Notes</th></tr></thead>
+<tbody>
+<tr><td class="chk"><input type="checkbox" data-shop="w-milk2"></td><td>Whole milk</td><td class="num">1 × 4-pint</td><td>The plan uses about 3.8 litres a week, so two 4-pints cover it with a bit spare</td></tr>
+<tr><td class="chk"><input type="checkbox" data-shop="w-coriander2"></td><td>Coriander, fresh</td><td class="num">1 bunch</td><td></td></tr>
+</tbody>
+</table></div>
+
+<div class="note good">
+  <span class="lbl">After the trial week</span>
+  <p>If you liked it, switch to <strong>Monthly</strong>. The oil, flour, oats, rice, honey and peas you've got left carry straight over, so your first monthly shop will be smaller than the list suggests. Look in the cupboard before you go.</p>
+</div>
+
+</div>
+
+<!-- ============ MONTHLY ============ -->
+<div data-shopmode="month" hidden>
+
+<h4>Trip 1 · The monthly stock-up</h4>
+<p>Once every four weeks. This is the heavy one, and it means you don't have to think about meat again for a month.</p>
+
+<p><strong>Meat and fish: portion and freeze them the same day you buy them.</strong></p>
 <div class="scroll"><table>
 <thead><tr><th class="chk"></th><th>Item</th><th class="num">Buy</th><th>Then do this</th></tr></thead>
 <tbody>
-<tr><td class="chk"><input type="checkbox" data-shop="chicken-thigh"></td><td>Chicken thigh, boneless, skinless <span style="color:var(--ink-3)">— not breast</span></td><td class="num">2.5 kg</td><td>Split into 4 bags of ~600 g, one per week</td></tr>
-<tr><td class="chk"><input type="checkbox" data-shop="chicken-mince"></td><td>Chicken thigh mince</td><td class="num">2 kg</td><td>4 bags of 500 g — or make the patties now and freeze them raw</td></tr>
-<tr><td class="chk"><input type="checkbox" data-shop="beef-mince"></td><td>Beef mince, 15–20% fat <span style="color:var(--ink-3)">— not 5%</span></td><td class="num">1.2 kg</td><td>4 bags of 300 g</td></tr>
+<tr><td class="chk"><input type="checkbox" data-shop="chicken-thigh"></td><td>Chicken thigh, boneless, skinless <span style="color:var(--ink-3)">(not breast)</span></td><td class="num">3 kg</td><td>4 bags of ~750 g, one per week</td></tr>
+<tr><td class="chk"><input type="checkbox" data-shop="chicken-mince"></td><td>Chicken thigh mince</td><td class="num">1 kg</td><td>Make the patties now and freeze them raw. That covers every Saturday plus a spare batch for emergencies.</td></tr>
+<tr><td class="chk"><input type="checkbox" data-shop="beef-mince"></td><td>Beef mince, 15–20% fat <span style="color:var(--ink-3)">(not 5%)</span></td><td class="num">1 kg</td><td>4 bags of 250 g</td></tr>
 <tr><td class="chk"><input type="checkbox" data-shop="mackerel-fresh"></td><td>Mackerel fillets, fresh</td><td class="num">8 fillets</td><td>Freeze in pairs</td></tr>
-<tr><td class="chk"><input type="checkbox" data-shop="mackerel-tin"></td><td>Mackerel, tinned in olive oil</td><td class="num">8 tins</td><td>Cupboard</td></tr>
-<tr><td class="chk"><input type="checkbox" data-shop="tuna-tin"></td><td>Tuna, tinned in olive oil <span style="color:var(--ink-3)">— not brine</span></td><td class="num">8 tins</td><td>Cupboard. That's 2 a week — the mercury cap.</td></tr>
+<tr><td class="chk"><input type="checkbox" data-shop="tuna-tin"></td><td>Tuna, tinned in olive oil <span style="color:var(--ink-3)">(not brine)</span></td><td class="num">4 tins</td><td>The plan uses 1 a week. The cap is 2–3.</td></tr>
+<tr><td class="chk"><input type="checkbox" data-shop="mackerel-tin"></td><td>Mackerel, tinned in olive oil <span style="color:var(--ink-3)">(optional)</span></td><td class="num">4 tins</td><td>Only if you want wrap 4. It isn't in the seven-day plan.</td></tr>
 </tbody>
 </table></div>
 
 <div class="note warn">
   <span class="lbl">Freeze it properly or you've wasted the trip</span>
   <ul style="margin-bottom:0">
-    <li><strong>Portion before freezing, never after.</strong> A frozen 2.5 kg block of chicken is useless — you'd have to defrost all of it to cook 150 g.</li>
+    <li><strong>Portion before freezing, never after.</strong> A frozen 3 kg block of chicken is useless, because you'd have to defrost all of it to cook 150 g.</li>
     <li><strong>Flatten each bag before it freezes.</strong> A flat bag defrosts in a couple of hours; a lump takes all day.</li>
     <li><strong>Write the date on every bag.</strong> Chicken and beef keep about 4 months, oily fish about 3.</li>
-    <li><strong>Defrost in the fridge overnight</strong>, not on the counter. Move tomorrow's bag down when you go to bed — it becomes a habit fast.</li>
-    <li><strong>Don't refreeze anything you've defrosted raw.</strong> Cooked leftovers can be frozen, raw thawed meat can't.</li>
+    <li><strong>Defrost in the fridge overnight</strong>, not on the counter. Move tomorrow's bag down when you go to bed and it soon becomes a habit.</li>
+    <li><strong>Don't refreeze raw meat once it's defrosted.</strong> Cooked leftovers can go back in the freezer; raw thawed meat can't.</li>
   </ul>
 </div>
 
-<p><strong>Cupboard and freezer — monthly.</strong></p>
+<p><strong>Cupboard and freezer, monthly</strong></p>
 <div class="scroll"><table>
 <thead><tr><th class="chk"></th><th>Item</th><th class="num">Buy</th><th>Notes</th></tr></thead>
 <tbody>
-<tr><td class="chk"><input type="checkbox" data-shop="oats"></td><td>Rolled oats</td><td class="num">2 kg</td><td>~420 g a week goes into shakes</td></tr>
-<tr><td class="chk"><input type="checkbox" data-shop="rice"></td><td>Basmati rice</td><td class="num">2 kg</td><td></td></tr>
-<tr><td class="chk"><input type="checkbox" data-shop="flour"></td><td>Wholemeal flour</td><td class="num">3 kg</td><td>Chapatis, ~8 a week</td></tr>
-<tr><td class="chk"><input type="checkbox" data-shop="oil"></td><td>Extra virgin olive oil</td><td class="num">2 litres</td><td>You get through ~300 ml a week. Don't ration it.</td></tr>
-<tr><td class="chk"><input type="checkbox" data-shop="pb"></td><td>Peanut butter, natural</td><td class="num">3 large jars</td><td>Ingredients: peanuts, salt. Nothing else.</td></tr>
-<tr><td class="chk"><input type="checkbox" data-shop="nutbutter"></td><td>Cashew or almond butter</td><td class="num">2 jars</td><td></td></tr>
-<tr><td class="chk"><input type="checkbox" data-shop="groundalmond"></td><td>Ground almonds</td><td class="num">500 g</td><td></td></tr>
-<tr><td class="chk"><input type="checkbox" data-shop="honey"></td><td>Honey</td><td class="num">1 large jar</td><td></td></tr>
-<tr><td class="chk"><input type="checkbox" data-shop="chickpeas"></td><td>Chickpeas, tinned</td><td class="num">8 tins</td><td></td></tr>
-<tr><td class="chk"><input type="checkbox" data-shop="tomtin"></td><td>Chopped tomatoes, tinned</td><td class="num">8 tins</td><td></td></tr>
-<tr><td class="chk"><input type="checkbox" data-shop="almonds"></td><td>Almonds</td><td class="num">1 kg</td><td>Break snacks, 5 days a week</td></tr>
-<tr><td class="chk"><input type="checkbox" data-shop="walnuts"></td><td>Walnuts or cashews</td><td class="num">750 g</td><td></td></tr>
-<tr><td class="chk"><input type="checkbox" data-shop="dates"></td><td>Medjool dates</td><td class="num">1 kg</td><td></td></tr>
-<tr><td class="chk"><input type="checkbox" data-shop="apricots"></td><td>Dried apricots</td><td class="num">1 kg</td><td></td></tr>
-<tr><td class="chk"><input type="checkbox" data-shop="raisins"></td><td>Raisins</td><td class="num">750 g</td><td></td></tr>
-<tr><td class="chk"><input type="checkbox" data-shop="berries"></td><td>Mixed berries, frozen</td><td class="num">1 kg</td><td></td></tr>
-<tr><td class="chk"><input type="checkbox" data-shop="mango"></td><td>Mango chunks, frozen</td><td class="num">1 kg</td><td></td></tr>
-<tr><td class="chk"><input type="checkbox" data-shop="peas"></td><td>Peas, frozen</td><td class="num">1 kg</td><td></td></tr>
+<tr><td class="chk"><input type="checkbox" data-shop="oats"></td><td>Rolled oats</td><td class="num">1.5 kg</td><td>~340 g a week</td></tr>
+<tr><td class="chk"><input type="checkbox" data-shop="rice"></td><td>Basmati rice</td><td class="num">2 kg</td><td>~400 g a week</td></tr>
+<tr><td class="chk"><input type="checkbox" data-shop="flour"></td><td>Wholemeal flour</td><td class="num">1.5 kg</td><td>~8 chapatis a week</td></tr>
+<tr><td class="chk"><input type="checkbox" data-shop="oil"></td><td>Extra virgin olive oil</td><td class="num">2 litres</td><td>~325 ml a week. Don't ration it.</td></tr>
+<tr><td class="chk"><input type="checkbox" data-shop="pb"></td><td>Peanut butter, natural <span style="color:var(--ink-3)">(peanuts and salt only)</span></td><td class="num">3 large jars</td><td>~210 g a week</td></tr>
+<tr><td class="chk"><input type="checkbox" data-shop="nutbutter"></td><td>Cashew or almond butter</td><td class="num">1 large jar</td><td>~60 g a week</td></tr>
+<tr><td class="chk"><input type="checkbox" data-shop="groundalmond"></td><td>Ground almonds</td><td class="num">400 g</td><td>~80 g a week</td></tr>
+<tr><td class="chk"><input type="checkbox" data-shop="honey"></td><td>Honey</td><td class="num">1 large jar</td><td>~130 g a week</td></tr>
+<tr><td class="chk"><input type="checkbox" data-shop="chickpeas"></td><td>Chickpeas, tinned</td><td class="num">4 tins</td><td>One a week</td></tr>
+<tr><td class="chk"><input type="checkbox" data-shop="tomtin"></td><td>Chopped tomatoes, tinned <span style="color:var(--ink-3)">(optional)</span></td><td class="num">4 tins</td><td>Only as a stand-in for fresh tomatoes</td></tr>
+<tr><td class="chk"><input type="checkbox" data-shop="almonds"></td><td>Almonds</td><td class="num">750 g</td><td>Break snacks and bedtime</td></tr>
+<tr><td class="chk"><input type="checkbox" data-shop="walnuts"></td><td>Walnuts or cashews</td><td class="num">400 g</td><td></td></tr>
+<tr><td class="chk"><input type="checkbox" data-shop="dates"></td><td>Medjool dates</td><td class="num">1.5 kg</td><td>~16 a week</td></tr>
+<tr><td class="chk"><input type="checkbox" data-shop="apricots"></td><td>Dried apricots</td><td class="num">750 g</td><td></td></tr>
+<tr><td class="chk"><input type="checkbox" data-shop="raisins"></td><td>Raisins</td><td class="num">500 g</td><td></td></tr>
+<tr><td class="chk"><input type="checkbox" data-shop="berries"></td><td>Mixed berries, frozen</td><td class="num">2 kg</td><td>~400 g a week</td></tr>
+<tr><td class="chk"><input type="checkbox" data-shop="mango"></td><td>Mango chunks, frozen</td><td class="num">1.5 kg</td><td>~300 g a week</td></tr>
+<tr><td class="chk"><input type="checkbox" data-shop="peas"></td><td>Peas, frozen</td><td class="num">1 bag</td><td>Lasts months</td></tr>
 </tbody>
 </table></div>
 
@@ -1549,37 +1660,40 @@ footer{margin-top:60px; padding-top:22px; border-top:1px solid var(--line); font
 <div class="scroll"><table>
 <thead><tr><th class="chk"></th><th>Item</th><th class="num">Buy</th><th>Notes</th></tr></thead>
 <tbody>
-<tr><td class="chk"><input type="checkbox" data-shop="milk-a"></td><td>Whole milk <span style="color:var(--ink-3)">— not skimmed or semi</span></td><td class="num">1 × 4-pint</td><td>Lasts to about Wednesday</td></tr>
-<tr><td class="chk"><input type="checkbox" data-shop="yoghurt"></td><td>Greek yoghurt, full fat <span style="color:var(--ink-3)">— not 0%</span></td><td class="num">1.5 kg</td><td>Two big tubs</td></tr>
-<tr><td class="chk"><input type="checkbox" data-shop="cheddar"></td><td>Cheddar, full fat, block</td><td class="num">500 g</td><td>Block, not pre-grated — cheaper and melts better</td></tr>
-<tr><td class="chk"><input type="checkbox" data-shop="eggs"></td><td>Eggs, large</td><td class="num">18</td><td></td></tr>
-<tr><td class="chk"><input type="checkbox" data-shop="onions"></td><td>Onions</td><td class="num">1.5 kg</td><td>One per dinner</td></tr>
-<tr><td class="chk"><input type="checkbox" data-shop="potatoes"></td><td>Potatoes</td><td class="num">2 kg</td><td></td></tr>
-<tr><td class="chk"><input type="checkbox" data-shop="bananas"></td><td>Bananas</td><td class="num">12</td><td>Freeze any that go spotty — better in shakes that way</td></tr>
-<tr><td class="chk"><input type="checkbox" data-shop="avocado"></td><td>Avocados</td><td class="num">3</td><td>Buy them hard, they ripen on the counter</td></tr>
-<tr><td class="chk"><input type="checkbox" data-shop="tomatoes"></td><td>Tomatoes</td><td class="num">6</td><td></td></tr>
+<tr><td class="chk"><input type="checkbox" data-shop="milk-a"></td><td>Whole milk <span style="color:var(--ink-3)">(not skimmed or semi)</span></td><td class="num">1 × 4-pint</td><td>Lasts to about Wednesday</td></tr>
+<tr><td class="chk"><input type="checkbox" data-shop="yoghurt"></td><td>Greek yoghurt, full fat <span style="color:var(--ink-3)">(not 0%)</span></td><td class="num">2 kg</td><td>Two big tubs</td></tr>
+<tr><td class="chk"><input type="checkbox" data-shop="cheddar"></td><td>Cheddar, full fat, block</td><td class="num">400 g</td><td>A block, not pre-grated: cheaper, and it melts better</td></tr>
+<tr><td class="chk"><input type="checkbox" data-shop="eggs"></td><td>Eggs, large</td><td class="num">12</td><td></td></tr>
+<tr><td class="chk"><input type="checkbox" data-shop="onions"></td><td>Onions</td><td class="num">1.5 kg</td><td>One per cooked meal</td></tr>
+<tr><td class="chk"><input type="checkbox" data-shop="potatoes"></td><td>Potatoes</td><td class="num">1 kg</td><td></td></tr>
+<tr><td class="chk"><input type="checkbox" data-shop="bananas"></td><td>Bananas</td><td class="num">1 bunch (6–7)</td><td>Freeze any that go spotty. They're better in shakes that way.</td></tr>
+<tr><td class="chk"><input type="checkbox" data-shop="avocado"></td><td>Avocados</td><td class="num">2</td><td>Buy them hard and let them ripen on the counter</td></tr>
+<tr><td class="chk"><input type="checkbox" data-shop="tomatoes"></td><td>Tomatoes</td><td class="num">5</td><td></td></tr>
 <tr><td class="chk"><input type="checkbox" data-shop="garlic"></td><td>Garlic</td><td class="num">2 bulbs</td><td></td></tr>
-<tr><td class="chk"><input type="checkbox" data-shop="ginger"></td><td>Ginger, fresh</td><td class="num">1 large piece</td><td>Keeps for weeks in the freezer, grates from frozen</td></tr>
-<tr><td class="chk"><input type="checkbox" data-shop="chillies"></td><td>Green chillies</td><td class="num">1 pack</td><td>Also freeze fine</td></tr>
-<tr><td class="chk"><input type="checkbox" data-shop="coriander"></td><td>Coriander, fresh</td><td class="num">1 bunch</td><td>Wilts in days — this is the midweek top-up item</td></tr>
-<tr><td class="chk"><input type="checkbox" data-shop="lemons"></td><td>Lemons</td><td class="num">4</td><td></td></tr>
-<tr><td class="chk"><input type="checkbox" data-shop="wraps"></td><td>Tortilla wraps <span style="color:var(--ink-3)">— only if not making chapatis</span></td><td class="num">1 pack</td><td>Check for rapeseed and sunflower oil</td></tr>
+<tr><td class="chk"><input type="checkbox" data-shop="ginger"></td><td>Ginger, fresh</td><td class="num">1 piece</td><td>Keeps for weeks in the freezer and grates from frozen</td></tr>
+<tr><td class="chk"><input type="checkbox" data-shop="chillies"></td><td>Green chillies</td><td class="num">1 pack</td><td>Also freeze well</td></tr>
+<tr><td class="chk"><input type="checkbox" data-shop="coriander"></td><td>Coriander, fresh</td><td class="num">1 bunch</td><td>Wilts in days, so it's on the midweek list too</td></tr>
+<tr><td class="chk"><input type="checkbox" data-shop="lemons"></td><td>Lemons</td><td class="num">5</td><td></td></tr>
+<tr><td class="chk"><input type="checkbox" data-shop="wraps"></td><td>Tortilla wraps <span style="color:var(--ink-3)">(only if you're not making chapatis)</span></td><td class="num">1 pack</td><td>Check the label for rapeseed and sunflower oil</td></tr>
 </tbody>
 </table></div>
 
 <h4>Trip 3 · The midweek top-up</h4>
-<p>Wednesday or Thursday, five minutes, three things. This exists purely so you're not lugging four litres of milk home on Saturday.</p>
+<p>Wednesday or Thursday, five minutes, three things. It's there so you never have to carry four litres of milk home on the weekend.</p>
 <div class="scroll"><table>
 <thead><tr><th class="chk"></th><th>Item</th><th class="num">Buy</th><th>Notes</th></tr></thead>
 <tbody>
-<tr><td class="chk"><input type="checkbox" data-shop="milk-b"></td><td>Whole milk</td><td class="num">1 × 4-pint</td><td>Takes you to the weekend. Two 4-pints a week ≈ 4.5 litres, which is what the shakes and the bedtime glass actually need.</td></tr>
-<tr><td class="chk"><input type="checkbox" data-shop="bananas-b"></td><td>Bananas</td><td class="num">6 if you're out</td><td></td></tr>
-<tr><td class="chk"><input type="checkbox" data-shop="coriander-b"></td><td>Coriander, fresh</td><td class="num">1 bunch</td><td>The first week's bunch will be gone</td></tr>
+<tr><td class="chk"><input type="checkbox" data-shop="milk-b"></td><td>Whole milk</td><td class="num">1 × 4-pint</td><td>Takes you to the weekend. The plan uses about 3.8 litres a week, so two 4-pints cover it with a bit spare.</td></tr>
+<tr><td class="chk"><input type="checkbox" data-shop="bananas-b"></td><td>Bananas</td><td class="num">A few, if you're out</td><td></td></tr>
+<tr><td class="chk"><input type="checkbox" data-shop="coriander-b"></td><td>Coriander, fresh</td><td class="num">1 bunch</td><td>The first bunch will have wilted</td></tr>
 </tbody>
 </table></div>
 
+</div>
+
+<!-- ============ SHARED: BUY ONCE ============ -->
 <h4>Buy once · Spices</h4>
-<p>All of these last months. You're buying them a single time, then never thinking about it again.</p>
+<p>You need these for the trial week as well. They last months, so you buy them once. <strong>Check the kitchen before you go</strong>, because a lot of them may already be there. These ticks stay put when you clear a list.</p>
 <div class="scroll"><table>
 <thead><tr><th class="chk"></th><th>Item</th><th>What it's for</th></tr></thead>
 <tbody>
@@ -1587,7 +1701,7 @@ footer{margin-top:60px; padding-top:22px; border-top:1px solid var(--line); font
 <tr><td class="chk"><input type="checkbox" data-shop="cumin-g"></td><td>Cumin, ground</td><td>The base</td></tr>
 <tr><td class="chk"><input type="checkbox" data-shop="cor-g"></td><td>Coriander, ground</td><td>The base</td></tr>
 <tr><td class="chk"><input type="checkbox" data-shop="kashmiri"></td><td>Kashmiri chilli powder</td><td>Deep colour, mild heat</td></tr>
-<tr><td class="chk"><input type="checkbox" data-shop="chilli-hot"></td><td>Chilli powder, hot <span style="color:var(--ink-3)">— or cayenne</span></td><td>The heat dial</td></tr>
+<tr><td class="chk"><input type="checkbox" data-shop="chilli-hot"></td><td>Chilli powder, hot <span style="color:var(--ink-3)">(or cayenne)</span></td><td>The heat dial</td></tr>
 <tr><td class="chk"><input type="checkbox" data-shop="garam"></td><td>Garam masala</td><td>Finishing only, off the heat</td></tr>
 <tr><td class="chk"><input type="checkbox" data-shop="cumin-seed"></td><td>Cumin seeds, whole</td><td>First thing into the hot oil</td></tr>
 <tr><td class="chk"><input type="checkbox" data-shop="salt"></td><td>Salt</td><td>The most important item on this page</td></tr>
@@ -1599,61 +1713,84 @@ footer{margin-top:60px; padding-top:22px; border-top:1px solid var(--line); font
 <div class="scroll"><table>
 <thead><tr><th class="chk"></th><th>Item</th><th>Why</th></tr></thead>
 <tbody>
-<tr><td class="chk"><input type="checkbox" data-shop="blender"></td><td><strong>Blender</strong></td><td>Non-negotiable. Two shakes a day is ~45% of your calories and there is no plan without it.</td></tr>
-<tr><td class="chk"><input type="checkbox" data-shop="flask"></td><td><strong>Insulated flask or bottle</strong></td><td>So a shake can be sipped over an hour instead of forced down. Changes whether you finish it.</td></tr>
+<tr><td class="chk"><input type="checkbox" data-shop="blender"></td><td><strong>Blender</strong></td><td>You can't do without it. Two shakes a day is about 45% of your calories.</td></tr>
+<tr><td class="chk"><input type="checkbox" data-shop="flask"></td><td><strong>Insulated flask or bottle</strong></td><td>Lets you sip a shake over an hour instead of forcing it down. That makes a real difference to whether you finish it.</td></tr>
 <tr><td class="chk"><input type="checkbox" data-shop="kscales"></td><td>Kitchen scales</td><td>First two weeks only, to learn what 40 g of oats looks like. After that you'll eyeball it.</td></tr>
-<tr><td class="chk"><input type="checkbox" data-shop="bscales"></td><td><strong>Bathroom scales</strong></td><td>The weekly weigh-in is the main feedback loop in the plan.</td></tr>
+<tr><td class="chk"><input type="checkbox" data-shop="bscales"></td><td><strong>Bathroom scales</strong></td><td>The weekly weigh-in is how you tell whether the plan is working.</td></tr>
 <tr><td class="chk"><input type="checkbox" data-shop="tape"></td><td>Tape measure</td><td>Height every 8 weeks, waist once a month</td></tr>
-<tr><td class="chk"><input type="checkbox" data-shop="foil"></td><td>Foil</td><td>Wraps hold together better in foil than clingfilm</td></tr>
-<tr><td class="chk"><input type="checkbox" data-shop="fbags"></td><td>Freezer bags and baking paper</td><td>For portioning the monthly meat and stacking raw patties</td></tr>
-<tr><td class="chk"><input type="checkbox" data-shop="tubs"></td><td>Five small containers or bags</td><td>Portioning the break snacks on a Sunday</td></tr>
+<tr><td class="chk"><input type="checkbox" data-shop="foil"></td><td>Foil</td><td>Wraps hold together better in foil than in clingfilm</td></tr>
+<tr><td class="chk"><input type="checkbox" data-shop="fbags"></td><td>Freezer bags and baking paper</td><td>For portioning meat and stacking raw patties</td></tr>
+<tr><td class="chk"><input type="checkbox" data-shop="tubs"></td><td>Five small containers or bags</td><td>For portioning the break snacks on a Sunday</td></tr>
 </tbody>
 </table></div>
 
 <div class="note stop">
   <span class="lbl">Four labels worth actually reading</span>
   <ol style="margin-bottom:0">
-    <li><strong>Peanut butter</strong> — the ingredients should be peanuts and salt. If it lists palm oil or sugar, it's the wrong jar.</li>
-    <li><strong>Tortilla wraps</strong> — most contain rapeseed or sunflower oil. Chapatis avoid the problem entirely.</li>
-    <li><strong>Greek yoghurt</strong> — full fat is about 133 kcal per 100 g, 0% is about 57. The wrong tub silently removes roughly 300 calories a day.</li>
-    <li><strong>Beef mince</strong> — buy the fattier one. It's cheaper, and it's worth about 100 extra calories a portion.</li>
+    <li><strong>Peanut butter</strong>: the ingredients should be peanuts and salt. If it lists palm oil or sugar, it's the wrong jar.</li>
+    <li><strong>Tortilla wraps</strong>: most contain rapeseed or sunflower oil. Chapatis avoid the problem entirely.</li>
+    <li><strong>Greek yoghurt</strong>: full fat is about 133 kcal per 100 g, 0% is about 57. With 2 kg a week going through the plan, the wrong tub quietly takes about 300 calories a day out of it.</li>
+    <li><strong>Beef mince</strong>: buy the fattier one. It's cheaper, and it adds about 100 calories a portion.</li>
   </ol>
 </div>
 
 <script>
 (function(){
-  var KEY='firstarc-shop-v1', boxes=document.querySelectorAll('input[data-shop]');
+  var KEY='firstarc-shop-v1', MKEY='firstarc-shopmode';
+  var boxes=document.querySelectorAll('input[data-shop]');
+  var panels=document.querySelectorAll('[data-shopmode]');
+  var tabs=document.querySelectorAll('[data-shoptab]');
   if(!boxes.length) return;
-  var state={};
+  var state={}, mode='week';
   try{ var r=localStorage.getItem(KEY); if(r) state=JSON.parse(r)||{}; }catch(e){}
+  try{ var m=localStorage.getItem(MKEY); if(m==='week'||m==='month') mode=m; }catch(e){}
 
   function persist(){ try{ localStorage.setItem(KEY,JSON.stringify(state)); }catch(e){} }
-  function paint(b){
-    var row=b.closest('tr');
-    if(row) row.className = b.checked ? 'done' : '';
-  }
+  function paint(b){ var row=b.closest('tr'); if(row) row.className=b.checked?'done':''; }
+  function panelOf(b){ var p=b.closest('[data-shopmode]'); return p?p.getAttribute('data-shopmode'):null; }
+  function visible(b){ var p=panelOf(b); return p===null||p===mode; }
+
   function count(){
     var el=document.getElementById('shopCount'); if(!el) return;
-    var n=0; Array.prototype.forEach.call(boxes,function(b){ if(b.checked) n++; });
-    el.textContent = n ? n+' of '+boxes.length+' ticked' : '';
+    var n=0,t=0;
+    Array.prototype.forEach.call(boxes,function(b){ if(visible(b)){ t++; if(b.checked) n++; } });
+    el.textContent = n+' of '+t+' ticked';
+  }
+  function setMode(m){
+    mode=m;
+    Array.prototype.forEach.call(panels,function(p){ p.hidden=(p.getAttribute('data-shopmode')!==m); });
+    Array.prototype.forEach.call(tabs,function(t){
+      var on=t.getAttribute('data-shoptab')===m;
+      t.setAttribute('aria-pressed',on?'true':'false');
+      t.className='btn'+(on?'':' sec');
+    });
+    try{ localStorage.setItem(MKEY,m); }catch(e){}
+    count();
   }
 
   Array.prototype.forEach.call(boxes,function(b){
     var k=b.getAttribute('data-shop');
-    if(state[k]){ b.checked=true; }
+    if(state[k]) b.checked=true;
     paint(b);
     b.addEventListener('change',function(){
       if(b.checked) state[k]=1; else delete state[k];
       persist(); paint(b); count();
     });
   });
-  count();
+
+  Array.prototype.forEach.call(tabs,function(t){
+    t.addEventListener('click',function(){ setMode(t.getAttribute('data-shoptab')); });
+  });
 
   var c=document.getElementById('shopClear');
   if(c) c.addEventListener('click',function(){
-    Array.prototype.forEach.call(boxes,function(b){ b.checked=false; paint(b); });
-    state={}; persist(); count();
+    Array.prototype.forEach.call(boxes,function(b){
+      if(panelOf(b)===mode){ b.checked=false; delete state[b.getAttribute('data-shop')]; paint(b); }
+    });
+    persist(); count();
   });
+
+  setMode(mode);
 })();
 </script>
 
@@ -1771,6 +1908,40 @@ footer{margin-top:60px; padding-top:22px; border-top:1px solid var(--line); font
   <p>The instinct when abs are the goal is to hammer them daily. Resist it. Your core is already loaded hard in <em>every</em> exercise in this plan — wall walks, deficit push-ups, decline push-ups and both table rows all demand a braced trunk — and the hollow hold does the direct work. Abs grow from progressive overload like any other muscle, not from volume. Extra sit-ups would add fatigue and nothing else.</p>
 </div>
 
+<h4>Soreness: what it means and what it doesn't</h4>
+
+<p>You'll hear this everywhere: soreness means you tore your muscle fibres, and protein fills in the tears to make them bigger. <strong>It's a mix of something true and something wrong.</strong></p>
+
+<p><strong>The true part:</strong> hard training, especially new exercises and the slow lowering part of a rep, does cause some small-scale disruption inside the muscle. Your body repairs it, and protein is part of that repair.</p>
+
+<p><strong>The wrong part is that soreness measures growth.</strong> It doesn't, for three reasons:</p>
+
+<div class="card">
+<p><strong>1. Soreness is mostly your nerves, not tears.</strong> The ache that arrives a day or two after training comes mainly from nerve endings in and around the muscle becoming more sensitive, driven by chemical signals the exercise releases. In lab studies, researchers have produced exactly this soreness with no visible damage to the muscle at all. Feeling sore tells you the muscle did something new. It doesn't tell you how much it's going to grow.</p>
+
+<p><strong>2. Early on, repair uses up the protein.</strong> In one study, researchers took muscle samples from new lifters at weeks 1, 3 and 10 of a programme. In week 1, damage and protein building were both at their highest, but the protein building <em>didn't match up with growth</em>. The body was mostly spending it on repair. Only from week 3, once the damage had died down, did protein building start tracking actual muscle gain. So extra damage doesn't mean extra growth. In the first weeks it gets in the way.</p>
+
+<p><strong>3. Protein doesn't fill in holes.</strong> A muscle fibre grows by adding more of the proteins that make it contract, packed alongside the existing ones, so the fibre gets thicker. The main trigger is <strong>tension</strong>: hard sets taken close to failure, done again and again, with a bit more each time. That's the progressive overload in section 06, and it's what the log in section 07 tracks.</p>
+</div>
+
+<div class="note good">
+  <span class="lbl">What to expect from here</span>
+  <p>You're in week 2, so being a bit sore after sessions is completely normal. <strong>It'll fade over the next couple of weeks even though you keep training just as hard.</strong> This is well known and called the repeated bout effect: the body adapts to an exercise after the first exposure or two and stops reacting as strongly.</p>
+  <p>When the soreness goes, <em>don't</em> take it as a sign the plan has stopped working, and don't go looking for it again by adding volume or random new exercises. Muscles keep growing with little or no soreness. The rep numbers in your log are the scoreboard.</p>
+</div>
+
+<p><strong>Normal soreness:</strong> a dull ache in the muscle you trained, starting 12–24 hours later, worst around day 2, gone by day 3 or 4, and eased by moving around. Train through it. The warm-up usually takes the edge off, and sleep and food are what clear it.</p>
+
+<div class="note stop">
+  <span class="lbl">Not normal — stop and tell a parent</span>
+  <ul style="margin-bottom:0">
+    <li>Sharp or stabbing pain during a rep, or pain in a <strong>joint</strong> rather than a muscle</li>
+    <li>Swelling, or soreness that's getting worse after day 3 rather than better</li>
+    <li>A muscle so sore you can't straighten the limb or move normally</li>
+    <li><strong>Dark, cola-coloured urine</strong> after training. It's rare and linked to extreme overexertion, but it needs a doctor the same day.</li>
+  </ul>
+</div>
+
 <h4>Body fat percentage — how you'd measure it, and why it's the wrong number for you right now</h4>
 
 <p>Straight answer first: here's every way to get the number, what it costs, and how wrong it is.</p>
@@ -1854,6 +2025,7 @@ footer{margin-top:60px; padding-top:22px; border-top:1px solid var(--line); font
 
 <h4>Assumptions made — correct these if they're wrong</h4>
 <ul>
+<li><strong>Corrected 10 September:</strong> every shopping quantity was recalculated ingredient by ingredient against the seven-day plan. Several were overstated (bananas 12 → 7, potatoes 2 kg → 1 kg, flour 3 kg → 1.5 kg a month, avocados 3 → 2) and several understated (yoghurt 1.5 → 2 kg a week, dates, frozen berries, chicken thigh 600 → 750 g a week). A trial-week list was added alongside the monthly one.</li>
 <li><strong>Resolved 3 September:</strong> was on school dinners, switching to packed. Lunch rebuilt in section 13 as four wraps rather than rice, so it can be eaten one-handed at school. Flagged there: most supermarket tortillas contain rapeseed or sunflower oil, so a chapati is the cleaner wrap.</li>
 <li><strong>Bread and chapati are allowed</strong> as minimally-processed staples. If shop-bought bread is out, chapati covers it.</li>
 <li><strong>First weigh-in</strong> is the morning you start week 1.</li>

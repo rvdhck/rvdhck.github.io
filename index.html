@@ -1,0 +1,1200 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Year 9 physics revision: energy stores and transfers (AQA Combined Science).">
+<title>Energy revision</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bitter:wght@600;700&amp;display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:wght@400;600;700&amp;display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Mono:wght@500;700&amp;display=swap">
+<style>
+:root{
+  --page:#F5F6F8; --paper:#FFFFFF; --ink:#1C2127; --ink-2:#4E5762; --ink-3:#7A838E; --line:#D5DAE0; --line-2:#EBEEF1;
+  --pen:#1D4FB8; --pen-ink:#FFFFFF; --pen-soft:#E9EEF9;
+  --red:#C62828; --red-soft:#FBECEC; --green:#2E7D32; --green-soft:#E6F3E7; --amber:#9A6700; --amber-soft:#FFF4D4;
+  --hl:#FFEF6B; --hl-ink:#1C1A05; --grid:#E1E7EF;
+  --rag-r:#E0463F; --rag-a:#F2B233; --rag-g:#3F9A47;
+  --f-head:"Bitter", Georgia, "Times New Roman", serif;
+  --f-body:"Atkinson Hyperlegible Next", "Atkinson Hyperlegible", "Segoe UI", system-ui, sans-serif;
+  --f-mono:"Atkinson Hyperlegible Mono", ui-monospace, Consolas, monospace;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --page:#111418; --paper:#1A1F25; --ink:#E6E9ED; --ink-2:#AAB2BC; --ink-3:#808993; --line:#2F363F; --line-2:#242A31;
+    --pen:#8EAEFF; --pen-ink:#0E1420; --pen-soft:#1D2A45;
+    --red:#FF7A72; --red-soft:#3A1E1F; --green:#72CF77; --green-soft:#1A3020; --amber:#F0C35A; --amber-soft:#3A3019;
+    --hl:#E3CC3E; --hl-ink:#1C1A05; --grid:#222931;
+    --rag-r:#E8615A; --rag-a:#E8B447; --rag-g:#5DB765;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --page:#111418; --paper:#1A1F25; --ink:#E6E9ED; --ink-2:#AAB2BC; --ink-3:#808993; --line:#2F363F; --line-2:#242A31;
+  --pen:#8EAEFF; --pen-ink:#0E1420; --pen-soft:#1D2A45;
+  --red:#FF7A72; --red-soft:#3A1E1F; --green:#72CF77; --green-soft:#1A3020; --amber:#F0C35A; --amber-soft:#3A3019;
+  --hl:#E3CC3E; --hl-ink:#1C1A05; --grid:#222931;
+  --rag-r:#E8615A; --rag-a:#E8B447; --rag-g:#5DB765;
+  color-scheme:dark;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+[hidden]{display:none!important}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--page);color:var(--ink);font:400 17px/1.55 var(--f-body)}
+a{color:var(--pen)}
+button,input,textarea,select{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--pen);outline-offset:2px}
+h1,h2,h3{font-family:var(--f-head);line-height:1.2;text-wrap:balance;margin:0}
+h1{font-size:clamp(26px,4vw,34px);font-weight:700}
+h2{font-size:22px;font-weight:700}
+h3{font-size:18px;font-weight:600}
+p{margin:0 0 .7em}
+.muted{color:var(--ink-2)}
+.small{font-size:14px}
+.mono{font-family:var(--f-mono)}
+.num{font-variant-numeric:tabular-nums}
+
+/* ---------- top bar + layout ---------- */
+.bar{background:var(--paper);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:5}
+.bar-in{max-width:1180px;margin:0 auto;padding:10px 16px;display:flex;align-items:center;justify-content:space-between;gap:8px 20px;flex-wrap:wrap}
+.brand{display:flex;flex-direction:column;text-decoration:none;color:var(--ink)}
+.brand b{font:700 20px/1.1 var(--f-head)}
+.brand span{font-size:13px;color:var(--ink-3)}
+.count{font-size:14px;color:var(--ink-2);text-align:right}
+.count b{color:var(--ink);font-weight:700}
+.layout{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1fr;padding:0 16px}
+.side{display:flex;gap:2px;overflow-x:auto;padding:8px 0;border-bottom:1px solid var(--line);scrollbar-width:thin}
+.side a{flex:none;text-decoration:none;color:var(--ink-2);padding:7px 10px;border-radius:4px;font-size:15px;white-space:nowrap}
+.side a:hover{color:var(--ink);background:var(--line-2)}
+.side a[aria-current="page"]{color:var(--ink);font-weight:700;background:var(--line-2)}
+main{padding:22px 0 60px;min-width:0}
+@media (min-width:900px){
+  .layout{grid-template-columns:200px minmax(0,1fr);gap:36px;padding:0 24px}
+  .side{flex-direction:column;border-bottom:0;padding:22px 0;position:sticky;top:62px;align-self:start;overflow:visible}
+  .side a{font-size:16px;padding:8px 10px}
+  .side .sep{height:1px;background:var(--line);margin:8px 10px}
+  main{padding:26px 0 80px}
+}
+.side .sep{flex:none;width:1px;background:var(--line);margin:4px 4px}
+.content{max-width:820px}
+.head{margin-bottom:18px}
+.head p{margin:6px 0 0;color:var(--ink-2);max-width:62ch}
+.crumb{font-size:14px;margin-bottom:6px}
+.crumb a{text-decoration:none}
+.foot{max-width:1180px;margin:0 auto;padding:18px 16px 32px;border-top:1px solid var(--line);font-size:13px;color:var(--ink-3)}
+.foot p{margin:0 0 4px}
+
+/* ---------- basics ---------- */
+.btn{appearance:none;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:6px;border:1px solid var(--line);background:var(--paper);color:var(--ink);border-radius:4px;padding:8px 14px;font-weight:600;font-size:15px;line-height:1.2;text-decoration:none}
+.btn:hover{border-color:var(--ink-3)}
+.btn.primary{background:var(--pen);border-color:var(--pen);color:var(--pen-ink)}
+.btn.primary:hover{filter:brightness(1.08)}
+.btn.small{padding:5px 10px;font-size:14px}
+.btn:disabled{opacity:.45;cursor:default}
+.row{display:flex;flex-wrap:wrap;align-items:center;gap:8px 10px}
+.spread{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px 16px}
+.section{margin:28px 0}
+.section > h2{margin-bottom:10px}
+.panel{background:var(--paper);border:1px solid var(--line);border-radius:4px;padding:16px 18px}
+.stack{display:grid;gap:12px}
+.grid2{display:grid;gap:16px}
+@media (min-width:760px){.grid2{grid-template-columns:1fr 1fr}}
+.tablewrap{overflow-x:auto;margin:8px 0 12px}
+table{border-collapse:collapse;width:100%;background:var(--paper);font-size:15px}
+th,td{border:1px solid var(--line);padding:7px 10px;text-align:left;vertical-align:top}
+th{background:var(--line-2);font-weight:700}
+td.c,th.c{text-align:center}
+.pill{display:inline-block;font-size:12px;font-weight:700;padding:2px 7px;border-radius:3px;border:1px solid var(--line);color:var(--ink-2);white-space:nowrap}
+.pill.done{background:var(--green-soft);border-color:transparent;color:var(--green)}
+.pill.ht{border-color:var(--ink-2);color:var(--ink)}
+.band{display:inline-block;font:700 12px/1 var(--f-mono);letter-spacing:.04em;text-transform:uppercase;padding:4px 6px;border-radius:3px;margin-right:6px;vertical-align:2px}
+.band.Mild{background:var(--green-soft);color:var(--green)}
+.band.Medium{background:var(--amber-soft);color:var(--amber)}
+.band.Spicy{background:var(--red-soft);color:var(--red)}
+.tick{color:var(--green);font-weight:700}
+.cross{color:var(--red);font-weight:700}
+.meter{display:inline-flex;align-items:center;gap:8px;font-size:14px}
+.meter i{display:inline-block;width:70px;height:6px;background:var(--line-2);border-radius:3px;overflow:hidden;position:relative}
+.meter i b{position:absolute;inset:0 auto 0 0;background:var(--green)}
+.dots{display:inline-flex;gap:3px;vertical-align:middle}
+.dots i{width:9px;height:9px;border-radius:50%;border:1.5px solid var(--ink-3)}
+.dots i.on{background:var(--green);border-color:var(--green)}
+
+/* RAG */
+.rag{display:inline-flex;border:1px solid var(--line);border-radius:4px;overflow:hidden}
+.rag button{appearance:none;border:0;background:var(--paper);width:32px;height:28px;cursor:pointer;font-weight:700;font-size:13px;color:var(--ink-3)}
+.rag button + button{border-left:1px solid var(--line)}
+.rag button[aria-pressed="true"][data-v="r"]{background:var(--rag-r);color:#fff}
+.rag button[aria-pressed="true"][data-v="a"]{background:var(--rag-a);color:#1c1a05}
+.rag button[aria-pressed="true"][data-v="g"]{background:var(--rag-g);color:#fff}
+
+/* maths */
+.eqn{margin:6px 0 10px;font-size:clamp(22px,3.6vw,28px);line-height:1.35}
+.mk{background:var(--hl);color:var(--hl-ink);padding:0 .3em;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.v{font-family:"Times New Roman",Times,serif;font-style:italic;font-size:1.1em}
+.fr{display:inline-flex;flex-direction:column;align-items:center;vertical-align:middle;line-height:1.15;margin:0 .12em;text-align:center}
+.fr>span:first-child{border-bottom:1.5px solid currentColor;padding:0 .2em .06em}
+.fr>span:last-child{padding:.06em .2em 0}
+.rt{white-space:nowrap}
+.rt>span{border-top:1.5px solid currentColor;padding:0 .08em;margin-left:.04em}
+sup,sub{font-size:.68em;line-height:0}
+.working{font-size:16px;line-height:1.7;margin:6px 0 0}
+
+/* ---------- lesson blocks ---------- */
+.book{border:1.5px solid var(--ink-2);border-radius:4px;padding:18px 16px 10px;margin:18px 0 14px;position:relative;background:var(--paper)}
+.book::before{content:"Write this in your book";position:absolute;top:-10px;left:12px;background:var(--paper);padding:0 6px;font:700 12px/18px var(--f-mono);letter-spacing:.04em;text-transform:uppercase;color:var(--ink-2)}
+.tipbox{background:var(--amber-soft);border-radius:4px;padding:12px 14px 4px;margin:12px 0}
+.tipbox::before{content:"Remember";display:block;font:700 12px/1.4 var(--f-mono);letter-spacing:.04em;text-transform:uppercase;color:var(--amber);margin-bottom:4px}
+.aims{border-top:2px solid var(--ink);border-bottom:1px solid var(--line);padding:10px 0 4px;margin:0 0 16px}
+.aims h3{font-size:15px;margin-bottom:4px}
+.aims ul{margin:0 0 6px;padding-left:1.2em}
+.worked{border:1px solid var(--line);border-radius:4px;margin:12px 0;background-color:var(--paper);background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:18px 18px}
+.worked h3{padding:10px 14px;border-bottom:1px solid var(--line);background:var(--paper);font-size:16px}
+.worked ol{margin:0;padding:10px 14px 8px 36px}
+.worked li{padding:3px 0}
+.worked .ctrl{padding:0 14px 12px}
+.qlist{list-style:none;margin:10px 0;padding:0;display:grid;gap:8px}
+.qlist > li{background:var(--paper);border:1px solid var(--line);border-radius:4px;padding:10px 12px}
+.qlist .q{margin:0}
+.qlist .ans{margin:8px 0 0;padding:8px 10px;background:var(--green-soft);border-radius:3px}
+.qlist .ans p:last-child{margin:0}
+.bars{margin:12px 0}
+.bars h3{font-size:15px;margin-bottom:6px}
+.bars .stage{display:grid;grid-template-columns:130px 1fr;gap:4px 10px;align-items:center;margin-bottom:8px}
+.bars .stage > span{font-size:14px;color:var(--ink-2)}
+.bars .rows{display:grid;gap:3px}
+.bars .rows div{display:grid;grid-template-columns:150px 1fr;align-items:center;gap:8px;font-size:13px}
+.bars .rows i{display:block;height:12px;background:var(--pen);border-radius:2px;min-width:1px}
+.bars .rows div:nth-child(2) i{background:var(--green)}
+@media (max-width:560px){.bars .stage{grid-template-columns:1fr}.bars .rows div{grid-template-columns:110px 1fr}}
+.split{margin:12px 0}
+.split h3{font-size:15px;margin-bottom:6px}
+.split .strip{display:flex;height:34px;border:1px solid var(--line);border-radius:3px;overflow:hidden}
+.split .strip div{display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:#fff;white-space:nowrap;overflow:hidden}
+.split .strip div:first-child{background:var(--green)}
+.split .strip div:last-child{background:var(--ink-3)}
+.split ul{list-style:none;margin:6px 0 0;padding:0;font-size:14px;color:var(--ink-2)}
+
+/* calc question */
+.calc{background:var(--paper);border:1px solid var(--line);border-radius:4px;padding:12px 14px}
+.calc .q{margin:0 0 10px}
+.calc .answer-row{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.calc input{width:150px;max-width:100%;padding:7px 10px;border:1px solid var(--ink-3);border-radius:4px;background:var(--paper);font-family:var(--f-mono)}
+.calc .unit{font-family:var(--f-mono);color:var(--ink-2)}
+.fb{margin:10px 0 0;font-weight:600}
+.fb.ok{color:var(--green)}
+.fb.no{color:var(--red)}
+.fb.close{color:var(--amber)}
+.hint{margin:8px 0 0;font-size:15px;color:var(--ink-2)}
+.calc .work{margin-top:8px;padding:8px 10px;border-left:3px solid var(--line);font-size:15px}
+
+/* exam question */
+.examq{background:var(--paper);border:1px solid var(--line);border-radius:4px;padding:14px 16px}
+.examq .qtext{display:flex;justify-content:space-between;gap:16px;align-items:flex-start}
+.examq .marks{flex:none;font-weight:700;white-space:nowrap}
+.examq textarea,.test textarea{width:100%;min-height:128px;resize:vertical;margin:10px 0;padding:0 8px;border:1px solid var(--line);border-radius:3px;background-color:var(--paper);background-image:repeating-linear-gradient(transparent 0,transparent 31px,var(--line) 31px,var(--line) 32px);line-height:32px;background-attachment:local}
+.scheme{margin-top:10px;border-top:2px solid var(--red);padding-top:8px}
+.scheme h4{margin:0 0 6px;font:700 14px/1.3 var(--f-mono);letter-spacing:.03em;text-transform:uppercase;color:var(--red)}
+.scheme label{display:flex;gap:10px;align-items:flex-start;padding:5px 0;cursor:pointer}
+.scheme input{width:18px;height:18px;margin:3px 0 0;accent-color:var(--red);flex:none}
+.scheme .total{margin-top:6px;font-weight:700;color:var(--red)}
+.levels{margin-top:8px;font-size:14px}
+
+/* ---------- flashcards ---------- */
+.deckpick{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px}
+.deckpick button{appearance:none;cursor:pointer;border:1px solid var(--line);background:var(--paper);border-radius:4px;padding:6px 10px;font-size:14px;color:var(--ink-2)}
+.deckpick button[aria-pressed="true"]{border-color:var(--ink);color:var(--ink);font-weight:700;box-shadow:inset 0 -2px 0 var(--ink)}
+.fc{max-width:680px}
+.fc .status{display:flex;justify-content:space-between;font-size:14px;color:var(--ink-2);margin-bottom:6px}
+.fc .track{height:4px;background:var(--line-2);margin-bottom:12px}
+.fc .track i{display:block;height:100%;background:var(--pen)}
+.card{perspective:1600px;cursor:pointer;outline:none;touch-action:pan-y;-webkit-tap-highlight-color:transparent}
+.card .inner{display:grid;transform-style:preserve-3d;transition:transform .4s ease}
+.card.flipped .inner{transform:rotateY(180deg)}
+.face{grid-area:1/1;backface-visibility:hidden;-webkit-backface-visibility:hidden;background:var(--paper);border:1px solid var(--line);border-radius:6px;box-shadow:0 2px 0 var(--line-2);min-height:270px;padding:14px 18px 16px;display:flex;flex-direction:column}
+.face.back{transform:rotateY(180deg)}
+.card:focus-visible .face{outline:3px solid var(--pen);outline-offset:2px}
+.face .lab{display:flex;justify-content:space-between;gap:8px;font-size:13px;color:var(--ink-3)}
+.face .prompt{flex:1;display:flex;align-items:center;justify-content:center;text-align:center;padding:14px 0}
+.face .prompt p{margin:0;font:600 clamp(21px,3.2vw,26px)/1.3 var(--f-head);max-width:30ch}
+.face .body{flex:1;padding:12px 0 0}
+.face .body ul,.face .body ol{padding-left:1.2em;margin:0 0 .6em}
+.face .units{display:grid;grid-template-columns:auto 1fr auto;gap:2px 12px;font-size:15px;border-top:1px solid var(--line);padding-top:8px;margin-top:6px}
+.face .units .u{font-family:var(--f-mono);text-align:right}
+.fc .acts{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}
+.fc .acts .full{grid-column:1/-1}
+.btn.learn{border-color:var(--amber);color:var(--amber);background:var(--amber-soft)}
+.btn.know{border-color:var(--green);color:var(--green);background:var(--green-soft)}
+kbd{font:600 11px/1 var(--f-mono);border:1px solid currentColor;border-radius:3px;padding:2px 4px;opacity:.6}
+@media (hover:none){kbd{display:none}}
+.mistake td:first-child{color:var(--red)}
+.mistake td:last-child{color:var(--green)}
+
+/* ---------- lesson player ---------- */
+.plan{list-style:none;margin:0 0 18px;padding:0;display:flex;flex-wrap:wrap;gap:4px}
+.plan li button{appearance:none;cursor:pointer;border:1px solid var(--line);background:var(--paper);border-radius:4px;padding:5px 9px;font-size:13px;color:var(--ink-2);text-align:left}
+.plan li button b{display:block;font-size:12px;font-weight:700;color:var(--ink-3)}
+.plan li button[aria-current="step"]{border-color:var(--ink);color:var(--ink);box-shadow:inset 0 -2px 0 var(--ink)}
+.plan li button.done{color:var(--green)}
+.plan li button.done b::after{content:" ✓"}
+.secthead{display:flex;justify-content:space-between;align-items:flex-end;gap:8px 16px;flex-wrap:wrap;border-bottom:2px solid var(--ink);padding-bottom:8px;margin-bottom:14px}
+.secthead .kind{font:700 13px/1.3 var(--f-mono);letter-spacing:.04em;text-transform:uppercase;color:var(--ink-3)}
+.timer{display:inline-flex;align-items:center;gap:8px;font-family:var(--f-mono);font-size:15px}
+.timer b{font-size:20px;font-variant-numeric:tabular-nums;min-width:4.2ch;text-align:right}
+.timer.over b{color:var(--red)}
+.pager{display:flex;justify-content:space-between;gap:8px;margin-top:22px;padding-top:14px;border-top:1px solid var(--line)}
+.lessons{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.lessons li{display:grid;grid-template-columns:44px 1fr auto;gap:4px 14px;align-items:center;padding:14px 0;border-bottom:1px solid var(--line)}
+.lessons .n{font:700 26px/1 var(--f-head);color:var(--ink-3);text-align:center}
+.lessons h3 a{color:var(--ink);text-decoration:none}
+.lessons h3 a:hover{text-decoration:underline}
+.lessons p{margin:2px 0 0;font-size:15px;color:var(--ink-2)}
+@media (max-width:560px){.lessons li{grid-template-columns:36px 1fr}.lessons li > :last-child{grid-column:2}}
+
+/* ---------- practice test ---------- */
+.testbar{position:sticky;top:62px;z-index:4;background:var(--page);padding:8px 0;border-bottom:1px solid var(--line);margin-bottom:16px}
+.test .qblock{margin:0 0 22px}
+.test .qblock > h3{margin-bottom:4px}
+.test .part{border-top:1px solid var(--line);padding:12px 0}
+.test .part .qtext{display:flex;justify-content:space-between;gap:16px}
+.test .part .qtext b.pn{margin-right:8px}
+.test .part input{width:160px;padding:7px 10px;border:1px solid var(--ink-3);border-radius:4px;background:var(--paper);font-family:var(--f-mono)}
+.test textarea{min-height:66px}
+.result{font:700 30px/1.1 var(--f-head)}
+
+/* ---------- equations trainer ---------- */
+.eqlist{display:grid;gap:10px}
+.eqitem{background:var(--paper);border:1px solid var(--line);border-radius:4px;padding:12px 14px}
+.eqitem .top{display:flex;justify-content:space-between;align-items:baseline;gap:8px;flex-wrap:wrap}
+.eqitem .eqn{margin:6px 0}
+.eqitem .tipline{font-size:15px;color:var(--ink-2);margin:4px 0 0}
+.quiz{background:var(--paper);border:1px solid var(--line);border-radius:4px;padding:16px}
+.quiz .qtitle{font:600 20px/1.35 var(--f-head);margin:4px 0 12px}
+.opts{display:grid;gap:8px}
+@media (min-width:640px){.opts{grid-template-columns:1fr 1fr}}
+.opts button{appearance:none;cursor:pointer;text-align:left;border:1px solid var(--line);background:var(--paper);border-radius:4px;padding:10px 12px;font-size:17px}
+.opts button:hover:not(:disabled){border-color:var(--ink-3)}
+.opts button.right{border-color:var(--green);background:var(--green-soft)}
+.opts button.wrong{border-color:var(--red);background:var(--red-soft)}
+.opts button:disabled{cursor:default}
+.blank li{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+
+@media (prefers-reduced-motion: reduce){
+  .card .inner{transition:none;transform:none!important}
+  .card .face{backface-visibility:visible;transform:none!important}
+  .card:not(.flipped) .face.back,.card.flipped .face.front{display:none}
+}
+@media print{
+  .bar,.side,.foot,.btn,.pager,.plan,.testbar{display:none!important}
+  body{background:#fff}
+}
+
+.sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.linkbtn{appearance:none;background:none;border:0;padding:0;color:var(--pen);text-decoration:underline;cursor:pointer;font-size:inherit}
+.timer .btn{font-family:var(--f-body)}
+
+</style>
+</head>
+<body>
+<header class="bar"><div class="bar-in">
+  <a class="brand" href="#/"><b>Energy revision</b><span>Year 9 · AQA Combined Science · Physics P1 and P2</span></a>
+  <div class="count" id="count"></div>
+</div></header>
+<div class="layout">
+  <nav class="side" id="nav" aria-label="Sections"></nav>
+  <main id="view" tabindex="-1"></main>
+</div>
+<footer class="foot">
+  <p>Revision for AQA GCSE Combined Science topics 4.1.1.1 to 4.1.2.2 (energy stores and transfers). The questions are written for practice; they are not real AQA exam questions.</p>
+  <p>Your progress is saved in this browser only. <button class="linkbtn" id="reset" type="button">Reset all progress</button></p>
+</footer>
+<script type="application/json" id="site-data">{"test":{"minutes":40,"marks":30,"questions":[{"n":"1","intro":"This question is about energy stores and transfers.","parts":[{"n":"1.1","marks":1,"q":"Name the energy store that increases when a spring is stretched.","kind":"text","scheme":["Elastic potential (energy store)"]},{"n":"1.2","marks":2,"q":"Energy can be transferred by heating. Give two other ways energy can be transferred.","kind":"text","scheme":["Any two from: mechanically (a force doing work); electrically (a current flowing); by radiation (light or sound)","Second correct way"]},{"n":"1.3","marks":1,"q":"State the law of conservation of energy.","kind":"text","scheme":["Energy cannot be created or destroyed (it can only be transferred usefully, stored or dissipated)"]}]},{"n":"2","intro":"A cyclist and her bike have a total mass of 80 kg.","parts":[{"n":"2.1","marks":1,"q":"Write down the equation that links kinetic energy, mass and speed.","kind":"text","scheme":["kinetic energy = 0.5 × mass × (speed)² &nbsp; or &nbsp; E<sub>k<\/sub> = ½ m v²"]},{"n":"2.2","marks":2,"q":"She travels at 6.0 m/s. Calculate the kinetic energy of the cyclist and bike.","kind":"calc","scheme":["E<sub>k<\/sub> = 0.5 × 80 × 6.0²","= 1440 J"],"ans":1440,"alt":[],"unit":"J"},{"n":"2.3","marks":3,"q":"Climbing a hill, the cyclist and bike gain 3920 J of gravitational potential energy. Calculate the height of the hill. g = 9.8 N/kg","kind":"calc","scheme":["3920 = 80 × 9.8 × h (or h = E<sub>p<\/sub> ÷ m g)","h = 3920 ÷ 784","= 5.0 m"],"ans":5,"alt":[],"unit":"m"}]},{"n":"3","intro":"A spring has a spring constant of 25 N/m.","parts":[{"n":"3.1","marks":3,"q":"The spring is stretched by 12 cm. Calculate the elastic potential energy stored in the spring.","kind":"calc","scheme":["e = 0.12 m","E<sub>e<\/sub> = 0.5 × 25 × 0.12²","= 0.18 J"],"ans":0.18,"alt":[],"unit":"J"}]},{"n":"4","intro":"An electric heater is used to heat a 1.5 kg metal block.","parts":[{"n":"4.1","marks":1,"q":"Define specific heat capacity.","kind":"text","scheme":["The energy needed to raise the temperature of 1 kg of a substance by 1 °C"]},{"n":"4.2","marks":3,"q":"The heater transfers 45 000 J. The temperature of the block rises from 20 °C to 50 °C. Calculate the specific heat capacity of the metal.","kind":"calc","scheme":["Δθ = 30 °C","c = 45 000 ÷ (1.5 × 30)","= 1000 J/kg °C"],"ans":1000,"alt":[],"unit":"J/kg °C"},{"n":"4.3","marks":2,"q":"The heater has a power of 50 W. Calculate how long the heater was switched on for.","kind":"calc","scheme":["t = 45 000 ÷ 50","= 900 s"],"ans":900,"alt":[],"unit":"s"}]},{"n":"5","intro":"A lift motor does 36 000 J of work in 1 minute.","parts":[{"n":"5.1","marks":1,"q":"Define power.","kind":"text","scheme":["The rate at which energy is transferred (or the rate at which work is done)"]},{"n":"5.2","marks":2,"q":"Calculate the power of the lift motor.","kind":"calc","scheme":["P = 36 000 ÷ 60","= 600 W"],"ans":600,"alt":[],"unit":"W"},{"n":"5.3","marks":1,"q":"A second motor does the same work in 45 seconds. Which motor is more powerful?","kind":"text","scheme":["The second motor (it transfers the same energy in less time)"]}]},{"n":"6","intro":"Machines and buildings waste energy.","parts":[{"n":"6.1","marks":2,"q":"Explain how oiling the moving parts of a machine reduces unwanted energy transfers.","kind":"text","scheme":["Oil (lubrication) reduces friction","So less energy is dissipated to the thermal store (of the machine or surroundings)"]},{"n":"6.2","marks":1,"q":"Which property of a wall material should be low to make a house cool down more slowly?","kind":"text","scheme":["Thermal conductivity"]}]},{"n":"7","intro":"This question is about light bulbs.","parts":[{"n":"7.1","marks":2,"q":"A bulb has an input power of 60 W and a useful power output of 9 W. Calculate its efficiency as a percentage.","kind":"calc","scheme":["efficiency = 9 ÷ 60 = 0.15","= 15 %"],"ans":15,"alt":[0.15],"unit":"%"},{"n":"7.2","marks":2,"q":"A different bulb is 40 % efficient. Its useful power output is 20 W. Calculate its total power input.","kind":"calc","scheme":["total input = 20 ÷ 0.40","= 50 W"],"ans":50,"alt":[],"unit":"W"}]}],"date":"2026-09-23"},"topics":[{"id":"stores","code":"4.1.1.1","name":"Energy stores and systems"},{"id":"changes","code":"4.1.1.2","name":"Changes in energy"},{"id":"shc","code":"4.1.1.3","name":"Energy changes in systems"},{"id":"power","code":"4.1.1.4","name":"Power"},{"id":"transfers","code":"4.1.2.1","name":"Energy transfers in a system"},{"id":"efficiency","code":"4.1.2.2","name":"Efficiency"}],"cards":[{"id":"7b7c0125f0","t":"stores","k":"def","q":"What is a <b>system<\/b>?","a":"<p>An <b>object or group of objects<\/b>.<\/p>"},{"id":"5be6242dea","t":"stores","k":"fact","q":"Name the <b>8 energy stores<\/b>.","a":"<ul><li>Kinetic<\/li><li>Gravitational potential<\/li><li>Elastic potential<\/li><li>Thermal<\/li><li>Chemical<\/li><li>Magnetic<\/li><li>Electrostatic<\/li><li>Nuclear<\/li><\/ul>"},{"id":"09f651f5c9","t":"stores","k":"fact","q":"Name the <b>4 ways<\/b> energy can be transferred.","a":"<ul><li><b>Mechanically<\/b>: a force doing work<\/li><li><b>Electrically<\/b>: a current flowing<\/li><li>By <b>heating<\/b><\/li><li>By <b>radiation<\/b>: light or sound waves<\/li><\/ul>"},{"id":"fb0626d018","t":"stores","k":"def","q":"What is in an object’s <b>kinetic<\/b> energy store?","a":"<p>Energy it has because it is <b>moving<\/b>.<\/p>"},{"id":"ecb5ec6fa4","t":"stores","k":"def","q":"What is in an object’s <b>gravitational potential<\/b> energy store?","a":"<p>Energy it has because of its <b>height<\/b> above the ground.<\/p>"},{"id":"36784ca0fb","t":"stores","k":"def","q":"What is in an object’s <b>elastic potential<\/b> energy store?","a":"<p>Energy stored when it is <b>stretched, squashed or bent<\/b>: e.g. a spring.<\/p>"},{"id":"f329a66fe0","t":"stores","k":"def","q":"What is in a <b>thermal<\/b> energy store?","a":"<p>Energy an object has because of its <b>temperature<\/b>. Hotter → more energy in the store.<\/p>"},{"id":"15b1ba75ac","t":"stores","k":"def","q":"Give <b>3 things<\/b> that have a chemical energy store.","a":"<p><b>Fuels<\/b>, <b>food<\/b> and <b>batteries<\/b>. The energy is released in chemical reactions.<\/p>"},{"id":"e5d0776425","t":"stores","k":"explain","q":"What happens to energy when a <b>system changes<\/b>?","a":"<p>Energy is <b>transferred between stores<\/b>: but the <b>total amount stays the same<\/b>.<\/p>"},{"id":"fbd5b99a6f","t":"stores","k":"example","q":"A ball is <b>thrown upwards<\/b>. How do the energy stores change?","a":"<p><b>Kinetic<\/b> store ↓ → <b>gravitational potential<\/b> store ↑<\/p>"},{"id":"8f7cb83b10","t":"stores","k":"example","q":"A ball <b>falls<\/b> from a height. How do the energy stores change?","a":"<p><b>Gravitational potential<\/b> store ↓ → <b>kinetic<\/b> store ↑<\/p>"},{"id":"000d9cbb32","t":"stores","k":"example","q":"A moving object <b>hits an obstacle<\/b>. How do the energy stores change?","a":"<p><b>Kinetic<\/b> store of the object ↓ → <b>thermal<\/b> store of the object and surroundings ↑<\/p><p>Some energy is also carried away by <b>sound<\/b>.<\/p>"},{"id":"0a1578fd70","t":"stores","k":"example","q":"A constant force <b>speeds up<\/b> an object. How do the energy stores change?","a":"<p>The force does <b>work<\/b> on the object, so its <b>kinetic<\/b> store ↑<\/p>"},{"id":"86eb30fa92","t":"stores","k":"example","q":"A car <b>brakes<\/b> and slows down. How do the energy stores change?","a":"<p><b>Kinetic<\/b> store of the car ↓ → <b>thermal<\/b> store of the brakes ↑<\/p><p>(Friction in the brakes does the work.)<\/p>"},{"id":"c5bfb8b9fc","t":"stores","k":"example","q":"An electric kettle <b>boils water<\/b>. How is energy transferred?","a":"<p>Energy is transferred <b>electrically<\/b> to the heating element, then <b>by heating<\/b> → <b>thermal<\/b> store of the water ↑<\/p>"},{"id":"9f2e2553f6","t":"stores","k":"example","q":"<b>Fuel burns<\/b> in a fire. How do the energy stores change?","a":"<p><b>Chemical<\/b> store of the fuel ↓ → <b>thermal<\/b> store of the surroundings ↑<\/p><p>Some energy is also transferred by <b>light<\/b>.<\/p>"},{"id":"258223ead0","t":"stores","k":"example","q":"A stretched <b>catapult<\/b> fires a stone. How do the energy stores change?","a":"<p><b>Elastic potential<\/b> store of the catapult ↓ → <b>kinetic<\/b> store of the stone ↑<\/p>"},{"id":"ea530c6f78","t":"stores","k":"example","q":"A <b>battery-powered torch<\/b> is switched on. How is energy transferred?","a":"<p><b>Chemical<\/b> store of the battery ↓ → transferred <b>electrically<\/b> to the bulb → carried away by <b>light<\/b> and <b>heating<\/b> → <b>thermal<\/b> store of the surroundings ↑<\/p>"},{"id":"1ab4260716","t":"changes","k":"eq","q":"Kinetic energy","a":"<p>kinetic energy = 0.5 × mass × (speed)<sup>2<\/sup><\/p>","eq":"E<sub>k<\/sub> = ½ <span class=\"v\">m<\/span> <span class=\"v\">v<\/span><sup>2<\/sup>","u":[["E<sub>k<\/sub>","kinetic energy","J"],["<span class=\"v\">m<\/span>","mass","kg"],["<span class=\"v\">v<\/span>","speed","m/s"]]},{"id":"7e76a6f65f","t":"changes","k":"eq","q":"Gravitational potential energy","a":"<p>g.p.e. = mass × gravitational field strength × height<\/p>","eq":"E<sub>p<\/sub> = <span class=\"v\">m<\/span> <span class=\"v\">g<\/span> <span class=\"v\">h<\/span>","u":[["E<sub>p<\/sub>","gravitational potential energy","J"],["<span class=\"v\">m<\/span>","mass","kg"],["<span class=\"v\">g<\/span>","gravitational field strength","N/kg"],["<span class=\"v\">h<\/span>","height","m"]]},{"id":"ed9011cf52","t":"changes","k":"eq","q":"Elastic potential energy","a":"<p>elastic potential energy = 0.5 × spring constant × (extension)<sup>2<\/sup><\/p>","eq":"E<sub>e<\/sub> = ½ <span class=\"v\">k<\/span> <span class=\"v\">e<\/span><sup>2<\/sup>","u":[["E<sub>e<\/sub>","elastic potential energy","J"],["<span class=\"v\">k<\/span>","spring constant","N/m"],["<span class=\"v\">e<\/span>","extension","m"]]},{"id":"266496545f","t":"changes","k":"fact","q":"When can you use E<sub>e<\/sub> = ½ k e<sup>2<\/sup>?","a":"<p>Only if the spring has <b>not gone past its limit of proportionality<\/b>.<\/p>"},{"id":"4201acf141","t":"changes","k":"fact","q":"What is the value of <b>g<\/b> on Earth?","a":"<p><b>9.8 N/kg<\/b><\/p><p>(Always use the value the question gives you.)<\/p>"},{"id":"f6185ab144","t":"changes","k":"explain","q":"An object’s <b>speed doubles<\/b>. What happens to its kinetic energy?","a":"<p>It becomes <b>4 times<\/b> bigger: speed is <b>squared<\/b> (2<sup>2<\/sup> = 4).<\/p>"},{"id":"858e0031b4","t":"changes","k":"explain","q":"What <b>units<\/b> must you convert to before using these equations?","a":"<ul><li>Mass in <b>kg<\/b> (g ÷ 1000)<\/li><li>Height, extension and distance in <b>m<\/b> (cm ÷ 100)<\/li><li>Speed in <b>m/s<\/b><\/li><\/ul>"},{"id":"ed21587e01","t":"changes","k":"calc","q":"A <b>9 kg<\/b> fox runs at <b>3 m/s<\/b>. Find its kinetic energy.","a":"<p class=\"work\">E<sub>k<\/sub> = 0.5 × 9 × 3<sup>2<\/sup><br>= 0.5 × 9 × 9<br>= <b>40.5 J<\/b><\/p>"},{"id":"b75cbf9e89","t":"changes","k":"calc","q":"A <b>1200 kg<\/b> car travels at <b>20 m/s<\/b>. Find its kinetic energy.","a":"<p class=\"work\">E<sub>k<\/sub> = 0.5 × 1200 × 20<sup>2<\/sup><br>= <b>240 000 J<\/b> (240 kJ)<\/p>"},{"id":"9614392f9a","t":"changes","k":"calc","q":"A <b>10 kg<\/b> box is <b>3 m<\/b> above the ground. Find its gravitational potential energy. (g = 9.8 N/kg)","a":"<p class=\"work\">E<sub>p<\/sub> = 10 × 9.8 × 3<br>= <b>294 J<\/b><\/p>"},{"id":"f8383ef7d6","t":"changes","k":"calc","q":"A spring (<b>k = 4 N/m<\/b>) is stretched by <b>0.1 m<\/b>. Find the elastic potential energy.","a":"<p class=\"work\">E<sub>e<\/sub> = 0.5 × 4 × 0.1<sup>2<\/sup><br>= <b>0.02 J<\/b><\/p>"},{"id":"8d7d6f6037","t":"changes","k":"calc","q":"A ball has <b>100 J<\/b> of kinetic energy at <b>5 m/s<\/b>. Find its mass.","a":"<div class=\"eq sm\"><span class=\"mk\"><span class=\"v\">m<\/span> = <span class=\"fr\"><span>2E<sub>k<\/sub><\/span><span><span class=\"v\">v<\/span><sup>2<\/sup><\/span><\/span><\/span><\/div><p class=\"work\">m = 200 ÷ 25 = <b>8 kg<\/b><\/p>"},{"id":"226d2d315c","t":"changes","k":"calc","q":"A <b>2 kg<\/b> toy car has <b>98 J<\/b> of kinetic energy. Find its speed.","a":"<div class=\"eq sm\"><span class=\"mk\"><span class=\"v\">v<\/span> = <span class=\"rt\">&radic;<span><span class=\"fr\"><span>2E<sub>k<\/sub><\/span><span><span class=\"v\">m<\/span><\/span><\/span><\/span><\/span><\/span><\/div><p class=\"work\">v = √(196 ÷ 2) = √98 = <b>9.9 m/s<\/b><\/p>"},{"id":"191c6acb32","t":"changes","k":"calc","q":"A <b>60 kg<\/b> object has <b>1000 J<\/b> of gravitational potential energy. How high is it? (g = 9.8 N/kg)","a":"<div class=\"eq sm\"><span class=\"mk\"><span class=\"v\">h<\/span> = <span class=\"fr\"><span>E<sub>p<\/sub><\/span><span><span class=\"v\">m<\/span> <span class=\"v\">g<\/span><\/span><\/span><\/span><\/div><p class=\"work\">h = 1000 ÷ 588 = <b>1.7 m<\/b><\/p>"},{"id":"b2a90c9a37","t":"changes","k":"calc","q":"An object <b>5 m<\/b> up has <b>490 J<\/b> of gravitational potential energy. Find its mass. (g = 9.8 N/kg)","a":"<div class=\"eq sm\"><span class=\"mk\"><span class=\"v\">m<\/span> = <span class=\"fr\"><span>E<sub>p<\/sub><\/span><span><span class=\"v\">g<\/span> <span class=\"v\">h<\/span><\/span><\/span><\/span><\/div><p class=\"work\">m = 490 ÷ 49 = <b>10 kg<\/b><\/p>"},{"id":"75e1c8be90","t":"changes","k":"calc","q":"A rubber band stores <b>20 J<\/b> when stretched <b>2 m<\/b>. Find its spring constant.","a":"<div class=\"eq sm\"><span class=\"mk\"><span class=\"v\">k<\/span> = <span class=\"fr\"><span>2E<sub>e<\/sub><\/span><span><span class=\"v\">e<\/span><sup>2<\/sup><\/span><\/span><\/span><\/div><p class=\"work\">k = 40 ÷ 4 = <b>10 N/m<\/b><\/p>"},{"id":"e899932332","t":"changes","k":"calc","q":"A spring (<b>k = 10 N/m<\/b>) stores <b>6.4 J<\/b>. Find its extension.","a":"<div class=\"eq sm\"><span class=\"mk\"><span class=\"v\">e<\/span> = <span class=\"rt\">&radic;<span><span class=\"fr\"><span>2E<sub>e<\/sub><\/span><span><span class=\"v\">k<\/span><\/span><\/span><\/span><\/span><\/span><\/div><p class=\"work\">e = √(12.8 ÷ 10) = √1.28 = <b>1.13 m<\/b><\/p>"},{"id":"1ff3f95b2f","t":"changes","k":"calc","q":"A <b>0.5 kg<\/b> ball is dropped from <b>5 m<\/b>. How fast is it going just before it lands? (g = 9.8 N/kg, ignore air resistance)","a":"<p>GPE lost = kinetic energy gained<\/p><p class=\"work\">GPE = 0.5 × 9.8 × 5 = 24.5 J<br>v = √(2 × 24.5 ÷ 0.5) = √98 = <b>9.9 m/s<\/b><\/p>"},{"id":"0454530cef","t":"shc","k":"def","q":"Define <b>specific heat capacity<\/b>.","a":"<p>The amount of energy needed to raise the temperature of <b>1 kg<\/b> of a substance by <b>1 °C<\/b>.<\/p>"},{"id":"ca788042aa","t":"shc","k":"eq","q":"Change in thermal energy","a":"<p>change in thermal energy = mass × specific heat capacity × temperature change<\/p>","eq":"Δ<span class=\"v\">E<\/span> = <span class=\"v\">m<\/span> <span class=\"v\">c<\/span> Δ<span class=\"v\">θ<\/span>","u":[["Δ<span class=\"v\">E<\/span>","change in thermal energy","J"],["<span class=\"v\">m<\/span>","mass","kg"],["<span class=\"v\">c<\/span>","specific heat capacity","J/kg °C"],["Δ<span class=\"v\">θ<\/span>","temperature change","°C"]]},{"id":"aaf807551b","t":"shc","k":"fact","q":"What is the unit of <b>specific heat capacity<\/b>?","a":"<p><b>J/kg °C<\/b>: joules per kilogram per degree Celsius<\/p>"},{"id":"ecc9ad5cd9","t":"shc","k":"explain","q":"What <b>3 things<\/b> decide how much a substance’s temperature rises when it is heated?","a":"<ul><li>The <b>energy<\/b> put in<\/li><li>The <b>mass<\/b> of the substance<\/li><li><b>What it is made of<\/b> (its specific heat capacity)<\/li><\/ul>"},{"id":"db092771f6","t":"shc","k":"explain","q":"Water has a specific heat capacity of <b>4200 J/kg °C<\/b>. What does that mean?","a":"<p>It takes <b>4200 J<\/b> to raise the temperature of <b>1 kg<\/b> of water by <b>1 °C<\/b>.<\/p>"},{"id":"ac364461de","t":"shc","k":"explain","q":"The same energy heats <b>1 kg of water<\/b> (c = 4200) and <b>1 kg of aluminium<\/b> (c = 900). Which gets hotter?","a":"<p><b>Aluminium<\/b>: it has a <b>lower<\/b> specific heat capacity, so each °C needs less energy.<\/p>"},{"id":"699b068ff1","t":"shc","k":"fact","q":"Rearrange ΔE = m c Δθ.","a":"<div class=\"eq sm\"><span class=\"mk\"><span class=\"v\">c<\/span> = <span class=\"fr\"><span>Δ<span class=\"v\">E<\/span><\/span><span><span class=\"v\">m<\/span> Δ<span class=\"v\">θ<\/span><\/span><\/span><\/span><\/div><div class=\"eq sm\"><span class=\"mk\">Δ<span class=\"v\">θ<\/span> = <span class=\"fr\"><span>Δ<span class=\"v\">E<\/span><\/span><span><span class=\"v\">m<\/span> <span class=\"v\">c<\/span><\/span><\/span><\/span><\/div><div class=\"eq sm\"><span class=\"mk\"><span class=\"v\">m<\/span> = <span class=\"fr\"><span>Δ<span class=\"v\">E<\/span><\/span><span><span class=\"v\">c<\/span> Δ<span class=\"v\">θ<\/span><\/span><\/span><\/span><\/div>"},{"id":"abcc75e6b7","t":"shc","k":"fact","q":"What does <b>Δθ<\/b> mean, and how do you work it out?","a":"<p>The <b>temperature change<\/b>.<\/p><p>Δθ = final temperature − starting temperature<\/p>"},{"id":"7c79df5136","t":"shc","k":"calc","q":"How much energy heats <b>2 kg<\/b> of water from <b>20 °C to 70 °C<\/b>? (c = 4200 J/kg °C)","a":"<p class=\"work\">Δθ = 70 − 20 = 50 °C<br>ΔE = 2 × 4200 × 50 = <b>420 000 J<\/b><\/p>"},{"id":"50b9e22ced","t":"shc","k":"calc","q":"A <b>0.5 kg<\/b> block warms by <b>20 °C<\/b> when given <b>9000 J<\/b>. Find its specific heat capacity.","a":"<p class=\"work\">c = 9000 ÷ (0.5 × 20)<br>= <b>900 J/kg °C<\/b><\/p>"},{"id":"cf2f1e025b","t":"shc","k":"calc","q":"<b>21 000 J<\/b> heats <b>1 kg<\/b> of water (c = 4200 J/kg °C). How much does its temperature rise?","a":"<p class=\"work\">Δθ = 21 000 ÷ (1 × 4200)<br>= <b>5 °C<\/b><\/p>"},{"id":"4697ee89c6","t":"shc","k":"calc","q":"<b>84 000 J<\/b> warms some water by <b>10 °C<\/b> (c = 4200 J/kg °C). What mass of water is it?","a":"<p class=\"work\">m = 84 000 ÷ (4200 × 10)<br>= <b>2 kg<\/b><\/p>"},{"id":"abda85cc4e","t":"shc","k":"calc","q":"<b>500 g<\/b> of oil (c = 2000 J/kg °C) is heated from <b>15 °C to 35 °C<\/b>. How much energy is needed?","a":"<p class=\"work\">m = 0.5 kg, Δθ = 20 °C<br>ΔE = 0.5 × 2000 × 20 = <b>20 000 J<\/b><\/p>"},{"id":"85219830dd","t":"power","k":"def","q":"Define <b>power<\/b>.","a":"<p>The <b>rate<\/b> at which energy is transferred, or the rate at which <b>work is done<\/b>.<\/p>"},{"id":"db9203bdb1","t":"power","k":"eq","q":"Power (using energy)","a":"<p>power = energy transferred ÷ time<\/p>","eq":"<span class=\"v\">P<\/span> = <span class=\"fr\"><span><span class=\"v\">E<\/span><\/span><span><span class=\"v\">t<\/span><\/span><\/span>","u":[["<span class=\"v\">P<\/span>","power","W"],["<span class=\"v\">E<\/span>","energy transferred","J"],["<span class=\"v\">t<\/span>","time","s"]]},{"id":"7d2f0a5997","t":"power","k":"eq","q":"Power (using work done)","a":"<p>power = work done ÷ time<\/p>","eq":"<span class=\"v\">P<\/span> = <span class=\"fr\"><span><span class=\"v\">W<\/span><\/span><span><span class=\"v\">t<\/span><\/span><\/span>","u":[["<span class=\"v\">P<\/span>","power","W"],["<span class=\"v\">W<\/span>","work done","J"],["<span class=\"v\">t<\/span>","time","s"]]},{"id":"df7678842b","t":"power","k":"def","q":"What is <b>1 watt<\/b>?","a":"<p><b>1 joule<\/b> of energy transferred <b>per second<\/b>.<\/p>"},{"id":"5eebb8ae3f","t":"power","k":"explain","q":"Two motors lift the <b>same weight<\/b> through the <b>same height<\/b>. One does it faster. Which is more powerful?","a":"<p>The <b>faster<\/b> one. Both transfer the <b>same energy<\/b>, but it does it in <b>less time<\/b>.<\/p>"},{"id":"16c71b07cb","t":"power","k":"eq","q":"Work done","a":"<p>work done = force × distance moved (along the line of the force)<\/p>","eq":"<span class=\"v\">W<\/span> = <span class=\"v\">F<\/span> <span class=\"v\">s<\/span>","u":[["<span class=\"v\">W<\/span>","work done","J"],["<span class=\"v\">F<\/span>","force","N"],["<span class=\"v\">s<\/span>","distance","m"]]},{"id":"c1e42245e7","t":"power","k":"def","q":"What is <b>work done<\/b>?","a":"<p>The <b>energy transferred<\/b> when a force moves an object. <b>1 J = 1 N m<\/b>.<\/p>"},{"id":"1b65f3b9e1","t":"power","k":"fact","q":"Rearrange P = E ÷ t, and W = F s.","a":"<div class=\"eq sm\"><span class=\"mk\"><span class=\"v\">E<\/span> = <span class=\"v\">P<\/span> <span class=\"v\">t<\/span><\/span><\/div><div class=\"eq sm\"><span class=\"mk\"><span class=\"v\">t<\/span> = <span class=\"fr\"><span><span class=\"v\">E<\/span><\/span><span><span class=\"v\">P<\/span><\/span><\/span><\/span><\/div><div class=\"eq sm\"><span class=\"mk\"><span class=\"v\">F<\/span> = <span class=\"fr\"><span><span class=\"v\">W<\/span><\/span><span><span class=\"v\">s<\/span><\/span><\/span><\/span><\/div><div class=\"eq sm\"><span class=\"mk\"><span class=\"v\">s<\/span> = <span class=\"fr\"><span><span class=\"v\">W<\/span><\/span><span><span class=\"v\">F<\/span><\/span><\/span><\/span><\/div>"},{"id":"68a11cb439","t":"power","k":"calc","q":"An appliance transfers <b>600 J<\/b> in <b>10 s<\/b>. What is its power?","a":"<p class=\"work\">P = 600 ÷ 10 = <b>60 W<\/b><\/p>"},{"id":"5a4031720c","t":"power","k":"calc","q":"How much energy does a <b>20 W<\/b> microwave transfer in <b>30 s<\/b>?","a":"<p class=\"work\">E = 20 × 30 = <b>600 J<\/b><\/p>"},{"id":"0f3a795131","t":"power","k":"calc","q":"How long does a <b>15 W<\/b> bulb take to transfer <b>3000 J<\/b>?","a":"<p class=\"work\">t = 3000 ÷ 15 = <b>200 s<\/b><\/p>"},{"id":"87f83f7f91","t":"power","k":"calc","q":"A <b>2 kW<\/b> kettle is on for <b>3 minutes<\/b>. How much energy does it transfer?","a":"<p class=\"work\">P = 2000 W, t = 180 s<br>E = 2000 × 180 = <b>360 000 J<\/b><\/p>"},{"id":"782e1d1eae","t":"power","k":"calc","q":"A box is pushed <b>5 m<\/b> with a force of <b>50 N<\/b>. How much work is done?","a":"<p class=\"work\">W = 50 × 5 = <b>250 J<\/b><\/p>"},{"id":"aa9cbd174d","t":"power","k":"calc","q":"<b>500 J<\/b> of work lifts a box <b>2 m<\/b>. What force was needed?","a":"<p class=\"work\">F = 500 ÷ 2 = <b>250 N<\/b><\/p>"},{"id":"1c6eaf186c","t":"power","k":"calc","q":"A motor does <b>3000 J<\/b> of work in <b>15 s<\/b>. What is its power?","a":"<p class=\"work\">P = 3000 ÷ 15 = <b>200 W<\/b><\/p>"},{"id":"a3f8a8b6cb","t":"power","k":"fact","q":"Convert: <b>6 MJ<\/b>, <b>40 kJ<\/b> and <b>2.5 kW<\/b> to basic units. And <b>3200 J<\/b> to kJ.","a":"<ul><li>6 MJ = <b>6 000 000 J<\/b><\/li><li>40 kJ = <b>40 000 J<\/b><\/li><li>2.5 kW = <b>2500 W<\/b><\/li><li>3200 J = <b>3.2 kJ<\/b><\/li><\/ul><p><span class=\"work\">GJ → MJ → kJ → J: × 1000 each step<\/span><\/p>"},{"id":"c0e0cd90b6","t":"transfers","k":"fact","q":"State the <b>law of conservation of energy<\/b>.","a":"<p>Energy can be <b>transferred usefully, stored or dissipated<\/b>, but it <b>cannot be created or destroyed<\/b>.<\/p>"},{"id":"06adf9b265","t":"transfers","k":"explain","q":"What happens to the total energy in a <b>closed system<\/b>?","a":"<p><b>No net change<\/b>: energy only moves between stores.<\/p>"},{"id":"503ac51437","t":"transfers","k":"def","q":"What does <b>dissipated<\/b> energy mean?","a":"<p>Energy that <b>spreads out<\/b> to the surroundings and is stored in <b>less useful<\/b> ways. It is often called <b>wasted<\/b> energy.<\/p>"},{"id":"8253302b12","t":"transfers","k":"explain","q":"What happens to some energy in <b>every<\/b> system change?","a":"<p>Some of it is <b>dissipated<\/b>: usually <b>heating the surroundings<\/b>.<\/p>"},{"id":"de7a25e93c","t":"transfers","k":"example","q":"An electric kettle: what is the <b>useful<\/b> energy transfer, and where is energy <b>wasted<\/b>?","a":"<ul><li><b>Useful<\/b>: thermal store of the <b>water<\/b><\/li><li><b>Wasted<\/b>: thermal store of the <b>kettle and surroundings<\/b>, and <b>sound<\/b><\/li><\/ul>"},{"id":"ead355d572","t":"transfers","k":"fact","q":"Give <b>2 ways<\/b> to reduce unwanted energy transfers.","a":"<ul><li><b>Lubrication<\/b><\/li><li><b>Thermal insulation<\/b><\/li><\/ul>"},{"id":"7237cb3a12","t":"transfers","k":"explain","q":"How does <b>lubrication<\/b> reduce wasted energy?","a":"<p>Oil reduces <b>friction<\/b> between moving parts, so less energy is transferred to <b>thermal<\/b> stores.<\/p>"},{"id":"4adf8fa4b5","t":"transfers","k":"explain","q":"What does a <b>high thermal conductivity<\/b> mean?","a":"<p>A <b>higher rate<\/b> of energy transfer by <b>conduction<\/b> through the material.<\/p>"},{"id":"b68f44a4e5","t":"transfers","k":"example","q":"Why are saucepans made of <b>metal<\/b> but have <b>plastic<\/b> handles?","a":"<ul><li>Metal has a <b>high<\/b> thermal conductivity: energy reaches the food quickly<\/li><li>Plastic has a <b>low<\/b> thermal conductivity: the handle stays cool<\/li><\/ul>"},{"id":"16b47e3347","t":"transfers","k":"explain","q":"What <b>2 things<\/b> about its walls affect how quickly a <b>building cools<\/b>?","a":"<ul><li>Their <b>thickness<\/b><\/li><li>Their <b>thermal conductivity<\/b><\/li><\/ul>"},{"id":"6ba4924172","t":"transfers","k":"explain","q":"How can a house be made to <b>cool more slowly<\/b>?","a":"<p>Use <b>thicker walls<\/b> made of materials with <b>low thermal conductivity<\/b>, and add <b>insulation<\/b>: e.g. loft and cavity wall insulation, double glazing.<\/p>"},{"id":"85340d5dbe","t":"transfers","k":"example","q":"A swinging pendulum slowly stops. Where has its energy gone?","a":"<p>It has been <b>dissipated<\/b> by <b>air resistance<\/b> and <b>friction<\/b> at the pivot, into the <b>thermal<\/b> store of the surroundings. The total energy is unchanged.<\/p>"},{"id":"d4fdfd4209","t":"efficiency","k":"eq","q":"Efficiency (using energy)","a":"","eq":"efficiency = <span class=\"fr\"><span>useful output energy transfer<\/span><span>total input energy transfer<\/span><\/span>","u":[["","efficiency","no unit (× 100 for %)"]]},{"id":"3720082d4a","t":"efficiency","k":"eq","q":"Efficiency (using power)","a":"","eq":"efficiency = <span class=\"fr\"><span>useful power output<\/span><span>total power input<\/span><\/span>","u":[["","efficiency","no unit (× 100 for %)"]]},{"id":"0d1e9f837e","t":"efficiency","k":"fact","q":"How do you turn an efficiency of <b>0.35<\/b> into a percentage?","a":"<p>Multiply by 100 → <b>35 %<\/b><\/p>"},{"id":"519e2a32f9","t":"efficiency","k":"fact","q":"How do you find the <b>wasted<\/b> energy?","a":"<p><b>wasted = total input − useful output<\/b><\/p><p>(so total input = useful + wasted)<\/p>"},{"id":"e7e164226e","t":"efficiency","k":"calc","q":"A kettle takes in <b>800 J<\/b>. <b>450 J<\/b> heats the water. How much energy is wasted?","a":"<p class=\"work\">800 − 450 = <b>350 J<\/b><\/p>"},{"id":"f53b28857c","t":"efficiency","k":"calc","q":"A toaster uses <b>700 J<\/b> usefully and wastes <b>600 J<\/b>. What is the total energy input?","a":"<p class=\"work\">700 + 600 = <b>1300 J<\/b><\/p>"},{"id":"235c9d6c5c","t":"efficiency","k":"calc","q":"What is the efficiency of a kettle that takes in <b>800 J<\/b> and uses <b>450 J<\/b> usefully?","a":"<p class=\"work\">450 ÷ 800 = <b>0.5625<\/b> = <b>56 %<\/b><\/p>"},{"id":"d26a0e7575","t":"efficiency","k":"calc","q":"What is the efficiency of a toaster that takes in <b>1300 J<\/b> and uses <b>700 J<\/b> usefully?","a":"<p class=\"work\">700 ÷ 1300 = <b>0.54<\/b> = <b>54 %<\/b><\/p>"},{"id":"2448a63d0a","t":"efficiency","k":"calc","q":"A <b>2000 W<\/b> kettle has a useful power output of <b>1800 W<\/b>. What is its efficiency?","a":"<p class=\"work\">1800 ÷ 2000 = <b>0.9<\/b> = <b>90 %<\/b><\/p>"},{"id":"c6608e2b6c","t":"efficiency","k":"calc","q":"A motor is <b>60 %<\/b> efficient. It is supplied with <b>500 J<\/b>. How much energy is useful?","a":"<p class=\"work\">0.6 × 500 = <b>300 J<\/b> useful<br>(so 200 J is wasted)<\/p>"},{"id":"2c9b1ce648","t":"efficiency","k":"explain","q":"Can a device be <b>more than 100 %<\/b> efficient?","a":"<p><b>No<\/b>: that would mean <b>creating<\/b> energy.<\/p>"},{"id":"72377912a1","t":"efficiency","k":"explain","q":"Why is <b>no device 100 %<\/b> efficient?","a":"<p>Some energy is always <b>dissipated<\/b>: e.g. by friction or heating the surroundings.<\/p>"},{"id":"df5e15594a","t":"efficiency","k":"explain","q":"Describe ways to <b>increase the efficiency<\/b> of an energy transfer.","a":"<ul><li><b>Lubricate<\/b> moving parts: less friction<\/li><li><b>Insulate<\/b>: less energy lost by heating<\/li><li><b>Streamline<\/b>: less air resistance<\/li><li>Use parts that waste less energy (e.g. LEDs)<\/li><\/ul>","ht":true},{"id":"c03c0c762a","t":"efficiency","k":"explain","q":"How could a <b>toaster<\/b> be made more efficient?","a":"<p><b>Insulate<\/b> it, so less energy is transferred to the thermal store of the <b>surroundings<\/b> and more goes into the bread.<\/p>","ht":true}],"calc":[{"id":"7307972d74","t":"changes","lvl":1,"q":"A 9 kg fox runs at 3 m/s. Calculate its kinetic energy.","ans":40.5,"alt":[],"unit":"J","work":["E<sub>k<\/sub> = 0.5 × m × v<sup>2<\/sup>","= 0.5 × 9 × 3<sup>2<\/sup>","= 0.5 × 9 × 9 = <b>40.5 J<\/b>"],"hint":"Square the speed first: 3² = 9."},{"id":"69d20b1fc5","t":"changes","lvl":1,"q":"A car of mass 1200 kg travels at 20 m/s. Calculate its kinetic energy.","ans":240000,"alt":[],"unit":"J","work":["E<sub>k<\/sub> = 0.5 × 1200 × 20<sup>2<\/sup>","= 0.5 × 1200 × 400 = <b>240 000 J<\/b>"],"hint":"20² = 400."},{"id":"e6205885d7","t":"changes","lvl":1,"q":"A 500 g ball rolls at 4 m/s. Calculate its kinetic energy.","ans":4,"alt":[],"unit":"J","work":["m = 500 g = 0.5 kg","E<sub>k<\/sub> = 0.5 × 0.5 × 4<sup>2<\/sup> = <b>4 J<\/b>"],"hint":"Change the mass into kg first."},{"id":"1956624279","t":"changes","lvl":1,"q":"A 10 kg box is lifted 3 m. Calculate the gain in gravitational potential energy. (g = 9.8 N/kg)","ans":294,"alt":[],"unit":"J","work":["E<sub>p<\/sub> = m × g × h","= 10 × 9.8 × 3 = <b>294 J<\/b>"],"hint":"Multiply all three together."},{"id":"30d88cb68d","t":"changes","lvl":1,"q":"A 2 kg book is lifted onto a shelf 150 cm high. Calculate the gravitational potential energy it gains. (g = 9.8 N/kg)","ans":29.4,"alt":[],"unit":"J","work":["h = 150 cm = 1.5 m","E<sub>p<\/sub> = 2 × 9.8 × 1.5 = <b>29.4 J<\/b>"],"hint":"Height must be in metres."},{"id":"d395b142ec","t":"changes","lvl":1,"q":"A spring with spring constant 4 N/m is stretched by 0.1 m. Calculate the elastic potential energy stored.","ans":0.02,"alt":[],"unit":"J","work":["E<sub>e<\/sub> = 0.5 × k × e<sup>2<\/sup>","= 0.5 × 4 × 0.1<sup>2<\/sup>","= 0.5 × 4 × 0.01 = <b>0.02 J<\/b>"],"hint":"0.1² = 0.01."},{"id":"b90932f40b","t":"changes","lvl":1,"q":"A spring with spring constant 200 N/m is stretched by 5 cm. Calculate the elastic potential energy stored.","ans":0.25,"alt":[],"unit":"J","work":["e = 5 cm = 0.05 m","E<sub>e<\/sub> = 0.5 × 200 × 0.05<sup>2<\/sup> = <b>0.25 J<\/b>"],"hint":"Extension must be in metres."},{"id":"71a916ea38","t":"changes","lvl":1,"q":"A ball has 100 J of kinetic energy when moving at 5 m/s. Calculate its mass.","ans":8,"alt":[],"unit":"kg","work":["m = 2 × E<sub>k<\/sub> ÷ v<sup>2<\/sup>","= 2 × 100 ÷ 5<sup>2<\/sup>","= 200 ÷ 25 = <b>8 kg<\/b>"],"hint":"Rearrange: m = 2E<sub>k<\/sub> ÷ v²."},{"id":"b6a06c20d2","t":"changes","lvl":1,"q":"A 2 kg toy car has 98 J of kinetic energy. Calculate its speed.","ans":9.899494936611665,"alt":[],"unit":"m/s","work":["v<sup>2<\/sup> = 2 × E<sub>k<\/sub> ÷ m = 2 × 98 ÷ 2 = 98","v = √98 = <b>9.9 m/s<\/b>"],"hint":"Find v² first, then take the square root."},{"id":"6318a4ed45","t":"changes","lvl":1,"q":"A 60 kg object has 1000 J of gravitational potential energy. How high is it? (g = 9.8 N/kg)","ans":1.7006802721088434,"alt":[],"unit":"m","work":["h = E<sub>p<\/sub> ÷ (m × g)","= 1000 ÷ (60 × 9.8)","= 1000 ÷ 588 = <b>1.7 m<\/b>"],"hint":"Rearrange: h = E<sub>p<\/sub> ÷ (m g)."},{"id":"4112642f80","t":"changes","lvl":1,"q":"A rubber band stores 20 J when stretched by 2 m. Calculate its spring constant.","ans":10,"alt":[],"unit":"N/m","work":["k = 2 × E<sub>e<\/sub> ÷ e<sup>2<\/sup>","= 40 ÷ 4 = <b>10 N/m<\/b>"],"hint":"Rearrange: k = 2E<sub>e<\/sub> ÷ e²."},{"id":"c3db906f8e","t":"changes","lvl":1,"q":"A spring with spring constant 10 N/m stores 6.4 J. Calculate its extension.","ans":1.131370849898476,"alt":[],"unit":"m","work":["e<sup>2<\/sup> = 2 × E<sub>e<\/sub> ÷ k = 12.8 ÷ 10 = 1.28","e = √1.28 = <b>1.13 m<\/b>"],"hint":"Find e² first, then take the square root."},{"id":"a5e165fce5","t":"changes","lvl":2,"q":"A 0.5 kg ball is dropped from 5.0 m. Ignoring air resistance, calculate its speed just before it hits the ground. (g = 9.8 N/kg)","ans":9.899494936611665,"alt":[],"unit":"m/s","work":["GPE lost = 0.5 × 9.8 × 5.0 = 24.5 J","Kinetic energy gained = 24.5 J","v = √(2 × 24.5 ÷ 0.5) = √98 = <b>9.9 m/s<\/b>"],"hint":"Step 1: work out the GPE lost. Step 2: all of it becomes kinetic energy."},{"id":"38f38dc3fc","t":"changes","lvl":2,"q":"A 0.2 kg ball is thrown straight up at 12 m/s. Ignoring air resistance, calculate the maximum height it reaches. (g = 9.8 N/kg)","ans":7.346938775510204,"alt":[],"unit":"m","work":["E<sub>k<\/sub> = 0.5 × 0.2 × 12<sup>2<\/sup> = 14.4 J","At the top all of this is GPE: 14.4 J","h = 14.4 ÷ (0.2 × 9.8) = <b>7.3 m<\/b>"],"hint":"Step 1: kinetic energy at the start. Step 2: that becomes GPE at the top."},{"id":"b695a02291","t":"changes","lvl":2,"q":"A spring (k = 50 N/m) is stretched by 0.4 m and then launches a 0.1 kg toy. All the elastic potential energy becomes kinetic energy. Calculate the toy’s speed.","ans":8.94427190999916,"alt":[],"unit":"m/s","work":["E<sub>e<\/sub> = 0.5 × 50 × 0.4<sup>2<\/sup> = 4 J","v = √(2 × 4 ÷ 0.1) = √80 = <b>8.9 m/s<\/b>"],"hint":"Step 1: elastic potential energy. Step 2: use it as kinetic energy to find v."},{"id":"15e26e16ca","t":"shc","lvl":1,"q":"Calculate the energy needed to heat 2 kg of water from 20 °C to 70 °C. (c = 4200 J/kg °C)","ans":420000,"alt":[],"unit":"J","work":["Δθ = 70 − 20 = 50 °C","ΔE = m × c × Δθ = 2 × 4200 × 50 = <b>420 000 J<\/b>"],"hint":"Use the temperature change, not the final temperature."},{"id":"85446bc97f","t":"shc","lvl":1,"q":"A 0.5 kg block warms up by 20 °C when given 9000 J. Calculate its specific heat capacity.","ans":900,"alt":[],"unit":"J/kg °C","work":["c = ΔE ÷ (m × Δθ)","= 9000 ÷ (0.5 × 20) = <b>900 J/kg °C<\/b>"],"hint":"Rearrange: c = ΔE ÷ (m Δθ)."},{"id":"271a5c474e","t":"shc","lvl":1,"q":"21 000 J is given to 1 kg of water. Calculate the temperature rise. (c = 4200 J/kg °C)","ans":5,"alt":[],"unit":"°C","work":["Δθ = ΔE ÷ (m × c)","= 21 000 ÷ (1 × 4200) = <b>5 °C<\/b>"],"hint":"Rearrange: Δθ = ΔE ÷ (m c)."},{"id":"dfeb1d3501","t":"shc","lvl":1,"q":"84 000 J raises the temperature of some water by 10 °C. Calculate the mass of the water. (c = 4200 J/kg °C)","ans":2,"alt":[],"unit":"kg","work":["m = ΔE ÷ (c × Δθ)","= 84 000 ÷ (4200 × 10) = <b>2 kg<\/b>"],"hint":"Rearrange: m = ΔE ÷ (c Δθ)."},{"id":"03d99cfdcc","t":"shc","lvl":1,"q":"500 g of oil is heated from 15 °C to 35 °C. Calculate the energy needed. (c = 2000 J/kg °C)","ans":20000,"alt":[],"unit":"J","work":["m = 0.5 kg, Δθ = 20 °C","ΔE = 0.5 × 2000 × 20 = <b>20 000 J<\/b>"],"hint":"Two things to sort out first: mass in kg and the temperature change."},{"id":"d037e4c593","t":"shc","lvl":1,"q":"3000 J is transferred to a 0.2 kg copper block. Calculate its temperature rise. (c = 385 J/kg °C)","ans":38.96103896103896,"alt":[],"unit":"°C","work":["Δθ = 3000 ÷ (0.2 × 385)","= 3000 ÷ 77 = <b>39 °C<\/b>"],"hint":"Rearrange: Δθ = ΔE ÷ (m c)."},{"id":"f5a94a8caa","t":"shc","lvl":2,"q":"A 2 kW heater is on for 5 minutes. All of its energy heats 3 kg of water. Calculate the temperature rise. (c = 4200 J/kg °C)","ans":47.61904761904762,"alt":[],"unit":"°C","work":["E = P × t = 2000 × 300 = 600 000 J","Δθ = 600 000 ÷ (3 × 4200) = <b>47.6 °C<\/b>"],"hint":"Step 1: energy from the heater (E = P t, in watts and seconds). Step 2: use ΔE = m c Δθ."},{"id":"0923826872","t":"shc","lvl":2,"q":"A 50 W heater warms a 1 kg aluminium block for 10 minutes. The temperature rises by 30 °C. Calculate the specific heat capacity of the aluminium.","ans":1000,"alt":[],"unit":"J/kg °C","work":["E = 50 × 600 = 30 000 J","c = 30 000 ÷ (1 × 30) = <b>1000 J/kg °C<\/b>"],"hint":"Step 1: energy supplied. Step 2: rearrange ΔE = m c Δθ for c."},{"id":"63b2495ee8","t":"shc","lvl":2,"q":"A 2.0 kW kettle heats 1.5 kg of water from 20 °C to 100 °C. Assuming no energy is wasted, how long does it take? (c = 4200 J/kg °C)","ans":252,"alt":[],"unit":"s","work":["ΔE = 1.5 × 4200 × 80 = 504 000 J","t = E ÷ P = 504 000 ÷ 2000 = <b>252 s<\/b>"],"hint":"Step 1: energy needed. Step 2: t = E ÷ P."},{"id":"a9016e334b","t":"power","lvl":1,"q":"An appliance transfers 600 J in 10 s. Calculate its power.","ans":60,"alt":[],"unit":"W","work":["P = E ÷ t = 600 ÷ 10 = <b>60 W<\/b>"],"hint":"Energy divided by time."},{"id":"24eed1d190","t":"power","lvl":1,"q":"How much energy does a 20 W microwave light transfer in 30 s?","ans":600,"alt":[],"unit":"J","work":["E = P × t = 20 × 30 = <b>600 J<\/b>"],"hint":"Rearrange: E = P t."},{"id":"93fe08af98","t":"power","lvl":1,"q":"How long does it take a 15 W bulb to transfer 3000 J?","ans":200,"alt":[],"unit":"s","work":["t = E ÷ P = 3000 ÷ 15 = <b>200 s<\/b>"],"hint":"Rearrange: t = E ÷ P."},{"id":"b6348f7e50","t":"power","lvl":1,"q":"A 2 kW kettle is switched on for 3 minutes. Calculate the energy it transfers.","ans":360000,"alt":[],"unit":"J","work":["P = 2000 W, t = 180 s","E = 2000 × 180 = <b>360 000 J<\/b>"],"hint":"Change kW to W and minutes to seconds."},{"id":"d86eadef00","t":"power","lvl":1,"q":"A box is pushed 5 m with a force of 50 N. Calculate the work done.","ans":250,"alt":[],"unit":"J","work":["W = F × s = 50 × 5 = <b>250 J<\/b>"],"hint":"Work done = force × distance."},{"id":"4a38060fae","t":"power","lvl":1,"q":"500 J of work is done lifting a box 2 m. Calculate the force used.","ans":250,"alt":[],"unit":"N","work":["F = W ÷ s = 500 ÷ 2 = <b>250 N<\/b>"],"hint":"Rearrange: F = W ÷ s."},{"id":"a2c3a78605","t":"power","lvl":1,"q":"800 J of work is done pushing an object with a force of 4 N. How far was it pushed?","ans":200,"alt":[],"unit":"m","work":["s = W ÷ F = 800 ÷ 4 = <b>200 m<\/b>"],"hint":"Rearrange: s = W ÷ F."},{"id":"c8e2449cb2","t":"power","lvl":1,"q":"A motor does 3000 J of work in 15 s. Calculate its power.","ans":200,"alt":[],"unit":"W","work":["P = W ÷ t = 3000 ÷ 15 = <b>200 W<\/b>"],"hint":"Work done divided by time."},{"id":"86bb833fc9","t":"power","lvl":1,"q":"A heater transfers 1.2 MJ in 10 minutes. Calculate its power.","ans":2000,"alt":[],"unit":"W","work":["E = 1 200 000 J, t = 600 s","P = 1 200 000 ÷ 600 = <b>2000 W<\/b>"],"hint":"1 MJ = 1 000 000 J."},{"id":"cfb0e673e8","t":"power","lvl":2,"q":"A crane lifts a 500 kg load through 12 m in 30 s. Calculate the power of the crane. (g = 9.8 N/kg)","ans":1960,"alt":[],"unit":"W","work":["E<sub>p<\/sub> = 500 × 9.8 × 12 = 58 800 J","P = 58 800 ÷ 30 = <b>1960 W<\/b>"],"hint":"Step 1: GPE gained is the energy transferred. Step 2: P = E ÷ t."},{"id":"c9d292518c","t":"power","lvl":2,"q":"A 60 kg student runs up stairs 4 m high in 5 s. Calculate their power. (g = 9.8 N/kg)","ans":470.4,"alt":[],"unit":"W","work":["E<sub>p<\/sub> = 60 × 9.8 × 4 = 2352 J","P = 2352 ÷ 5 = <b>470 W<\/b>"],"hint":"Step 1: GPE gained. Step 2: divide by the time."},{"id":"b4ae061f57","t":"power","lvl":2,"q":"A 1200 kg car travelling at 20 m/s brakes to a stop in 8 s. Calculate the mean power of the brakes.","ans":30000,"alt":[],"unit":"W","work":["E<sub>k<\/sub> = 0.5 × 1200 × 20<sup>2<\/sup> = 240 000 J","P = 240 000 ÷ 8 = <b>30 000 W<\/b>"],"hint":"Step 1: all the kinetic energy is transferred by the brakes. Step 2: P = E ÷ t."},{"id":"c7e464571b","t":"efficiency","lvl":1,"q":"A kettle takes in 800 J. 450 J heats the water. How much energy is wasted?","ans":350,"alt":[],"unit":"J","work":["wasted = total input − useful output","= 800 − 450 = <b>350 J<\/b>"],"hint":"Take the useful energy away from the total."},{"id":"ef60735196","t":"efficiency","lvl":1,"q":"A toaster transfers 700 J usefully and wastes 600 J. Calculate the total energy input.","ans":1300,"alt":[],"unit":"J","work":["total input = useful + wasted = 700 + 600 = <b>1300 J<\/b>"],"hint":"Add them together."},{"id":"5b182b813e","t":"efficiency","lvl":1,"q":"A kettle takes in 800 J and transfers 450 J usefully. Calculate its efficiency (as a decimal or a percentage).","ans":0.5625,"alt":[56.25],"unit":"","work":["efficiency = useful ÷ total = 450 ÷ 800","= <b>0.5625<\/b> (56 %)"],"hint":"Useful divided by total."},{"id":"14888278f8","t":"efficiency","lvl":1,"q":"A toaster takes in 1300 J and transfers 700 J usefully. Calculate its efficiency (as a decimal or a percentage).","ans":0.5384615384615384,"alt":[53.84615384615385],"unit":"","work":["efficiency = 700 ÷ 1300 = <b>0.54<\/b> (54 %)"],"hint":"Useful divided by total."},{"id":"dcea0f2e7a","t":"efficiency","lvl":1,"q":"A 2000 W kettle has a useful power output of 1800 W. Calculate its efficiency (as a decimal or a percentage).","ans":0.9,"alt":[90],"unit":"","work":["efficiency = 1800 ÷ 2000 = <b>0.9<\/b> (90 %)"],"hint":"Useful power divided by total power."},{"id":"d020dd7b16","t":"efficiency","lvl":1,"q":"A motor is 60 % efficient. It is supplied with 500 J. How much energy is transferred usefully?","ans":300,"alt":[],"unit":"J","work":["useful = efficiency × total = 0.6 × 500 = <b>300 J<\/b>"],"hint":"Change 60 % to 0.6, then multiply."},{"id":"e22f8ea65d","t":"efficiency","lvl":1,"q":"A lamp has an efficiency of 0.25 and a useful power output of 150 W. Calculate its total power input.","ans":600,"alt":[],"unit":"W","work":["total input = useful ÷ efficiency","= 150 ÷ 0.25 = <b>600 W<\/b>"],"hint":"Rearrange: total = useful ÷ efficiency."},{"id":"e9e989775c","t":"efficiency","lvl":2,"q":"A 400 W motor runs for 2 minutes. It is 75 % efficient. Calculate the useful energy it transfers.","ans":36000,"alt":[],"unit":"J","work":["E = P × t = 400 × 120 = 48 000 J","useful = 0.75 × 48 000 = <b>36 000 J<\/b>"],"hint":"Step 1: total energy in (E = P t). Step 2: multiply by the efficiency."},{"id":"bc3cab7a9f","t":"efficiency","lvl":2,"q":"A kettle is 80 % efficient with an input power of 2500 W. How long does it take to transfer 400 000 J usefully to the water?","ans":200,"alt":[],"unit":"s","work":["useful power = 0.8 × 2500 = 2000 W","t = 400 000 ÷ 2000 = <b>200 s<\/b>"],"hint":"Step 1: useful power. Step 2: t = E ÷ P."},{"id":"5ea014a047","t":"efficiency","lvl":2,"q":"A car engine is supplied with 50 000 J and has an efficiency of 0.3. How much energy is wasted?","ans":35000,"alt":[],"unit":"J","work":["useful = 0.3 × 50 000 = 15 000 J","wasted = 50 000 − 15 000 = <b>35 000 J<\/b>"],"hint":"Step 1: useful energy. Step 2: take it away from the total."},{"id":"23fc879345","t":"efficiency","lvl":2,"q":"A motor with an input power of 250 W lifts a 5 kg mass through 2.0 m in 4.0 s. Calculate its efficiency (as a decimal or a percentage). (g = 9.8 N/kg)","ans":0.098,"alt":[9.8],"unit":"","work":["E<sub>p<\/sub> = 5 × 9.8 × 2.0 = 98 J","useful power = 98 ÷ 4.0 = 24.5 W","efficiency = 24.5 ÷ 250 = <b>0.098<\/b> (9.8 %)"],"hint":"Step 1: GPE gained. Step 2: useful power. Step 3: efficiency."}],"exam":[{"id":"0c99d76f8c","t":"stores","marks":4,"q":"A child on a swing is pulled back and let go. Describe the changes in energy stores as the swing moves from its highest point, down to its lowest point, and back up again.","points":["At the highest point the gravitational potential energy store is at its maximum","Moving down, the gravitational potential store decreases and the kinetic store increases","At the lowest point the kinetic store is at its maximum","Moving up, the kinetic store decreases and the gravitational potential store increases","Some energy is dissipated to the thermal store of the surroundings by air resistance, so each swing is a little lower"],"max":4,"levels":null,"ht":false,"note":null},{"id":"19eb95e49d","t":"stores","marks":6,"q":"A bungee jumper steps off a platform. The cord starts to stretch part of the way down. Describe the changes in energy stores from when the jumper leaves the platform until they reach the lowest point.","points":["As the jumper falls, the gravitational potential store decreases","The kinetic store increases as they speed up","When the cord starts to stretch, the elastic potential store of the cord increases","The jumper slows down, so the kinetic store decreases","At the lowest point the kinetic store is zero and the elastic potential store is at its maximum","Some energy is dissipated to the thermal store of the surroundings by air resistance","The total energy stays the same (conservation of energy)"],"max":6,"levels":[["Level 3","5–6","A clear, logical description that covers every stage, uses correct energy store names and says what happens at the end."],["Level 2","3–4","Describes most of the stages with some correct store names. Some steps may be missing or out of order."],["Level 1","1–2","Simple statements about one or two energy stores. The order is unclear."]],"ht":false,"note":"Six-mark questions are marked by level. Use the points as a guide to what a Level 3 answer includes."},{"id":"313e09b1db","t":"stores","marks":4,"q":"A battery-powered toy car speeds up along the floor. The motor is then switched off and the car slows down and stops. Describe the energy transfers.","points":["The chemical store of the battery decreases","Energy is transferred electrically to the motor","The kinetic store of the car increases","After the motor is switched off, friction and air resistance transfer energy from the kinetic store to the thermal store of the surroundings"],"max":4,"levels":null,"ht":false,"note":null},{"id":"1f367db0f9","t":"changes","marks":5,"q":"A student throws a 0.15 kg ball straight up at 8.0 m/s. (a) Calculate the kinetic energy of the ball as it leaves her hand. [2] (b) Calculate the maximum height the ball could reach. Ignore air resistance. g = 9.8 N/kg [3]","points":["(a) E<sub>k<\/sub> = 0.5 × 0.15 × 8.0<sup>2<\/sup>","(a) = 4.8 J","(b) GPE at the top = 4.8 J (all the kinetic energy is transferred)","(b) h = 4.8 ÷ (0.15 × 9.8)","(b) = 3.3 m (allow 3.27 m)"],"max":5,"levels":null,"ht":false,"note":"If the answer to (b) is correct, award all 3 marks for (b)."},{"id":"e81f876505","t":"shc","marks":3,"q":"The same heater is used to heat 1 kg of water and 1 kg of aluminium by 10 °C. Explain why it takes longer to heat the water.","points":["Water has a higher specific heat capacity than aluminium","So more energy is needed to raise the temperature of the water by 10 °C","The heater transfers energy at the same rate (same power), so it takes more time"],"max":3,"levels":null,"ht":false,"note":null},{"id":"47068dfab8","t":"shc","marks":5,"q":"A 2.0 kW kettle heats 1.5 kg of water from 20 °C to 100 °C. c = 4200 J/kg °C. (a) Calculate the energy needed. [2] (b) Calculate the time taken, assuming no energy is wasted. [3]","points":["(a) ΔE = 1.5 × 4200 × 80","(a) = 504 000 J","(b) P = 2000 W","(b) t = 504 000 ÷ 2000","(b) = 252 s"],"max":5,"levels":null,"ht":false,"note":null},{"id":"8445bddbaf","t":"power","marks":3,"q":"Two cranes lift identical loads to the same height. Crane A takes 20 s and crane B takes 40 s. Explain which crane has the greater power.","points":["Both cranes transfer the same energy (do the same work), because the load and height are the same","Crane A does it in less time","Power is the rate of energy transfer, so crane A has the greater power (twice as much)"],"max":3,"levels":null,"ht":false,"note":null},{"id":"60aebf40af","t":"power","marks":4,"q":"A 50 kg student climbs a 6.0 m high rope in 12 s. g = 9.8 N/kg. Calculate the student’s power.","points":["E<sub>p<\/sub> = 50 × 9.8 × 6.0","= 2940 J","P = 2940 ÷ 12","= 245 W"],"max":4,"levels":null,"ht":false,"note":"Correct final answer scores all 4 marks."},{"id":"f5969101eb","t":"transfers","marks":4,"q":"A house loses energy through its walls. Explain how the rate of energy loss through the walls could be reduced.","points":["Make the walls thicker","Use wall materials with a lower thermal conductivity","For example, fill the cavity with insulation (cavity wall insulation)","This reduces the rate of energy transfer by conduction to the surroundings"],"max":4,"levels":null,"ht":false,"note":null},{"id":"3460acd1d6","t":"transfers","marks":4,"q":"An electric fan is switched on. Describe the useful and wasted energy transfers, and suggest how the wasted energy could be reduced.","points":["Energy is transferred electrically to the motor","Useful: the kinetic store of the blades and the air increases","Wasted: the thermal store of the motor and surroundings increases, and energy is carried away by sound","Lubricate the motor to reduce friction"],"max":4,"levels":null,"ht":false,"note":null},{"id":"8bed9b458a","t":"transfers","marks":3,"q":"A ball is dropped onto a hard floor. Each bounce is lower than the one before. Explain why, using ideas about energy.","points":["Each time it hits the floor some energy is transferred to the thermal store of the ball and floor","Some energy is carried away as sound","So less energy is left in the kinetic and gravitational potential stores, and the ball cannot rise as high","The energy is not destroyed; it is dissipated to the surroundings"],"max":3,"levels":null,"ht":false,"note":null},{"id":"6c4ecbc274","t":"efficiency","marks":4,"q":"Describe ways to increase the efficiency of a car, and explain why no car can be 100 % efficient.","points":["Lubricate moving parts to reduce friction","Streamline the car to reduce air resistance","Some energy is always dissipated","for example to the thermal store of the surroundings, or as sound"],"max":4,"levels":null,"ht":true,"note":null},{"id":"b99dd2b5b9","t":"efficiency","marks":4,"q":"A motor has an input power of 250 W. It lifts a 5.0 kg mass through 2.0 m in 4.0 s. g = 9.8 N/kg. Calculate the efficiency of the motor.","points":["E<sub>p<\/sub> = 5.0 × 9.8 × 2.0 = 98 J","useful power = 98 ÷ 4.0 = 24.5 W","efficiency = 24.5 ÷ 250","= 0.098 (or 9.8 %)"],"max":4,"levels":null,"ht":false,"note":"Correct final answer scores all 4 marks."}],"mistakes":[["Not squaring the speed: 0.5 × 2 × 3 = 3 J","Square the speed first: 0.5 × 2 × 3² = 9 J"],["Squaring everything: (0.5 × 2 × 3)²","Only the speed (or extension) is squared"],["Using grams in the equation: 500 × 9.8 × 2","Change grams to kilograms first: 500 g = 0.5 kg"],["Using centimetres for height or extension","Change to metres: 10 cm = 0.1 m"],["Using minutes in P = E ÷ t","Change to seconds: 3 minutes = 180 s"],["Using kW in the equation: 2 × 180","Change to watts: 2 kW = 2000 W"],["Using the final temperature for Δθ","Δθ is the change: final temperature − starting temperature"],["An efficiency of 1.8","Efficiency is always less than 1, so you divided the wrong way round. Use useful ÷ total"],["Giving efficiency a unit, like 0.6 J","Efficiency has no unit. Write 0.6 or 60 %"],["Forgetting the square root when finding speed or extension","Work out v² (or e²) first, then press √"],["Rounding in the middle of a two-step question","Keep the full calculator number until the final answer"],["Leaving out the unit in the final answer","Always finish with a unit: J, W, m/s, °C"],["Writing “energy is lost” or “energy is used up”","Say energy is transferred or dissipated, and say where it goes"],["Writing “heat energy” or “movement energy”","Use store names: thermal store, kinetic store"],["Using g = 10 N/kg when the question says 9.8 N/kg","Always use the value given in the question"],["Mixing up power and energy","Energy is in joules (J). Power is joules per second, in watts (W)"]],"commands":[["State / Give / Name","A short answer. No explanation needed.","State the law of conservation of energy."],["Write down","Write the equation or value. No working needed.","Write down the equation that links power, energy and time."],["Describe","Say what happens, step by step. You don’t need to give reasons.","Describe the energy changes when a ball is thrown up."],["Explain","Say what happens <b>and why<\/b>. Use “because” and “so”.","Explain why a thicker wall keeps a house warmer."],["Calculate","Work out a number. Show your working and give a unit.","Calculate the kinetic energy of the car."],["Compare","Say how two things are similar or different. Mention both things.","Compare the power of the two motors."],["Suggest","Use what you know in a new situation. There may be more than one right answer.","Suggest how the toaster could waste less energy."],["Determine","Use the data you are given (a table or graph) to get the answer.","Determine the temperature rise from the graph."],["Show that","You are given the answer. Show every step that gets you there.","Show that the energy transferred is about 500 J."],["Evaluate","Use the information to give points for and against, then give a conclusion.","Evaluate the two types of insulation."]],"equations":[{"id":"ek","t":"changes","name":"Kinetic energy","status":"Learn by heart","sym":"E<sub>k<\/sub> = ½ <span class=\"v\">m<\/span> <span class=\"v\">v<\/span><sup>2<\/sup>","plain":"E<sub>k<\/sub> = ½ m v<sup>2<\/sup>","words":"kinetic energy = 0.5 × mass × (speed)²","units":[["E<sub>k<\/sub>","kinetic energy","J"],["<span class=\"v\">m<\/span>","mass","kg"],["<span class=\"v\">v<\/span>","speed","m/s"]],"tip":"Say it out loud: “half m v squared”. Only the v is squared, so square the speed before you multiply.","wrong":["E<sub>k<\/sub> = m v<sup>2<\/sup>","E<sub>k<\/sub> = ½ m v","E<sub>k<\/sub> = ½ m<sup>2<\/sup> v"],"gap":{"show":"E<sub>k<\/sub> = ½ m ▢","answer":"v<sup>2<\/sup>","options":["v<sup>2<\/sup>","v","2v","m<sup>2<\/sup>"]},"rearr":[{"find":"speed, v","right":"v = √(2E<sub>k<\/sub> ÷ m)","wrong":["v = 2E<sub>k<\/sub> ÷ m","v = √(E<sub>k<\/sub> ÷ 2m)","v = E<sub>k<\/sub> ÷ ½m"]},{"find":"mass, m","right":"m = 2E<sub>k<\/sub> ÷ v<sup>2<\/sup>","wrong":["m = E<sub>k<\/sub> ÷ 2v<sup>2<\/sup>","m = 2E<sub>k<\/sub> × v<sup>2<\/sup>","m = 2v<sup>2<\/sup> ÷ E<sub>k<\/sub>"]}]},{"id":"ep","t":"changes","name":"Gravitational potential energy","status":"Learn by heart","sym":"E<sub>p<\/sub> = <span class=\"v\">m<\/span> <span class=\"v\">g<\/span> <span class=\"v\">h<\/span>","plain":"E<sub>p<\/sub> = m g h","words":"gravitational potential energy = mass × gravitational field strength × height","units":[["E<sub>p<\/sub>","gravitational potential energy","J"],["<span class=\"v\">m<\/span>","mass","kg"],["<span class=\"v\">g<\/span>","gravitational field strength","N/kg"],["<span class=\"v\">h<\/span>","height","m"]],"tip":"m g h: think “My Great Height”. On Earth g is 9.8 N/kg.","wrong":["E<sub>p<\/sub> = m g ÷ h","E<sub>p<\/sub> = ½ m g h","E<sub>p<\/sub> = m h ÷ g"],"gap":{"show":"E<sub>p<\/sub> = m ▢ h","answer":"g","options":["g","v","k","c"]},"rearr":[{"find":"height, h","right":"h = E<sub>p<\/sub> ÷ (m g)","wrong":["h = E<sub>p<\/sub> × m g","h = m g ÷ E<sub>p<\/sub>","h = E<sub>p<\/sub> − m g"]},{"find":"mass, m","right":"m = E<sub>p<\/sub> ÷ (g h)","wrong":["m = g h ÷ E<sub>p<\/sub>","m = E<sub>p<\/sub> × g h","m = E<sub>p<\/sub> − g h"]}]},{"id":"ee","t":"changes","name":"Elastic potential energy","status":"Given on the GCSE sheet, but learn it","sym":"E<sub>e<\/sub> = ½ <span class=\"v\">k<\/span> <span class=\"v\">e<\/span><sup>2<\/sup>","plain":"E<sub>e<\/sub> = ½ k e<sup>2<\/sup>","words":"elastic potential energy = 0.5 × spring constant × (extension)²","units":[["E<sub>e<\/sub>","elastic potential energy","J"],["<span class=\"v\">k<\/span>","spring constant","N/m"],["<span class=\"v\">e<\/span>","extension","m"]],"tip":"Same pattern as kinetic energy: a half, then a constant, then something squared. “Half k e squared.”","wrong":["E<sub>e<\/sub> = k e","E<sub>e<\/sub> = ½ k<sup>2<\/sup> e","E<sub>e<\/sub> = ½ k e"],"gap":{"show":"E<sub>e<\/sub> = ½ ▢ e<sup>2<\/sup>","answer":"k","options":["k","m","g","F"]},"rearr":[{"find":"spring constant, k","right":"k = 2E<sub>e<\/sub> ÷ e<sup>2<\/sup>","wrong":["k = E<sub>e<\/sub> ÷ 2e<sup>2<\/sup>","k = 2E<sub>e<\/sub> × e<sup>2<\/sup>","k = e<sup>2<\/sup> ÷ 2E<sub>e<\/sub>"]},{"find":"extension, e","right":"e = √(2E<sub>e<\/sub> ÷ k)","wrong":["e = 2E<sub>e<\/sub> ÷ k","e = √(E<sub>e<\/sub> ÷ 2k)","e = √(k ÷ 2E<sub>e<\/sub>)"]}]},{"id":"shc","t":"shc","name":"Change in thermal energy","status":"Given on the GCSE sheet, but learn it","sym":"Δ<span class=\"v\">E<\/span> = <span class=\"v\">m<\/span> <span class=\"v\">c<\/span> Δ<span class=\"v\">θ<\/span>","plain":"ΔE = m c Δθ","words":"change in thermal energy = mass × specific heat capacity × temperature change","units":[["Δ<span class=\"v\">E<\/span>","change in thermal energy","J"],["<span class=\"v\">m<\/span>","mass","kg"],["<span class=\"v\">c<\/span>","specific heat capacity","J/kg °C"],["Δ<span class=\"v\">θ<\/span>","temperature change","°C"]],"tip":"Say “em-see-delta-theta”. Δ means “change in”, so Δθ is the temperature change, never just the final temperature.","wrong":["ΔE = m c ÷ Δθ","ΔE = m Δθ ÷ c","ΔE = ½ m c Δθ"],"gap":{"show":"ΔE = m ▢ Δθ","answer":"c","options":["c","g","k","v"]},"rearr":[{"find":"specific heat capacity, c","right":"c = ΔE ÷ (m Δθ)","wrong":["c = m Δθ ÷ ΔE","c = ΔE × m Δθ","c = ΔE − m Δθ"]},{"find":"temperature change, Δθ","right":"Δθ = ΔE ÷ (m c)","wrong":["Δθ = m c ÷ ΔE","Δθ = ΔE × m c","Δθ = ΔE − m c"]}]},{"id":"pe","t":"power","name":"Power (from energy)","status":"Learn by heart","sym":"<span class=\"v\">P<\/span> = <span class=\"fr\"><span><span class=\"v\">E<\/span><\/span><span><span class=\"v\">t<\/span><\/span><\/span>","plain":"P = E ÷ t","words":"power = energy transferred ÷ time","units":[["<span class=\"v\">P<\/span>","power","W"],["<span class=\"v\">E<\/span>","energy transferred","J"],["<span class=\"v\">t<\/span>","time","s"]],"tip":"Power is energy per second. Formula triangle: E on top, P and t underneath.","wrong":["P = E × t","P = t ÷ E","P = E − t"],"gap":{"show":"P = ▢ ÷ t","answer":"E","options":["E","F","m","v"]},"rearr":[{"find":"energy, E","right":"E = P × t","wrong":["E = P ÷ t","E = t ÷ P","E = P + t"]},{"find":"time, t","right":"t = E ÷ P","wrong":["t = P ÷ E","t = E × P","t = P − E"]}]},{"id":"pw","t":"power","name":"Power (from work done)","status":"Learn by heart","sym":"<span class=\"v\">P<\/span> = <span class=\"fr\"><span><span class=\"v\">W<\/span><\/span><span><span class=\"v\">t<\/span><\/span><\/span>","plain":"P = W ÷ t","words":"power = work done ÷ time","units":[["<span class=\"v\">P<\/span>","power","W"],["<span class=\"v\">W<\/span>","work done","J"],["<span class=\"v\">t<\/span>","time","s"]],"tip":"Work done is energy transferred, so this is the same as P = E ÷ t with W in place of E.","wrong":["P = W × t","P = t ÷ W","P = F × t"],"gap":{"show":"P = W ÷ ▢","answer":"t","options":["t","s","F","m"]},"rearr":[{"find":"work done, W","right":"W = P × t","wrong":["W = P ÷ t","W = t ÷ P","W = F ÷ t"]}]},{"id":"wf","t":"power","name":"Work done","status":"Learn by heart","sym":"<span class=\"v\">W<\/span> = <span class=\"v\">F<\/span> <span class=\"v\">s<\/span>","plain":"W = F s","words":"work done = force × distance (along the line of the force)","units":[["<span class=\"v\">W<\/span>","work done","J"],["<span class=\"v\">F<\/span>","force","N"],["<span class=\"v\">s<\/span>","distance","m"]],"tip":"Push harder or push further and you do more work. Triangle: W on top, F and s underneath.","wrong":["W = F ÷ s","W = m s","W = ½ F s"],"gap":{"show":"W = F ▢","answer":"s","options":["s","t","m","v"]},"rearr":[{"find":"force, F","right":"F = W ÷ s","wrong":["F = W × s","F = s ÷ W","F = W − s"]},{"find":"distance, s","right":"s = W ÷ F","wrong":["s = F ÷ W","s = W × F","s = W + F"]}]},{"id":"eff","t":"efficiency","name":"Efficiency (energy)","status":"Learn by heart","sym":"efficiency = <span class=\"fr\"><span>useful output energy transfer<\/span><span>total input energy transfer<\/span><\/span>","plain":"efficiency = useful output energy ÷ total input energy","words":"","units":[["","efficiency","no unit (× 100 for %)"]],"tip":"Useful over total. The answer is always less than 1. If yours isn’t, you divided the wrong way round.","wrong":["efficiency = total input energy ÷ useful output energy","efficiency = useful output energy ÷ wasted energy","efficiency = wasted energy ÷ total input energy"],"gap":{"show":"efficiency = useful output energy ÷ ▢","answer":"total input energy","options":["total input energy","wasted energy","useful output energy","time"]},"rearr":[{"find":"useful output","right":"useful = efficiency × total input","wrong":["useful = total input ÷ efficiency","useful = efficiency ÷ total input","useful = total input − efficiency"]},{"find":"total input","right":"total input = useful ÷ efficiency","wrong":["total input = useful × efficiency","total input = efficiency ÷ useful","total input = useful − efficiency"]}]},{"id":"effp","t":"efficiency","name":"Efficiency (power)","status":"Learn by heart","sym":"efficiency = <span class=\"fr\"><span>useful power output<\/span><span>total power input<\/span><\/span>","plain":"efficiency = useful power output ÷ total power input","words":"","units":[["","efficiency","no unit (× 100 for %)"]],"tip":"Exactly the same idea as the energy version, just with power in watts instead of energy in joules.","wrong":["efficiency = total power input ÷ useful power output","efficiency = useful power output × total power input","efficiency = wasted power ÷ useful power output"],"gap":{"show":"efficiency = ▢ ÷ total power input","answer":"useful power output","options":["useful power output","wasted power","total power input","energy"]},"rearr":[{"find":"total power input","right":"total power input = useful power output ÷ efficiency","wrong":["total power input = useful power output × efficiency","total power input = efficiency ÷ useful power output","total power input = useful power output − efficiency"]}]}],"unitPool":["J","W","kg","m/s","N/kg","m","N/m","J/kg °C","°C","s","N"],"memory":[["Say it with the units","Read each equation out loud in words, then say the unit for every letter. “Power equals energy over time. Watts, joules, seconds.”"],["Blank page","Close everything and write every equation you know on a blank page. Check, then fix the gaps in a different colour. Do it again tomorrow."],["Spot the patterns","Kinetic and elastic potential energy have the same shape: a half, a constant, something squared. Both power equations are “something ÷ time”."],["Formula triangles","For equations with three letters and no squares (P = E ÷ t, W = F s), put the multiplied letters on the bottom. Cover the one you want."],["Little and often","Five minutes a day beats an hour the night before. The drill below brings back the equations you get wrong more often."]],"lessons":[{"id":"l1","n":1,"t":"stores","title":"Energy stores and systems","summary":"What a system is, the 8 energy stores, the 4 ways energy moves, and how to describe energy changes.","minutes":60,"sections":[{"kind":"Do now","title":"Quick recall","minutes":5,"blocks":[{"type":"text","html":"<p>Answer these on paper before you look.<\/p>"},{"type":"reveal","items":[{"band":null,"q":"What is the unit of energy?","a":"The joule (J)."},{"band":null,"q":"Name one thing that stores chemical energy.","a":"Food, fuel or a battery."},{"band":null,"q":"What is the unit of force?","a":"The newton (N)."},{"band":null,"q":"Is energy “used up” when you run?","a":"No. It is transferred to other stores, mostly the thermal store of your body and the surroundings."}]}]},{"kind":"Learn","title":"Systems and energy stores","minutes":12,"blocks":[{"type":"objectives","items":["Say what a system is","Name all 8 energy stores","Name the 4 ways energy is transferred","Describe how energy stores change in everyday situations"]},{"type":"text","html":"<p>In physics a <b>system<\/b> is simply the object, or group of objects, you are looking at. It could be a ball, a car, or a kettle and the water inside it.<\/p><p>When something happens to a system, energy moves from one <b>store<\/b> to another. The <b>total<\/b> amount of energy stays the same.<\/p>"},{"type":"text","html":"<div class=\"tablewrap\"><table><thead><tr><th>Store<\/th><th>The object has energy because…<\/th><th>Example<\/th><\/tr><\/thead><tbody><tr><td>Kinetic<\/td><td>it is moving<\/td><td>a rolling ball<\/td><\/tr><tr><td>Gravitational potential<\/td><td>it is raised above the ground<\/td><td>a book on a shelf<\/td><\/tr><tr><td>Elastic potential<\/td><td>it is stretched, squashed or bent<\/td><td>a stretched spring<\/td><\/tr><tr><td>Thermal<\/td><td>of its temperature<\/td><td>a cup of tea<\/td><\/tr><tr><td>Chemical<\/td><td>of the chemicals it contains<\/td><td>food, fuel, a battery<\/td><\/tr><tr><td>Magnetic<\/td><td>of magnets attracting or repelling<\/td><td>two fridge magnets<\/td><\/tr><tr><td>Electrostatic<\/td><td>of charges attracting or repelling<\/td><td>a charged balloon<\/td><\/tr><tr><td>Nuclear<\/td><td>of the particles in the nucleus of its atoms<\/td><td>uranium in a power station<\/td><\/tr><\/tbody><\/table><\/div>"},{"type":"book","html":"<p>A <b>system<\/b> is an object or group of objects.<\/p><p>The 8 energy stores: kinetic, gravitational potential, elastic potential, thermal, chemical, magnetic, electrostatic, nuclear.<\/p>"},{"type":"tip","html":"<p><b>How to remember all 8:<\/b> split them into 4 you can see and 4 that are hidden.<\/p><p>You can see when something is <b>moving<\/b> (kinetic), <b>high up<\/b> (gravitational potential), <b>stretched<\/b> (elastic potential) or <b>hot<\/b> (thermal).<\/p><p>Hidden inside are <b>chemical<\/b>, <b>nuclear<\/b>, <b>magnetic<\/b> and <b>electrostatic<\/b>.<\/p>"}]},{"kind":"Learn","title":"How energy is transferred","minutes":8,"blocks":[{"type":"text","html":"<p>Energy moves between stores in four ways:<\/p>"},{"type":"text","html":"<div class=\"tablewrap\"><table><thead><tr><th>Way<\/th><th>What happens<\/th><th>Example<\/th><\/tr><\/thead><tbody><tr><td>Mechanically<\/td><td>a force does work<\/td><td>pushing a trolley<\/td><\/tr><tr><td>Electrically<\/td><td>a current flows<\/td><td>a kettle plugged in<\/td><\/tr><tr><td>By heating<\/td><td>energy moves from a hotter object to a cooler one<\/td><td>a pan on a hob<\/td><\/tr><tr><td>By radiation<\/td><td>light or sound waves carry energy<\/td><td>the Sun warming the Earth<\/td><\/tr><\/tbody><\/table><\/div>"},{"type":"book","html":"<p>Energy is transferred <b>mechanically<\/b>, <b>electrically<\/b>, <b>by heating<\/b> and <b>by radiation<\/b>. The total energy of a system never changes.<\/p>"}]},{"kind":"Worked example","title":"Describing energy changes","minutes":10,"blocks":[{"type":"text","html":"<p>Use this sentence frame in every answer. Examiners look for the <b>name of the store<\/b> and <b>whose<\/b> store it is.<\/p>"},{"type":"book","html":"<p>The ______ store of ______ decreases. Energy is transferred ______. The ______ store of ______ increases.<\/p>"},{"type":"steps","title":"A ball is thrown straight up","steps":["Before it leaves your hand, the ball is moving fast: it has a large <b>kinetic<\/b> store.","As it rises it slows down, so its <b>kinetic store decreases<\/b>.","It gets higher, so its <b>gravitational potential store increases<\/b>.","Answer: the kinetic store of the ball decreases and the gravitational potential store of the ball increases."]},{"type":"bars","title":"Energy in each store as the ball rises (total stays the same)","stores":["Kinetic","Gravitational potential"],"stages":[{"label":"Leaving the hand","values":[100,0]},{"label":"Halfway up","values":[50,50]},{"label":"At the top","values":[0,100]}]},{"type":"steps","title":"A car brakes and stops","steps":["The moving car has a <b>kinetic<\/b> store.","The brakes rub on the wheels. Friction does work, which is a mechanical transfer.","The brakes get hot.","Answer: the kinetic store of the car decreases, energy is transferred mechanically (by friction), and the thermal store of the brakes increases."]},{"type":"steps","title":"An electric kettle boils water","steps":["Energy is transferred <b>electrically<\/b> from the mains to the heating element.","The hot element transfers energy to the water <b>by heating<\/b>.","Answer: energy is transferred electrically and by heating, and the thermal store of the water increases."]}]},{"kind":"Practice","title":"Your turn","minutes":15,"blocks":[{"type":"text","html":"<p>Write full sentences using the sentence frame. Then check.<\/p>"},{"type":"reveal","items":[{"band":"Mild","q":"Which store increases when you stretch a spring?","a":"Elastic potential."},{"band":"Mild","q":"Which store increases when you lift a bag onto a table?","a":"The gravitational potential store of the bag."},{"band":"Mild","q":"Which store increases when soup is heated?","a":"The thermal store of the soup."},{"band":"Medium","q":"A catapult fires a stone. Describe the energy change.","a":"The elastic potential store of the catapult decreases and the kinetic store of the stone increases."},{"band":"Medium","q":"A torch is switched on. Describe the energy transfers.","a":"The chemical store of the battery decreases. Energy is transferred electrically to the bulb, then by light (radiation) and by heating. The thermal store of the surroundings increases."},{"band":"Medium","q":"Wood burns on a fire. Describe the energy change.","a":"The chemical store of the wood decreases and the thermal store of the surroundings increases. Energy is also transferred by light."},{"band":"Spicy","q":"A skier slides down a slope and stops at the bottom. Describe all the energy changes.","a":"The gravitational potential store of the skier decreases and their kinetic store increases. At the bottom, friction and air resistance transfer energy from the kinetic store to the thermal store of the skis, snow and surroundings, until the kinetic store is zero."},{"band":"Spicy","q":"A falling ball hits the ground and stops. Is energy destroyed? Explain.","a":"No. Energy cannot be destroyed. The kinetic store of the ball decreases and the energy is transferred to the thermal store of the ball and ground, and away as sound."}]}]},{"kind":"Exam question","title":"Try it under exam conditions","minutes":7,"blocks":[{"type":"text","html":"<p>Give yourself 5 minutes. Write your answer, then mark it with the mark scheme.<\/p>"},{"type":"exam","id":"313e09b1db"}]},{"kind":"Exit ticket","title":"Check what you learned","minutes":3,"blocks":[{"type":"reveal","items":[{"band":null,"q":"What is a system?","a":"An object or group of objects."},{"band":null,"q":"Name the 4 ways energy can be transferred.","a":"Mechanically, electrically, by heating, by radiation."},{"band":null,"q":"An object is dropped. Which store decreases and which increases?","a":"Gravitational potential decreases, kinetic increases."}]},{"type":"finish"}]}]},{"id":"l2","n":2,"t":"changes","title":"Changes in energy","summary":"Calculating kinetic, gravitational potential and elastic potential energy, and rearranging the equations.","minutes":60,"sections":[{"kind":"Do now","title":"Quick recall","minutes":5,"blocks":[{"type":"reveal","items":[{"band":null,"q":"Which store does a moving object have?","a":"Kinetic."},{"band":null,"q":"Write 500 g in kilograms.","a":"0.5 kg"},{"band":null,"q":"Write 30 cm in metres.","a":"0.3 m"},{"band":null,"q":"What is 4²?","a":"16"}]}]},{"kind":"Learn","title":"Kinetic energy","minutes":8,"blocks":[{"type":"objectives","items":["Calculate kinetic energy, gravitational potential energy and elastic potential energy","Rearrange each equation to find a different quantity","Convert units before using an equation"]},{"type":"text","html":"<p>The energy in an object’s kinetic store depends on its <b>mass<\/b> and its <b>speed<\/b>.<\/p><p>Speed matters much more, because it is <b>squared<\/b>. If the speed doubles, the kinetic energy becomes <b>4 times<\/b> bigger.<\/p>"},{"type":"book","html":"<div class=\"eqn\"><span class=\"mk\">E<sub>k<\/sub> = ½ <span class=\"v\">m<\/span> <span class=\"v\">v<\/span><sup>2<\/sup><\/span><\/div><div class=\"tablewrap\"><table><thead><tr><th>Symbol<\/th><th>Quantity<\/th><th>Unit<\/th><\/tr><\/thead><tbody><tr><td>E<sub>k<\/sub><\/td><td>kinetic energy<\/td><td>joules, J<\/td><\/tr><tr><td><span class=\"v\">m<\/span><\/td><td>mass<\/td><td>kilograms, kg<\/td><\/tr><tr><td><span class=\"v\">v<\/span><\/td><td>speed<\/td><td>metres per second, m/s<\/td><\/tr><\/tbody><\/table><\/div>"},{"type":"tip","html":"<p>Say it out loud: <b>“half m v squared”<\/b>. Only the v is squared, so work out v² first.<\/p>"}]},{"kind":"Worked example","title":"Kinetic energy","minutes":5,"blocks":[{"type":"steps","title":"A 9 kg fox runs at 3 m/s. Calculate its kinetic energy.","steps":["Write the equation: E<sub>k<\/sub> = ½ m v²","Check units: 9 kg and 3 m/s are already in the right units.","Square the speed: 3² = 9","Substitute: E<sub>k<\/sub> = 0.5 × 9 × 9","Answer: <b>40.5 J<\/b>"]}]},{"kind":"Learn","title":"Gravitational potential energy","minutes":6,"blocks":[{"type":"text","html":"<p>Lifting an object increases its gravitational potential store. The energy depends on its <b>mass<\/b>, the <b>height<\/b> it is lifted and the <b>gravitational field strength<\/b>, g.<\/p><p>On Earth, g = <b>9.8 N/kg<\/b>. Use whatever value the question gives you.<\/p>"},{"type":"book","html":"<div class=\"eqn\"><span class=\"mk\">E<sub>p<\/sub> = <span class=\"v\">m<\/span> <span class=\"v\">g<\/span> <span class=\"v\">h<\/span><\/span><\/div><div class=\"tablewrap\"><table><thead><tr><th>Symbol<\/th><th>Quantity<\/th><th>Unit<\/th><\/tr><\/thead><tbody><tr><td>E<sub>p<\/sub><\/td><td>gravitational potential energy<\/td><td>J<\/td><\/tr><tr><td><span class=\"v\">m<\/span><\/td><td>mass<\/td><td>kg<\/td><\/tr><tr><td><span class=\"v\">g<\/span><\/td><td>gravitational field strength<\/td><td>N/kg<\/td><\/tr><tr><td><span class=\"v\">h<\/span><\/td><td>height<\/td><td>m<\/td><\/tr><\/tbody><\/table><\/div>"},{"type":"steps","title":"A 10 kg box is lifted 3 m. Calculate the gravitational potential energy gained. (g = 9.8 N/kg)","steps":["E<sub>p<\/sub> = m g h","E<sub>p<\/sub> = 10 × 9.8 × 3","Answer: <b>294 J<\/b>"]}]},{"kind":"Learn","title":"Elastic potential energy","minutes":6,"blocks":[{"type":"text","html":"<p>Stretching or squashing a spring stores energy in its elastic potential store. It depends on the <b>spring constant<\/b>, k (how stiff the spring is), and the <b>extension<\/b>, e.<\/p><p>This equation only works if the spring has <b>not gone past its limit of proportionality<\/b>.<\/p>"},{"type":"book","html":"<div class=\"eqn\"><span class=\"mk\">E<sub>e<\/sub> = ½ <span class=\"v\">k<\/span> <span class=\"v\">e<\/span><sup>2<\/sup><\/span><\/div><div class=\"tablewrap\"><table><thead><tr><th>Symbol<\/th><th>Quantity<\/th><th>Unit<\/th><\/tr><\/thead><tbody><tr><td>E<sub>e<\/sub><\/td><td>elastic potential energy<\/td><td>J<\/td><\/tr><tr><td><span class=\"v\">k<\/span><\/td><td>spring constant<\/td><td>N/m<\/td><\/tr><tr><td><span class=\"v\">e<\/span><\/td><td>extension<\/td><td>m<\/td><\/tr><\/tbody><\/table><\/div>"},{"type":"steps","title":"A spring (k = 40 N/m) is stretched by 10 cm. Calculate the energy stored.","steps":["Convert first: 10 cm = <b>0.10 m<\/b>","Square the extension: 0.10² = 0.01","E<sub>e<\/sub> = 0.5 × 40 × 0.01","Answer: <b>0.2 J<\/b>"]}]},{"kind":"Learn","title":"Rearranging the equations","minutes":8,"blocks":[{"type":"text","html":"<p>Formula triangles don’t work when something is squared, so rearrange step by step. Do the <b>opposite operation<\/b> to both sides.<\/p><p>Square and square root undo each other. Multiply and divide undo each other.<\/p>"},{"type":"steps","title":"A 2 kg toy car has 98 J of kinetic energy. Find its speed.","steps":["Start: 98 = 0.5 × 2 × v²","0.5 × 2 = 1, so 98 = v²","Square root both sides: v = √98","Answer: <b>9.9 m/s<\/b>"]},{"type":"steps","title":"A 60 kg object has 1000 J of gravitational potential energy. How high is it? (g = 9.8 N/kg)","steps":["Start: 1000 = 60 × 9.8 × h","60 × 9.8 = 588, so 1000 = 588 × h","Divide both sides by 588: h = 1000 ÷ 588","Answer: <b>1.7 m<\/b>"]},{"type":"book","html":"<div class=\"tablewrap\"><table><thead><tr><th>To find<\/th><th>Use<\/th><\/tr><\/thead><tbody><tr><td>speed<\/td><td><span class=\"v\">v<\/span> = √(2E<sub>k<\/sub> ÷ <span class=\"v\">m<\/span>)<\/td><\/tr><tr><td>mass (from E<sub>k<\/sub>)<\/td><td><span class=\"v\">m<\/span> = 2E<sub>k<\/sub> ÷ <span class=\"v\">v<\/span>²<\/td><\/tr><tr><td>height<\/td><td><span class=\"v\">h<\/span> = E<sub>p<\/sub> ÷ (<span class=\"v\">m<\/span> <span class=\"v\">g<\/span>)<\/td><\/tr><tr><td>spring constant<\/td><td><span class=\"v\">k<\/span> = 2E<sub>e<\/sub> ÷ <span class=\"v\">e<\/span>²<\/td><\/tr><tr><td>extension<\/td><td><span class=\"v\">e<\/span> = √(2E<sub>e<\/sub> ÷ <span class=\"v\">k<\/span>)<\/td><\/tr><\/tbody><\/table><\/div>"}]},{"kind":"Remember it","title":"Lock in the equations","minutes":3,"blocks":[{"type":"memory","eqs":["ek","ep","ee"]}]},{"kind":"Practice","title":"Your turn","minutes":12,"blocks":[{"type":"text","html":"<p>Type your answer, then press Check. Use a calculator and write your working on paper.<\/p>"},{"type":"calc","items":[{"band":"Mild","id":"69d20b1fc5"},{"band":"Mild","id":"30d88cb68d"},{"band":"Medium","id":"b90932f40b"},{"band":"Medium","id":"71a916ea38"},{"band":"Spicy","id":"c3db906f8e"},{"band":"Spicy","id":"a5e165fce5"}]}]},{"kind":"Exam question","title":"Two-step calculation","minutes":5,"blocks":[{"type":"exam","id":"1f367db0f9"}]},{"kind":"Exit ticket","title":"Check what you learned","minutes":2,"blocks":[{"type":"reveal","items":[{"band":null,"q":"Write the equation for kinetic energy.","a":"E<sub>k<\/sub> = ½ m v²"},{"band":null,"q":"What must you do to a mass given in grams?","a":"Divide by 1000 to get kilograms."},{"band":null,"q":"A spring’s extension doubles. What happens to the energy stored?","a":"It becomes 4 times bigger (extension is squared)."}]},{"type":"finish"}]}]},{"id":"l3","n":3,"t":"shc","title":"Energy changes in systems: specific heat capacity","summary":"What decides how much something warms up, what specific heat capacity means, and using ΔE = m c Δθ.","minutes":60,"sections":[{"kind":"Do now","title":"Quick recall","minutes":5,"blocks":[{"type":"reveal","items":[{"band":null,"q":"Calculate the kinetic energy of a 2 kg ball moving at 3 m/s.","a":"0.5 × 2 × 3² = 9 J"},{"band":null,"q":"Which store increases when water is heated?","a":"The thermal store of the water."},{"band":null,"q":"What is the unit of temperature we use in physics at GCSE?","a":"Degrees Celsius, °C."},{"band":null,"q":"What does the symbol Δ mean?","a":"“Change in”."}]}]},{"kind":"Learn","title":"What decides the temperature rise?","minutes":8,"blocks":[{"type":"objectives","items":["Explain what specific heat capacity means","Calculate energy, mass, specific heat capacity or temperature change using ΔE = m c Δθ","Explain why different materials heat up by different amounts"]},{"type":"text","html":"<p>Think about boiling a kettle. A <b>full<\/b> kettle takes longer than a half-full one. More mass needs more energy.<\/p><p>Now think about a metal spoon and some water given the <b>same<\/b> energy. The spoon gets much hotter. Different materials need different amounts of energy.<\/p>"},{"type":"book","html":"<p>The temperature rise of a system depends on:<\/p><ul><li>the <b>energy<\/b> put in<\/li><li>the <b>mass<\/b> of the substance<\/li><li><b>what the substance is<\/b> (its specific heat capacity)<\/li><\/ul>"}]},{"kind":"Learn","title":"Specific heat capacity","minutes":10,"blocks":[{"type":"book","html":"<p><b>Specific heat capacity<\/b> is the amount of energy needed to raise the temperature of <b>1 kg<\/b> of a substance by <b>1 °C<\/b>.<\/p><p>Unit: <b>J/kg °C<\/b><\/p>"},{"type":"text","html":"<div class=\"tablewrap\"><table><thead><tr><th>Substance<\/th><th>Specific heat capacity (approx.)<\/th><\/tr><\/thead><tbody><tr><td>Water<\/td><td>4200 J/kg °C<\/td><\/tr><tr><td>Cooking oil<\/td><td>2000 J/kg °C<\/td><\/tr><tr><td>Aluminium<\/td><td>900 J/kg °C<\/td><\/tr><tr><td>Iron<\/td><td>450 J/kg °C<\/td><\/tr><tr><td>Copper<\/td><td>385 J/kg °C<\/td><\/tr><\/tbody><\/table><\/div>"},{"type":"text","html":"<p>Water has a <b>high<\/b> specific heat capacity: 4200 J to warm 1 kg by 1 °C. So water heats up slowly, cools down slowly and stores a lot of energy. That is why it is used in radiators and hot water bottles.<\/p><p>Copper has a <b>low<\/b> specific heat capacity, so the same energy makes it much hotter.<\/p>"}]},{"kind":"Learn","title":"The equation","minutes":5,"blocks":[{"type":"book","html":"<div class=\"eqn\"><span class=\"mk\">Δ<span class=\"v\">E<\/span> = <span class=\"v\">m<\/span> <span class=\"v\">c<\/span> Δ<span class=\"v\">θ<\/span><\/span><\/div><div class=\"tablewrap\"><table><thead><tr><th>Symbol<\/th><th>Quantity<\/th><th>Unit<\/th><\/tr><\/thead><tbody><tr><td>Δ<span class=\"v\">E<\/span><\/td><td>change in thermal energy<\/td><td>J<\/td><\/tr><tr><td><span class=\"v\">m<\/span><\/td><td>mass<\/td><td>kg<\/td><\/tr><tr><td><span class=\"v\">c<\/span><\/td><td>specific heat capacity<\/td><td>J/kg °C<\/td><\/tr><tr><td>Δ<span class=\"v\">θ<\/span><\/td><td>temperature change<\/td><td>°C<\/td><\/tr><\/tbody><\/table><\/div>"},{"type":"memory","eqs":["shc"]}]},{"kind":"Worked example","title":"Using ΔE = m c Δθ","minutes":8,"blocks":[{"type":"steps","title":"How much energy is needed to heat 2 kg of water from 20 °C to 70 °C? (c = 4200 J/kg °C)","steps":["Temperature change: Δθ = 70 − 20 = <b>50 °C<\/b>","ΔE = m c Δθ = 2 × 4200 × 50","Answer: <b>420 000 J<\/b>"]},{"type":"steps","title":"A 0.5 kg block warms by 20 °C when given 9000 J. Find its specific heat capacity.","steps":["Start: 9000 = 0.5 × c × 20","0.5 × 20 = 10, so 9000 = 10 × c","c = 9000 ÷ 10","Answer: <b>900 J/kg °C<\/b>"]}]},{"kind":"Practice","title":"Your turn","minutes":13,"blocks":[{"type":"calc","items":[{"band":"Mild","id":"271a5c474e"},{"band":"Mild","id":"dfeb1d3501"},{"band":"Medium","id":"03d99cfdcc"},{"band":"Medium","id":"d037e4c593"},{"band":"Spicy","id":"f5a94a8caa"},{"band":"Spicy","id":"0923826872"}]}]},{"kind":"Exam question","title":"Explain and calculate","minutes":8,"blocks":[{"type":"exam","id":"e81f876505"},{"type":"exam","id":"47068dfab8"}]},{"kind":"Exit ticket","title":"Check what you learned","minutes":3,"blocks":[{"type":"reveal","items":[{"band":null,"q":"Define specific heat capacity.","a":"The energy needed to raise the temperature of 1 kg of a substance by 1 °C."},{"band":null,"q":"Water goes from 15 °C to 40 °C. What is Δθ?","a":"25 °C"},{"band":null,"q":"Which heats up more with the same energy: 1 kg of water or 1 kg of copper?","a":"Copper, because it has a lower specific heat capacity."}]},{"type":"finish"}]}]},{"id":"l4","n":4,"t":"power","title":"Power and work done","summary":"What power means, calculating it from energy or work done, and the work done equation.","minutes":60,"sections":[{"kind":"Do now","title":"Quick recall","minutes":5,"blocks":[{"type":"reveal","items":[{"band":null,"q":"Write the equation that links change in thermal energy, mass, specific heat capacity and temperature change.","a":"ΔE = m c Δθ"},{"band":null,"q":"How many seconds are in 2 minutes?","a":"120 s"},{"band":null,"q":"What is the unit of energy?","a":"The joule (J)."},{"band":null,"q":"What does “rate” mean in science?","a":"How quickly something happens, usually per second."}]}]},{"kind":"Learn","title":"What is power?","minutes":10,"blocks":[{"type":"objectives","items":["Define power","Calculate power using P = E ÷ t and P = W ÷ t","Calculate work done using W = F s","Compare the power of two machines"]},{"type":"text","html":"<p>Two students of the same mass run up the same stairs. One takes 5 seconds, the other takes 10 seconds. They both gain the <b>same<\/b> gravitational potential energy, so they both transfer the same energy.<\/p><p>The faster student is <b>more powerful<\/b>, because they transferred the energy in <b>less time<\/b>.<\/p>"},{"type":"book","html":"<p><b>Power<\/b> is the rate at which energy is transferred, or the rate at which work is done.<\/p><p>Power is measured in <b>watts (W)<\/b>. <b>1 watt = 1 joule per second.<\/b><\/p>"},{"type":"text","html":"<p>A 60 W bulb transfers 60 J every second. A 2000 W kettle transfers 2000 J every second.<\/p>"}]},{"kind":"Learn","title":"The power equations","minutes":6,"blocks":[{"type":"book","html":"<div class=\"eqn\"><span class=\"mk\"><span class=\"v\">P<\/span> = <span class=\"fr\"><span><span class=\"v\">E<\/span><\/span><span><span class=\"v\">t<\/span><\/span><\/span><\/span><\/div><div class=\"eqn\"><span class=\"mk\"><span class=\"v\">P<\/span> = <span class=\"fr\"><span><span class=\"v\">W<\/span><\/span><span><span class=\"v\">t<\/span><\/span><\/span><\/span><\/div><div class=\"tablewrap\"><table><thead><tr><th>Symbol<\/th><th>Quantity<\/th><th>Unit<\/th><\/tr><\/thead><tbody><tr><td><span class=\"v\">P<\/span><\/td><td>power<\/td><td>watts, W<\/td><\/tr><tr><td><span class=\"v\">E<\/span><\/td><td>energy transferred<\/td><td>J<\/td><\/tr><tr><td><span class=\"v\">W<\/span><\/td><td>work done<\/td><td>J<\/td><\/tr><tr><td><span class=\"v\">t<\/span><\/td><td>time<\/td><td>seconds, s<\/td><\/tr><\/tbody><\/table><\/div>"},{"type":"tip","html":"<p><b>Convert first.<\/b> kW → W: × 1000. Minutes → seconds: × 60. kJ → J: × 1000.<\/p>"},{"type":"text","html":"<p>Formula triangle: put E at the top and P × t underneath. Cover the one you want:<\/p><ul><li>P = E ÷ t<\/li><li>E = P × t<\/li><li>t = E ÷ P<\/li><\/ul>"}]},{"kind":"Learn","title":"Work done","minutes":6,"blocks":[{"type":"text","html":"<p>When a force moves an object, energy is transferred. This is called <b>work done<\/b>.<\/p><p>Work done against <b>friction<\/b> makes surfaces warm up, like rubbing your hands together.<\/p>"},{"type":"book","html":"<div class=\"eqn\"><span class=\"mk\"><span class=\"v\">W<\/span> = <span class=\"v\">F<\/span> <span class=\"v\">s<\/span><\/span><\/div><div class=\"tablewrap\"><table><thead><tr><th>Symbol<\/th><th>Quantity<\/th><th>Unit<\/th><\/tr><\/thead><tbody><tr><td><span class=\"v\">W<\/span><\/td><td>work done<\/td><td>J<\/td><\/tr><tr><td><span class=\"v\">F<\/span><\/td><td>force<\/td><td>N<\/td><\/tr><tr><td><span class=\"v\">s<\/span><\/td><td>distance moved along the line of the force<\/td><td>m<\/td><\/tr><\/tbody><\/table><\/div><p>1 joule = 1 newton metre (1 J = 1 N m)<\/p>"}]},{"kind":"Remember it","title":"Lock in the equations","minutes":3,"blocks":[{"type":"memory","eqs":["pe","pw","wf"]}]},{"kind":"Worked example","title":"Power calculations","minutes":8,"blocks":[{"type":"steps","title":"A 2 kW kettle is switched on for 3 minutes. How much energy does it transfer?","steps":["Convert: 2 kW = <b>2000 W<\/b>, 3 minutes = <b>180 s<\/b>","Rearrange: E = P × t","E = 2000 × 180","Answer: <b>360 000 J<\/b>"]},{"type":"steps","title":"A crane lifts a 500 kg load through 12 m in 30 s. Calculate its power. (g = 9.8 N/kg)","steps":["Step 1, energy transferred: E<sub>p<\/sub> = m g h = 500 × 9.8 × 12 = <b>58 800 J<\/b>","Step 2, power: P = E ÷ t = 58 800 ÷ 30","Answer: <b>1960 W<\/b>"]}]},{"kind":"Practice","title":"Your turn","minutes":12,"blocks":[{"type":"calc","items":[{"band":"Mild","id":"a9016e334b"},{"band":"Mild","id":"24eed1d190"},{"band":"Medium","id":"93fe08af98"},{"band":"Medium","id":"4a38060fae"},{"band":"Spicy","id":"c9d292518c"},{"band":"Spicy","id":"b4ae061f57"}]}]},{"kind":"Exam question","title":"Explain and calculate","minutes":7,"blocks":[{"type":"exam","id":"8445bddbaf"},{"type":"exam","id":"60aebf40af"}]},{"kind":"Exit ticket","title":"Check what you learned","minutes":3,"blocks":[{"type":"reveal","items":[{"band":null,"q":"Define power.","a":"The rate at which energy is transferred (or work is done)."},{"band":null,"q":"What is 1 watt?","a":"1 joule per second."},{"band":null,"q":"Motor A lifts a load in 10 s. Motor B lifts the same load in 20 s. Which is more powerful?","a":"Motor A. Same energy, less time."}]},{"type":"finish"}]}]},{"id":"l5","n":5,"t":"transfers","title":"Energy transfers in a system","summary":"Conservation of energy, wasted (dissipated) energy, and how to reduce unwanted energy transfers.","minutes":60,"sections":[{"kind":"Do now","title":"Quick recall","minutes":5,"blocks":[{"type":"reveal","items":[{"band":null,"q":"In P = E ÷ t, what unit is t measured in?","a":"Seconds (s)."},{"band":null,"q":"Name 4 energy stores.","a":"Any 4 of: kinetic, gravitational potential, elastic potential, thermal, chemical, magnetic, electrostatic, nuclear."},{"band":null,"q":"Which force slows down objects sliding along a surface?","a":"Friction."},{"band":null,"q":"Which store increases when something warms up?","a":"Thermal."}]}]},{"kind":"Learn","title":"Conservation of energy","minutes":8,"blocks":[{"type":"objectives","items":["State the law of conservation of energy","Describe useful and wasted energy transfers","Explain how lubrication and insulation reduce unwanted energy transfers","Explain how wall thickness and thermal conductivity affect how fast a building cools"]},{"type":"book","html":"<p><b>Law of conservation of energy:<\/b> energy can be transferred usefully, stored or dissipated, but it <b>cannot be created or destroyed<\/b>.<\/p><p>In a <b>closed system<\/b> there is no net change to the total energy.<\/p>"},{"type":"tip","html":"<p>Never write “energy is lost” or “energy is used up” on its own. Say where the energy goes, for example “to the thermal store of the surroundings”.<\/p>"}]},{"kind":"Learn","title":"Useful and wasted energy","minutes":10,"blocks":[{"type":"text","html":"<p>Every time energy is transferred, some of it spreads out into the surroundings, usually by heating. We say it has been <b>dissipated<\/b>. It is still there, but it is stored in a way that is much less useful. People often call it <b>wasted<\/b> energy.<\/p>"},{"type":"split","title":"A lamp is supplied with 100 J","total":100,"unit":"J","parts":[["Useful: light",20],["Wasted: heating the surroundings",80]]},{"type":"text","html":"<div class=\"tablewrap\"><table><thead><tr><th>Device<\/th><th>Useful energy transfer<\/th><th>Wasted energy transfer<\/th><\/tr><\/thead><tbody><tr><td>Electric kettle<\/td><td>thermal store of the water<\/td><td>thermal store of the kettle and air, sound<\/td><\/tr><tr><td>Phone charger<\/td><td>chemical store of the phone battery<\/td><td>thermal store of the charger and surroundings<\/td><\/tr><tr><td>Car<\/td><td>kinetic store of the car<\/td><td>thermal store of the engine and surroundings, sound<\/td><\/tr><tr><td>Electric fan<\/td><td>kinetic store of the blades and air<\/td><td>thermal store of the motor, sound<\/td><\/tr><\/tbody><\/table><\/div>"},{"type":"book","html":"<p><b>Dissipated<\/b> energy has spread out to the surroundings and is stored in less useful ways. In all system changes some energy is dissipated.<\/p>"}]},{"kind":"Learn","title":"Reducing unwanted energy transfers","minutes":10,"blocks":[{"type":"text","html":"<p>There are two main ways to reduce unwanted energy transfers:<\/p><ul><li><b>Lubrication<\/b>: oil or grease reduces friction between moving parts, so less energy goes to thermal stores.<\/li><li><b>Thermal insulation<\/b>: materials that slow down energy transfer by heating.<\/li><\/ul>"},{"type":"text","html":"<p>The higher the <b>thermal conductivity<\/b> of a material, the faster energy is transferred through it by conduction. Metals have a high thermal conductivity. Plastic, wood, air and foam have a low thermal conductivity. That is why saucepans are metal but have plastic handles.<\/p>"},{"type":"book","html":"<p>A building cools more slowly if its walls are <b>thicker<\/b> and made of a material with a <b>lower thermal conductivity<\/b>.<\/p>"},{"type":"text","html":"<p>Ways to keep a house warm:<\/p><ul><li>Loft insulation<\/li><li>Cavity wall insulation (foam in the gap between the two walls)<\/li><li>Double glazing<\/li><li>Draught excluders<\/li><\/ul>"}]},{"kind":"Worked example","title":"Explaining a situation","minutes":5,"blocks":[{"type":"steps","title":"A swinging pendulum slowly stops. Explain what happens to its energy.","steps":["Energy moves between the <b>gravitational potential<\/b> and <b>kinetic<\/b> stores as it swings.","Each swing, <b>air resistance<\/b> and <b>friction<\/b> at the pivot do work.","This transfers energy to the <b>thermal store of the surroundings<\/b>: it is dissipated.","Answer: the energy is not destroyed. It is dissipated to the surroundings until the pendulum stops."]}]},{"kind":"Practice","title":"Your turn","minutes":12,"blocks":[{"type":"reveal","items":[{"band":"Mild","q":"Give 2 ways to reduce unwanted energy transfers.","a":"Lubrication and thermal insulation."},{"band":"Mild","q":"Which has the higher thermal conductivity: copper or plastic?","a":"Copper."},{"band":"Medium","q":"Describe the useful and wasted energy transfers in a hairdryer.","a":"Useful: the thermal store of the air and the kinetic store of the air (from the fan). Wasted: sound, and the thermal store of the hairdryer’s casing and motor."},{"band":"Medium","q":"Why do saucepans have plastic handles?","a":"Plastic has a low thermal conductivity, so energy is transferred to the handle slowly and it stays cool enough to hold."},{"band":"Spicy","q":"Two houses have walls made of the same material. House A’s walls are twice as thick. Which house cools faster, and why?","a":"House B, because thinner walls transfer energy by conduction at a higher rate."},{"band":"Spicy","q":"A student writes: “When a car brakes, its energy is lost.” Rewrite this so it would get the mark.","a":"The kinetic store of the car decreases and energy is transferred to the thermal store of the brakes and surroundings. The energy is dissipated, not destroyed."}]}]},{"kind":"Exam question","title":"Explain","minutes":7,"blocks":[{"type":"exam","id":"f5969101eb"},{"type":"exam","id":"8bed9b458a"}]},{"kind":"Exit ticket","title":"Check what you learned","minutes":3,"blocks":[{"type":"reveal","items":[{"band":null,"q":"State the law of conservation of energy.","a":"Energy can be transferred usefully, stored or dissipated, but cannot be created or destroyed."},{"band":null,"q":"What does “dissipated” mean?","a":"Spread out to the surroundings and stored in less useful ways."},{"band":null,"q":"How does lubrication reduce wasted energy?","a":"It reduces friction, so less energy is transferred to thermal stores."}]},{"type":"finish"}]}]},{"id":"l6","n":6,"t":"efficiency","title":"Efficiency","summary":"Calculating efficiency from energy or power, finding wasted, useful or total energy, and ways to improve efficiency.","minutes":60,"sections":[{"kind":"Do now","title":"Quick recall","minutes":5,"blocks":[{"type":"reveal","items":[{"band":null,"q":"State the law of conservation of energy.","a":"Energy cannot be created or destroyed, only transferred, stored or dissipated."},{"band":null,"q":"Give one way to reduce unwanted energy transfers.","a":"Lubrication or thermal insulation."},{"band":null,"q":"Write 0.35 as a percentage.","a":"35 %"},{"band":null,"q":"Work out 450 ÷ 900.","a":"0.5"}]}]},{"kind":"Learn","title":"What efficiency means","minutes":8,"blocks":[{"type":"objectives","items":["Calculate efficiency using energy or power","Write efficiency as a decimal or a percentage","Work out wasted, useful or total input energy","Describe ways to increase efficiency (Higher)"]},{"type":"text","html":"<p>Efficiency tells you what <b>fraction<\/b> of the energy put in is transferred <b>usefully<\/b>.<\/p>"},{"type":"split","title":"A kettle is supplied with 800 J","total":800,"unit":"J","parts":[["Useful: heating the water",450],["Wasted: heating the kettle and air",350]]},{"type":"book","html":"<div class=\"eqn\"><span class=\"mk\">efficiency = <span class=\"fr\"><span>useful output energy transfer<\/span><span>total input energy transfer<\/span><\/span><\/span><\/div><div class=\"eqn\"><span class=\"mk\">efficiency = <span class=\"fr\"><span>useful power output<\/span><span>total power input<\/span><\/span><\/span><\/div><p>Efficiency has <b>no unit<\/b>. Multiply by 100 to give a percentage.<\/p>"},{"type":"tip","html":"<p>Your answer must be <b>less than 1<\/b> (or less than 100 %). If it isn’t, you divided the wrong way round.<\/p>"}]},{"kind":"Learn","title":"Wasted, useful and total","minutes":6,"blocks":[{"type":"book","html":"<ul><li>wasted = total input − useful output<\/li><li>total input = useful output + wasted<\/li><li>useful output = efficiency × total input<\/li><li>total input = useful output ÷ efficiency<\/li><\/ul>"},{"type":"tip","html":"<p>If the efficiency is a percentage, change it to a decimal first: 60 % = 0.6.<\/p>"}]},{"kind":"Remember it","title":"Lock in the equations","minutes":3,"blocks":[{"type":"memory","eqs":["eff","effp"]}]},{"kind":"Worked example","title":"Efficiency calculations","minutes":8,"blocks":[{"type":"steps","title":"A kettle takes in 800 J. 450 J heats the water. Calculate its efficiency.","steps":["efficiency = useful ÷ total","= 450 ÷ 800","Answer: <b>0.5625<\/b>, which is <b>56 %<\/b>","Wasted energy = 800 − 450 = 350 J"]},{"type":"steps","title":"A motor is 60 % efficient and is supplied with 500 J. How much energy is useful?","steps":["60 % = 0.6","useful = efficiency × total = 0.6 × 500","Answer: <b>300 J<\/b>"]},{"type":"steps","title":"A lamp has an efficiency of 0.25 and a useful power output of 150 W. Find its total power input.","steps":["total = useful ÷ efficiency","= 150 ÷ 0.25","Answer: <b>600 W<\/b>"]}]},{"kind":"Learn","title":"Increasing efficiency (Higher)","minutes":6,"blocks":[{"type":"book","html":"<ul><li><b>Lubricate<\/b> moving parts to reduce friction<\/li><li><b>Insulate<\/b> to reduce energy transferred by heating<\/li><li><b>Streamline<\/b> vehicles to reduce air resistance<\/li><li>Use parts that waste less energy, such as LED bulbs<\/li><\/ul>"},{"type":"text","html":"<p>No device can be 100 % efficient, because some energy is <b>always<\/b> dissipated. An efficiency above 100 % would mean energy had been created, which is impossible.<\/p>"}]},{"kind":"Practice","title":"Your turn","minutes":13,"blocks":[{"type":"calc","items":[{"band":"Mild","id":"c7e464571b"},{"band":"Mild","id":"ef60735196"},{"band":"Medium","id":"dcea0f2e7a"},{"band":"Medium","id":"14888278f8"},{"band":"Spicy","id":"e9e989775c"},{"band":"Spicy","id":"bc3cab7a9f"}]}]},{"kind":"Exam question","title":"Higher tier","minutes":8,"blocks":[{"type":"exam","id":"6c4ecbc274"},{"type":"exam","id":"b99dd2b5b9"}]},{"kind":"Exit ticket","title":"Check what you learned","minutes":3,"blocks":[{"type":"reveal","items":[{"band":null,"q":"Write the efficiency equation using energy.","a":"efficiency = useful output energy transfer ÷ total input energy transfer"},{"band":null,"q":"A device is 0.8 efficient. Write this as a percentage.","a":"80 %"},{"band":null,"q":"Why can nothing be more than 100 % efficient?","a":"That would mean creating energy, which is impossible."}]},{"type":"finish"}]}]}]}</script>
+<script>
+(function () {
+"use strict";
+const D = JSON.parse(document.getElementById("site-data").textContent);
+const KEY = "energy-revision:v1";
+const $view = document.getElementById("view");
+
+/* ---------- storage (falls back to memory if the browser blocks it) ---------- */
+const mem = {};
+function load(k, fb) {
+  try { const v = localStorage.getItem(KEY + ":" + k); return v === null ? fb : JSON.parse(v); }
+  catch (e) { return k in mem ? mem[k] : fb; }
+}
+const ST = {
+  marks: load("marks", {}), calc: load("calc", {}), exam: load("exam", {}), tests: load("tests", []),
+  draft: load("draft", null), eq: load("eq", {}), lessons: load("lessons", {}), rag: load("rag", {}), prefs: load("prefs", {})
+};
+function save(k) {
+  mem[k] = ST[k];
+  try { localStorage.setItem(KEY + ":" + k, JSON.stringify(ST[k])); } catch (e) { /* private mode */ }
+}
+
+/* ---------- lookups ---------- */
+const byId = (list) => Object.fromEntries(list.map((x) => [x.id, x]));
+const TOPIC = byId(D.topics), CALC = byId(D.calc), EXAM = byId(D.exam), EQ = byId(D.equations), LESSON = byId(D.lessons);
+const CARD = byId(D.cards);
+
+/* ---------- small helpers ---------- */
+const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const strip = (s) => String(s || "").replace(/<[^>]+>/g, "");
+const plural = (n, w) => n + " " + w + (n === 1 ? "" : "s");
+function shuffle(a) {
+  a = a.slice();
+  for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; }
+  return a;
+}
+function testDate() { const [y, m, d] = D.test.date.split("-").map(Number); return new Date(y, m - 1, d); }
+function today() { const t = new Date(); t.setHours(0, 0, 0, 0); return t; }
+function daysLeft() { return Math.round((testDate() - today()) / 86400000); }
+const longDate = (d) => d.toLocaleDateString("en-GB", { weekday: "long", day: "numeric", month: "long" });
+const shortDate = (d) => d.toLocaleDateString("en-GB", { weekday: "short", day: "numeric", month: "short" });
+const mmss = (s) => { const a = Math.abs(Math.round(s)); return (s < 0 ? "−" : "") + Math.floor(a / 60) + ":" + String(a % 60).padStart(2, "0"); };
+
+/* ---------- number checking ---------- */
+function parseNum(str) {
+  let s = String(str || "").trim().toLowerCase().replace(/,/g, "").replace(/\s+/g, "");
+  s = s.replace(/(\d)(?:×|x|\*)10\^?(−|-)?(\d+)/, (_, d, neg, p) => d + "e" + (neg ? "-" : "") + p);
+  s = s.replace(/−/g, "-");
+  const m = s.match(/-?\d*\.?\d+(?:e-?\d+)?/);
+  return m ? { value: parseFloat(m[0]), text: m[0] } : null;
+}
+function sigFigs(text) {
+  let t = text.replace(/^-/, "").split("e")[0];
+  if (t.includes(".")) { t = t.replace(".", "").replace(/^0+/, ""); return Math.max(t.length, 1); }
+  t = t.replace(/^0+/, "").replace(/0+$/, "");
+  return Math.max(t.length, 1);
+}
+function roundSF(x, n) {
+  if (x === 0) return 0;
+  const p = Math.pow(10, n - Math.ceil(Math.log10(Math.abs(x))));
+  return Math.round(x * p) / p;
+}
+function matches(x, text, exact) {
+  if (exact === 0) return Math.abs(x) < 1e-9;
+  if (Math.abs(x - exact) / Math.abs(exact) < 0.005) return true;
+  const sf = Math.max(2, sigFigs(text));
+  const r = roundSF(exact, sf);
+  return Math.abs(x - r) <= Math.abs(r) * 1e-9;
+}
+function checkNum(input, exacts) {
+  const n = parseNum(input);
+  if (!n) return { state: "empty", msg: "Type a number first." };
+  const x = n.value;
+  if (exacts.some((a) => matches(x, n.text, a))) return { state: "ok", msg: "✓ Correct." };
+  if (exacts.some((a) => matches(x * 1000, n.text, a) || matches(x / 1000, n.text, a)))
+    return { state: "close", msg: "Nearly. Your number is 1000 times too big or too small. Check your units (kJ, kW, g, km)." };
+  if (exacts.some((a) => a !== 0 && Math.abs(x - a) / Math.abs(a) < 0.1))
+    return { state: "close", msg: "Close, but not quite. Check your rounding, or keep more decimal places until the end." };
+  return { state: "no", msg: "✗ Not right yet. Have another go, or open the hint." };
+}
+
+/* ---------- shared blocks ---------- */
+const BAND_OF = { 1: "One step", 2: "Two steps" };
+
+function calcHTML(id, band) {
+  const c = CALC[id], s = ST.calc[id] || {};
+  const done = s.ok ? ' <span class="tick" title="You got this right">✓</span>' : "";
+  const label = band ? `<span class="band ${band}">${band}</span>` : (c.lvl === 2 ? '<span class="band Spicy">Two steps</span>' : "");
+  return `<div class="calc" data-calc="${id}">
+    <p class="q">${label}${c.q}${done}</p>
+    <div class="answer-row">
+      <label class="sr" for="in-${id}">Your answer</label>
+      <input id="in-${id}" inputmode="decimal" autocomplete="off" value="${esc(s.last || "")}" placeholder="Answer">
+      <span class="unit">${c.unit}</span>
+      <button class="btn small primary" data-act="calc-check">Check</button>
+      <button class="btn small" data-act="calc-hint">Hint</button>
+      <button class="btn small" data-act="calc-work">Show working</button>
+    </div>
+    <p class="fb" hidden></p>
+    <p class="hint" hidden>${c.hint}</p>
+    <div class="work" hidden><p class="working">${c.work.join("<br>")}</p></div>
+  </div>`;
+}
+function calcCheck(box) {
+  const id = box.dataset.calc, c = CALC[id], val = box.querySelector("input").value;
+  const r = checkNum(val, [c.ans].concat(c.alt || []));
+  const fb = box.querySelector(".fb");
+  fb.hidden = false;
+  fb.className = "fb " + ({ ok: "ok", close: "close", no: "no", empty: "no" }[r.state]);
+  fb.textContent = r.msg;
+  if (r.state === "empty") return;
+  const s = ST.calc[id] || { tries: 0 };
+  s.tries += 1; s.last = val;
+  if (r.state === "ok") { s.ok = true; box.querySelector(".work").hidden = false; }
+  ST.calc[id] = s; save("calc");
+}
+
+function examHTML(id) {
+  const q = EXAM[id], s = ST.exam[id] || {};
+  const got = s.got || [];
+  const ht = q.ht ? ' <span class="pill ht">Higher</span>' : "";
+  const pts = q.points.map((p, i) => `<label><input type="checkbox" data-pt="${i}" ${got.includes(i) ? "checked" : ""}><span>${p}</span></label>`).join("");
+  const levels = q.levels ? `<div class="levels tablewrap"><table><thead><tr><th>Level</th><th>Marks</th><th>What the answer looks like</th></tr></thead><tbody>${q.levels.map((l) => `<tr><td>${l[0]}</td><td>${l[1]}</td><td>${l[2]}</td></tr>`).join("")}</tbody></table></div>` : "";
+  return `<div class="examq" data-exam="${id}">
+    <div class="qtext"><p>${q.q}${ht}</p><span class="marks">[${q.marks} marks]</span></div>
+    <label class="sr" for="ta-${id}">Your answer</label>
+    <textarea id="ta-${id}" placeholder="Write your answer here">${esc(s.text || "")}</textarea>
+    <div class="row"><button class="btn small" data-act="exam-scheme">${s.open ? "Hide" : "Show"} mark scheme</button>
+      ${s.score != null ? `<span class="small muted">Your mark: <b>${s.score}/${q.marks}</b></span>` : ""}</div>
+    <div class="scheme" ${s.open ? "" : "hidden"}>
+      <h4>Mark scheme · tick each point you made</h4>
+      ${q.note ? `<p class="small muted">${q.note}</p>` : ""}
+      ${pts}${levels}
+      <p class="total">Your mark: <span class="score">${Math.min(got.length, q.max)}</span>/${q.marks}</p>
+    </div>
+  </div>`;
+}
+function examScore(box) {
+  const id = box.dataset.exam, q = EXAM[id];
+  const got = [...box.querySelectorAll("[data-pt]")].filter((x) => x.checked).map((x) => +x.dataset.pt);
+  let score = Math.min(got.length, q.max);
+  if (q.levels) score = Math.min(q.marks, Math.round(got.length * q.marks / q.points.length));
+  const s = ST.exam[id] || {};
+  s.got = got; s.score = score; ST.exam[id] = s; save("exam");
+  box.querySelector(".score").textContent = score;
+}
+
+function ragHTML(topicId) {
+  const v = ST.rag[topicId] || "";
+  const names = { r: "Red: not confident", a: "Amber: getting there", g: "Green: confident" };
+  return `<span class="rag" role="group" aria-label="Confidence for ${esc(TOPIC[topicId].name)}">${["r", "a", "g"].map((k) =>
+    `<button type="button" data-rag="${topicId}" data-v="${k}" aria-pressed="${v === k}" title="${names[k]}">${k.toUpperCase()}</button>`).join("")}</span>`;
+}
+
+/* common click handling used by every view */
+function commonClick(e) {
+  const t = e.target.closest("[data-act],[data-rag]");
+  if (!t) return false;
+  if (t.dataset.rag) {
+    const cur = ST.rag[t.dataset.rag];
+    ST.rag[t.dataset.rag] = cur === t.dataset.v ? "" : t.dataset.v; save("rag");
+    t.parentElement.querySelectorAll("button").forEach((b) => b.setAttribute("aria-pressed", String(ST.rag[t.dataset.rag] === b.dataset.v)));
+    return true;
+  }
+  const act = t.dataset.act;
+  const calcBox = t.closest("[data-calc]");
+  const examBox = t.closest("[data-exam]");
+  if (act === "calc-check") { calcCheck(calcBox); return true; }
+  if (act === "calc-hint") { const h = calcBox.querySelector(".hint"); h.hidden = !h.hidden; return true; }
+  if (act === "calc-work") { const w = calcBox.querySelector(".work"); w.hidden = !w.hidden; return true; }
+  if (act === "exam-scheme") {
+    const s = ST.exam[examBox.dataset.exam] || {}; s.open = !s.open; ST.exam[examBox.dataset.exam] = s; save("exam");
+    examBox.querySelector(".scheme").hidden = !s.open; t.textContent = (s.open ? "Hide" : "Show") + " mark scheme"; return true;
+  }
+  if (act === "reveal") {
+    const a = t.closest("li").querySelector(".ans"); a.hidden = !a.hidden;
+    t.textContent = a.hidden ? "Show answer" : "Hide answer"; return true;
+  }
+  if (act === "step-next" || act === "step-all") {
+    const box = t.closest(".worked"), items = [...box.querySelectorAll("li")];
+    const hiddenOnes = items.filter((li) => li.hidden);
+    if (act === "step-all") hiddenOnes.forEach((li) => { li.hidden = false; }); else if (hiddenOnes[0]) hiddenOnes[0].hidden = false;
+    if (!items.some((li) => li.hidden)) box.querySelector(".ctrl").hidden = true;
+    return true;
+  }
+  if (act === "eq-show") { const x = t.closest("[data-eqshow]").querySelector(".eqhide"); x.hidden = !x.hidden; t.textContent = x.hidden ? "Show it" : "Hide it"; return true; }
+  return false;
+}
+function commonInput(e) {
+  const ta = e.target.closest("[data-exam] textarea");
+  if (ta) {
+    const id = ta.closest("[data-exam]").dataset.exam;
+    const s = ST.exam[id] || {}; s.text = ta.value; ST.exam[id] = s; save("exam");
+  }
+  const cb = e.target.closest("[data-exam] [data-pt]");
+  if (cb) examScore(cb.closest("[data-exam]"));
+}
+function commonKey(e) {
+  if (e.key === "Enter" && e.target.matches("[data-calc] input")) { e.preventDefault(); calcCheck(e.target.closest("[data-calc]")); }
+}
+
+/* progress numbers used by the dashboard and lists */
+function topicStats(tid) {
+  const cards = D.cards.filter((c) => c.t === tid);
+  const calcs = D.calc.filter((c) => c.t === tid);
+  const lesson = D.lessons.find((l) => l.t === tid);
+  return {
+    cards: cards.length, known: cards.filter((c) => ST.marks[c.id] === "k").length,
+    calcs: calcs.length, calcOk: calcs.filter((c) => (ST.calc[c.id] || {}).ok).length,
+    lesson, lessonState: lessonState(lesson.id)
+  };
+}
+function lessonState(id) {
+  const s = ST.lessons[id];
+  if (!s) return "Not started";
+  if (s.complete) return "Done";
+  return "In progress";
+}
+function meterHTML(n, total) {
+  const pct = total ? Math.round(n / total * 100) : 0;
+  return `<span class="meter num"><i><b style="width:${pct}%"></b></i>${n}/${total}</span>`;
+}
+function dotsHTML(n) { return `<span class="dots" aria-label="${n} out of 5">${[0, 1, 2, 3, 4].map((i) => `<i class="${i < n ? "on" : ""}"></i>`).join("")}</span>`; }
+
+/* ================================================================ dashboard */
+function nextStep() {
+  const todo = D.lessons.find((l) => !(ST.lessons[l.id] || {}).complete);
+  if (todo) {
+    const started = ST.lessons[todo.id];
+    return { text: `${started ? "Carry on with" : "Start"} <b>Lesson ${todo.n}: ${todo.title}</b>. It takes about an hour.`, href: `#/lesson/${todo.id}`, label: started ? "Carry on" : "Start lesson" };
+  }
+  if (!ST.tests.length) return { text: "You have finished all six lessons. Now sit the <b>practice test</b>: 30 marks in 40 minutes.", href: "#/test", label: "Start practice test" };
+  const red = D.topics.filter((t) => ST.rag[t.id] === "r" || ST.rag[t.id] === "a");
+  if (red.length) return { text: `Go back over the topics you rated red or amber: <b>${red.map((t) => t.name).join(", ")}</b>.`, href: "#/flashcards", label: "Open flashcards" };
+  return { text: "Keep your equations fresh with a quick drill, then go through any flashcards you are still learning.", href: "#/equations", label: "Equation drill" };
+}
+
+function weekPlan() {
+  const left = daysLeft();
+  if (left < 0) return "";
+  if (left === 0) return `<p>The test is <b>today</b>. Do one quick equation drill, then read the common mistakes list. Good luck.</p>`;
+  const todo = D.lessons.filter((l) => !(ST.lessons[l.id] || {}).complete);
+  const days = [];
+  const studyDays = Math.max(left - 1, 0);
+  for (let i = 0; i < studyDays; i++) days.push([]);
+  todo.forEach((l, i) => { if (studyDays) days[Math.min(Math.floor(i * studyDays / Math.max(todo.length, 1)), studyDays - 1)].push(`Lesson ${l.n}: ${l.title}`); });
+  const rows = days.map((items, i) => {
+    const d = new Date(today()); d.setDate(d.getDate() + i);
+    const what = items.length ? items.join(" and ") : "Flashcards you are still learning, plus one equation drill";
+    return `<tr><td class="num">${i === 0 ? "Today" : shortDate(d)}</td><td>${what}</td></tr>`;
+  });
+  const eve = new Date(testDate()); eve.setDate(eve.getDate() - 1);
+  rows.push(`<tr><td class="num">${left === 1 ? "Today" : shortDate(eve)}</td><td>Practice test (40 minutes), then go over what you got wrong</td></tr>`);
+  rows.push(`<tr><td class="num">${shortDate(testDate())}</td><td><b>Test day.</b> Quick equation drill at breakfast.</td></tr>`);
+  return `<div class="tablewrap"><table><thead><tr><th style="width:130px">Day</th><th>What to do</th></tr></thead><tbody>${rows.join("")}</tbody></table></div>`;
+}
+
+function viewHome() {
+  const ns = nextStep();
+  const left = daysLeft();
+  const rows = D.topics.map((t) => {
+    const s = topicStats(t.id);
+    const pill = s.lessonState === "Done" ? '<span class="pill done">Done</span>' : `<span class="pill">${s.lessonState}</span>`;
+    return `<tr><td class="mono">${t.code}</td><td><a href="#/lesson/${s.lesson.id}">${t.name}</a></td><td>${pill}</td>
+      <td>${meterHTML(s.known, s.cards)}</td><td>${s.calcs ? meterHTML(s.calcOk, s.calcs) : '<span class="small muted">None in this topic</span>'}</td><td class="c">${ragHTML(t.id)}</td></tr>`;
+  }).join("");
+  const tests = ST.tests.slice(-5).reverse();
+  const best = ST.tests.reduce((b, x) => Math.max(b, x.score), 0);
+  const testHTML = tests.length
+    ? `<p>Best score: <b class="num">${best}/${D.test.marks}</b></p><table><thead><tr><th>Date</th><th>Score</th><th>Time</th></tr></thead><tbody>${tests.map((x) =>
+        `<tr><td>${shortDate(new Date(x.date))}</td><td class="num">${x.score}/${x.total}</td><td class="num">${mmss(x.secs)}</td></tr>`).join("")}</tbody></table>`
+    : `<p class="muted">You haven’t sat the practice test yet.</p>`;
+  const eqRows = D.equations.map((q) => `<tr><td>${q.name}</td><td>${dotsHTML(ST.eq[q.id] || 0)}</td></tr>`).join("");
+  return `<div class="content">
+    <div class="head"><h1>Physics: energy stores and transfers</h1>
+      <p>Half-termly test on <b>${longDate(testDate())}</b>${left > 0 ? ` (${plural(left, "day")} away)` : ""}. ${D.test.marks} marks, ${D.test.minutes} minutes, Higher tier.</p></div>
+    <div class="panel spread"><p style="margin:0;max-width:52ch">${ns.text}</p><a class="btn primary" href="${ns.href}">${ns.label}</a></div>
+
+    <div class="section"><h2>Revision tracker</h2>
+      <div class="tablewrap"><table>
+        <thead><tr><th>Spec</th><th>Topic</th><th>Lesson</th><th>Flashcards known</th><th>Calculations right</th><th class="c">Confidence</th></tr></thead>
+        <tbody>${rows}</tbody></table></div>
+      <p class="small muted">Set your confidence for each topic: R (red) not confident, A (amber) getting there, G (green) confident. Be honest; it decides what the dashboard suggests.</p>
+    </div>
+
+    <div class="grid2">
+      <div class="panel"><div class="spread"><h2>Practice test</h2><a class="btn small" href="#/test">Open</a></div>${testHTML}</div>
+      <div class="panel"><div class="spread"><h2>Equations</h2><a class="btn small" href="#/equations">Drill</a></div>
+        <p class="small muted">Dots fill up as you get each equation right in the drill.</p>
+        <table><tbody>${eqRows}</tbody></table></div>
+    </div>
+
+    ${left >= 0 ? `<div class="section"><h2>Plan until the test</h2>${weekPlan()}</div>` : ""}
+  </div>`;
+}
+
+/* ================================================================ lessons list */
+function viewLessons() {
+  const items = D.lessons.map((l) => {
+    const st = lessonState(l.id);
+    const pill = st === "Done" ? '<span class="pill done">Done</span>' : `<span class="pill">${st}</span>`;
+    return `<li><span class="n">${l.n}</span>
+      <div><h3><a href="#/lesson/${l.id}">${l.title}</a></h3><p>${TOPIC[l.t].code} · ${l.minutes} minutes · ${l.summary}</p></div>
+      <div class="row">${pill}<a class="btn small" href="#/lesson/${l.id}">${st === "Not started" ? "Start" : st === "Done" ? "Revisit" : "Carry on"}</a></div></li>`;
+  }).join("");
+  return `<div class="content"><div class="head"><h1>Lessons</h1>
+    <p>Six lessons, one for each topic on your revision tracker. Each one is planned like a school lesson and takes about an hour. Have paper, a pen and a calculator ready.</p></div>
+    <ol class="lessons">${items}</ol></div>`;
+}
+
+/* ================================================================ lesson player */
+const LT = { id: null, sec: 0, remaining: 0, running: false, handle: null };
+function stopLessonTimer() { if (LT.handle) clearInterval(LT.handle); LT.handle = null; LT.running = false; }
+
+function blockHTML(b, lesson) {
+  switch (b.type) {
+    case "text": return b.html;
+    case "book": return `<div class="book">${b.html}</div>`;
+    case "tip": return `<div class="tipbox">${b.html}</div>`;
+    case "objectives": return `<div class="aims"><h3>By the end of this lesson you should be able to:</h3><ul>${b.items.map((x) => `<li>${x}</li>`).join("")}</ul></div>`;
+    case "reveal": return `<ul class="qlist">${b.items.map((it) => `<li><p class="q">${it.band ? `<span class="band ${it.band}">${it.band}</span>` : ""}${it.q}</p>
+        <div class="ans" hidden><p>${it.a}</p></div><button class="btn small" data-act="reveal" style="margin-top:8px">Show answer</button></li>`).join("")}</ul>`;
+    case "steps": return `<div class="worked"><h3>${b.title}</h3><ol>${b.steps.map((s, i) => `<li ${i ? "hidden" : ""}>${s}</li>`).join("")}</ol>
+        <div class="ctrl row"><button class="btn small primary" data-act="step-next">Next step</button><button class="btn small" data-act="step-all">Show all steps</button></div></div>`;
+    case "calc": return `<div class="stack">${b.items.map((it) => calcHTML(it.id, it.band)).join("")}</div>`;
+    case "exam": return examHTML(b.id);
+    case "bars": return `<div class="bars"><h3>${b.title}</h3>${b.stages.map((st) => `<div class="stage"><span>${st.label}</span><div class="rows">${b.stores.map((name, i) =>
+        `<div><span class="small">${name}</span><i style="width:${st.values[i]}%"></i></div>`).join("")}</div></div>`).join("")}</div>`;
+    case "split": return `<div class="split"><h3>${b.title}</h3><div class="strip">${b.parts.map((p) => `<div style="width:${p[1] / b.total * 100}%">${p[1]} ${b.unit}</div>`).join("")}</div>
+        <ul>${b.parts.map((p) => `<li>${p[0]}: ${p[1]} ${b.unit}</li>`).join("")}</ul></div>`;
+    case "memory": return memoryHTML(b.eqs);
+    case "finish": return finishHTML(lesson);
+    default: return "";
+  }
+}
+
+function memoryHTML(ids) {
+  const cards = ids.map((id) => {
+    const q = EQ[id];
+    return `<div class="eqitem" data-eqshow="${id}"><div class="top"><h3>${q.name}</h3><span class="small muted">${q.status}</span></div>
+      <p class="tipline">${q.tip}</p>
+      <p class="small muted" style="margin:6px 0 4px">Say or write it from memory first.</p>
+      <div class="eqhide" hidden><div class="eqn"><span class="mk">${q.sym}</span></div></div>
+      <button class="btn small" data-act="eq-show">Show it</button></div>`;
+  }).join("");
+  return `<div class="eqlist">${cards}</div>
+    <div style="margin-top:12px"><h3 style="margin-bottom:6px">Quick check</h3><div data-quiz="${ids.join(",")}" data-n="4"></div></div>`;
+}
+
+function finishHTML(lesson) {
+  const done = (ST.lessons[lesson.id] || {}).complete;
+  return `<div class="panel" style="margin-top:16px">
+    <h3>How confident do you feel about ${TOPIC[lesson.t].name.toLowerCase()} now?</h3>
+    <p class="row" style="margin-top:8px">${ragHTML(lesson.t)} <span class="small muted">This updates your revision tracker.</span></p>
+    <button class="btn primary" data-act="lesson-complete">${done ? "Lesson marked as done ✓" : "Mark this lesson as done"}</button>
+  </div>`;
+}
+
+function renderTimer() {
+  const el = document.getElementById("ltimer");
+  if (!el) return;
+  el.classList.toggle("over", LT.remaining < 0);
+  el.querySelector("b").textContent = mmss(LT.remaining);
+  el.querySelector("button").textContent = LT.running ? "Pause" : (LT.remaining < LT.full ? "Resume" : "Start timer");
+}
+
+function viewLesson(id) {
+  const l = LESSON[id];
+  if (!l) return `<div class="content"><h1>Lesson not found</h1><p><a href="#/lessons">Back to lessons</a></p></div>`;
+  const s = ST.lessons[id] || { done: [], at: 0 };
+  if (LT.id !== id) { stopLessonTimer(); LT.id = id; LT.sec = -1; }
+  const at = Math.min(s.at || 0, l.sections.length - 1);
+  const sec = l.sections[at];
+  if (LT.sec !== at) { stopLessonTimer(); LT.sec = at; LT.full = sec.minutes * 60; LT.remaining = LT.full; }
+  const plan = l.sections.map((x, i) => `<li><button type="button" data-goto="${i}" class="${(s.done || []).includes(i) ? "done" : ""}" ${i === at ? 'aria-current="step"' : ""}>
+      <b>${x.kind} · ${x.minutes} min</b>${x.title}</button></li>`).join("");
+  const body = sec.blocks.map((b) => blockHTML(b, l)).join("");
+  const prev = at > 0 ? `<button class="btn" data-goto="${at - 1}">← ${l.sections[at - 1].kind}</button>` : `<a class="btn" href="#/lessons">← All lessons</a>`;
+  const next = at < l.sections.length - 1 ? `<button class="btn primary" data-act="sec-next">Next: ${l.sections[at + 1].kind} →</button>`
+    : (D.lessons[l.n] ? `<a class="btn primary" href="#/lesson/${D.lessons[l.n].id}">Next lesson →</a>` : `<a class="btn primary" href="#/test">Practice test →</a>`);
+  return `<div class="content">
+    <p class="crumb"><a href="#/lessons">Lessons</a> / Lesson ${l.n}</p>
+    <div class="head"><h1>${l.title}</h1><p>Lesson ${l.n} of ${D.lessons.length} · ${TOPIC[l.t].code} · about ${l.minutes} minutes</p></div>
+    <ol class="plan" aria-label="Lesson plan">${plan}</ol>
+    <div class="secthead"><div><div class="kind">${sec.kind} · ${sec.minutes} minutes</div><h2>${sec.title}</h2></div>
+      <div class="timer" id="ltimer"><b>${mmss(LT.remaining)}</b><button class="btn small" data-act="timer">Start timer</button><button class="btn small" data-act="timer-reset">Reset</button></div></div>
+    ${body}
+    <div class="pager">${prev}${next}</div>
+  </div>`;
+}
+
+function lessonClick(e, id) {
+  const l = LESSON[id];
+  const s = ST.lessons[id] || (ST.lessons[id] = { done: [], at: 0 });
+  const go = e.target.closest("[data-goto]");
+  if (go) { s.at = +go.dataset.goto; save("lessons"); render(); window.scrollTo(0, 0); return; }
+  const t = e.target.closest("[data-act]");
+  if (!t) return;
+  const act = t.dataset.act;
+  if (act === "sec-next") {
+    if (!s.done.includes(s.at)) s.done.push(s.at);
+    s.at = Math.min(s.at + 1, l.sections.length - 1); save("lessons"); render(); window.scrollTo(0, 0);
+  } else if (act === "lesson-complete") {
+    s.done = l.sections.map((_, i) => i); s.complete = true; save("lessons");
+    t.textContent = "Lesson marked as done ✓";
+    document.querySelectorAll(".plan button").forEach((b) => b.classList.add("done"));
+  } else if (act === "timer") {
+    if (LT.running) { stopLessonTimer(); }
+    else {
+      LT.running = true;
+      LT.handle = setInterval(() => { LT.remaining -= 1; renderTimer(); }, 1000);
+    }
+    renderTimer();
+  } else if (act === "timer-reset") {
+    stopLessonTimer(); LT.remaining = LT.full; renderTimer();
+  }
+}
+
+/* ================================================================ flashcards */
+const KIND = { def: "Definition", eq: "Equation", calc: "Calculation", explain: "Explain", example: "Example", fact: "Key fact", mistake: "Spot the mistake", command: "Command word" };
+const EXTRA_CARDS = [].concat(
+  D.mistakes.map((m, i) => ({ id: "mis" + i, t: "mistakes", k: "mistake", q: "What’s wrong with this?<br><span style=\"font-weight:400\">" + m[0] + "</span>", a: "<p>" + m[1] + "</p>" })),
+  D.commands.map((c, i) => ({ id: "cmd" + i, t: "commands", k: "command", q: "What does “" + c[0] + "” want you to do?", a: "<p>" + c[1] + "</p><p class=\"small muted\">Example: " + c[2] + "</p>" }))
+);
+EXTRA_CARDS.forEach((c) => { CARD[c.id] = c; });
+const DECKS = [{ id: "all", name: "All six topics" }].concat(
+  D.topics.map((t) => ({ id: t.id, name: t.code + " " + t.name })),
+  [{ id: "mistakes", name: "Common mistakes" }, { id: "commands", name: "Command words" }]
+);
+const deckCards = (id) => (id === "all" ? D.cards : id === "mistakes" || id === "commands" ? EXTRA_CARDS.filter((c) => c.t === id) : D.cards.filter((c) => c.t === id)).map((c) => c.id);
+
+const FC = { deck: null, queue: [], idx: 0, results: [], round: 1, flipped: false, shuffle: false };
+function fcStart(deck) {
+  FC.deck = deck; FC.round = 1; FC.results = []; FC.idx = 0; FC.flipped = false;
+  FC.shuffle = !!ST.prefs.shuffle;
+  const ids = deckCards(deck);
+  FC.queue = FC.shuffle ? shuffle(ids) : ids;
+  ST.prefs.deck = deck; save("prefs");
+}
+function cardLabel(c) {
+  const where = TOPIC[c.t] ? TOPIC[c.t].code + " " + TOPIC[c.t].name : (c.t === "mistakes" ? "Common mistakes" : "Command words");
+  return `<span>${where}</span><span>${KIND[c.k] || ""}${c.ht ? " · Higher" : ""}</span>`;
+}
+function cardBack(c) {
+  if (c.k !== "eq") return c.a;
+  const units = (c.u || []).map((u) => `<span><b>${u[0]}</b></span><span>${u[1]}</span><span class="u">${u[2]}</span>`).join("");
+  return `<div class="eqn"><span class="mk">${c.eq}</span></div>${c.a || ""}${units ? `<div class="units">${units}</div>` : ""}`;
+}
+function fcActs() {
+  return FC.flipped
+    ? `<button class="btn learn" data-fc="l">Still learning <kbd>1</kbd></button><button class="btn know" data-fc="k">Know it <kbd>2</kbd></button>`
+    : `<button class="btn primary full" data-fc="flip">Turn over <kbd>Space</kbd></button>`;
+}
+function fcFlip(force) {
+  const card = document.getElementById("fcard");
+  if (!card) return;
+  FC.flipped = force === undefined ? !FC.flipped : force;
+  card.classList.toggle("flipped", FC.flipped);
+  card.querySelector(".front").setAttribute("aria-hidden", String(FC.flipped));
+  card.querySelector(".back").setAttribute("aria-hidden", String(!FC.flipped));
+  $view.querySelector(".fc .acts").innerHTML = fcActs();
+}
+function viewFlash() {
+  if (!FC.deck || !DECKS.some((d) => d.id === FC.deck)) fcStart(ST.prefs.deck && DECKS.some((d) => d.id === ST.prefs.deck) ? ST.prefs.deck : "all");
+  const picker = DECKS.map((d) => {
+    const ids = deckCards(d.id), k = ids.filter((x) => ST.marks[x] === "k").length;
+    return `<button type="button" data-deck="${d.id}" aria-pressed="${FC.deck === d.id}">${d.name} <span class="muted num">${k}/${ids.length}</span></button>`;
+  }).join("");
+  let main;
+  if (FC.idx >= FC.queue.length) {
+    const k = FC.results.filter((r) => r.v === "k"), l = FC.results.filter((r) => r.v === "l");
+    main = `<div class="panel"><h2>${l.length ? (FC.round > 1 ? `Round ${FC.round} finished` : "Set finished") : "You know every card in this set"}</h2>
+      <p>${plural(k.length, "card")} you know, ${plural(l.length, "card")} still to learn.</p>
+      ${l.length ? `<ul>${l.map((r) => `<li>${strip(CARD[r.id].q)}</li>`).join("")}</ul>` : ""}
+      <div class="row">${l.length ? `<button class="btn primary" data-fc="again-missed">Go through the ${l.length} I’m still learning</button>` : ""}
+      <button class="btn" data-fc="restart">Start the set again</button></div></div>`;
+  } else {
+    const c = CARD[FC.queue[FC.idx]];
+    const k = FC.results.filter((r) => r.v === "k").length;
+    main = `<div class="status"><span class="num">${FC.round > 1 ? `Round ${FC.round} · ` : ""}Card ${FC.idx + 1} of ${FC.queue.length}</span><span class="num">${k} known · ${FC.results.length - k} still learning</span></div>
+      <div class="track"><i style="width:${FC.idx / FC.queue.length * 100}%"></i></div>
+      <div class="card ${FC.flipped ? "flipped" : ""}" id="fcard" tabindex="0" role="button" aria-label="Flashcard. Press Space to turn it over.">
+        <div class="inner">
+          <div class="face front" aria-hidden="${FC.flipped}"><div class="lab">${cardLabel(c)}</div><div class="prompt"><p>${c.q}</p></div><div class="lab"><span>Tap to turn over</span></div></div>
+          <div class="face back" aria-hidden="${!FC.flipped}"><div class="lab">${cardLabel(c)}</div><div class="body">${cardBack(c)}</div></div>
+        </div>
+      </div>
+      <div class="acts">${fcActs()}</div>
+      <div class="row" style="justify-content:center;margin-top:10px">
+        <button class="btn small" data-fc="back" ${FC.idx ? "" : "disabled"}>Previous card</button>
+        <button class="btn small" data-fc="shuffle">Shuffle: ${FC.shuffle ? "on" : "off"}</button>
+        <button class="btn small" data-fc="restart">Start again</button></div>`;
+  }
+  return `<div class="content"><div class="head"><h1>Flashcards</h1>
+    <p>Say your answer out loud (or write it) before you turn the card over. Be strict with yourself: only press “Know it” if you got it fully right.</p></div>
+    <div class="deckpick">${picker}</div><div class="fc">${main}</div></div>`;
+}
+function fcRate(v) {
+  if (!FC.flipped || FC.idx >= FC.queue.length) return;
+  const id = FC.queue[FC.idx];
+  FC.results.push({ id, v }); ST.marks[id] = v; save("marks");
+  FC.idx += 1; FC.flipped = false; render();
+}
+function fcClick(e) {
+  const d = e.target.closest("[data-deck]");
+  if (d) { fcStart(d.dataset.deck); render(); return; }
+  if (e.target.closest("#fcard")) { fcFlip(); return; }
+  const b = e.target.closest("[data-fc]");
+  if (!b) return;
+  const a = b.dataset.fc;
+  if (a === "flip") { fcFlip(true); return; }
+  if (a === "k" || a === "l") { fcRate(a); return; }
+  else if (a === "back" && FC.idx > 0) { FC.idx -= 1; FC.results.pop(); FC.flipped = false; }
+  else if (a === "shuffle") { ST.prefs.shuffle = !ST.prefs.shuffle; save("prefs"); fcStart(FC.deck); }
+  else if (a === "restart") { fcStart(FC.deck); }
+  else if (a === "again-missed") {
+    const missed = FC.results.filter((r) => r.v === "l").map((r) => r.id);
+    FC.round += 1; FC.results = []; FC.idx = 0; FC.flipped = false;
+    FC.queue = FC.shuffle ? shuffle(missed) : missed;
+  }
+  render();
+}
+function fcKey(e) {
+  if (e.target.matches("input,textarea,select")) return;
+  if (e.key === " " || (e.key === "Enter" && e.target.id === "fcard")) {
+    if (e.target.matches("button")) return;
+    e.preventDefault(); fcFlip();
+  } else if (e.key === "1" || e.key === "ArrowLeft") { fcRate("l"); }
+  else if (e.key === "2" || e.key === "ArrowRight") { fcRate("k"); }
+}
+let touchX = null;
+function fcTouchStart(e) { if (e.target.closest("#fcard")) touchX = [e.changedTouches[0].clientX, e.changedTouches[0].clientY]; }
+function fcTouchEnd(e) {
+  if (!touchX) return;
+  const dx = e.changedTouches[0].clientX - touchX[0], dy = e.changedTouches[0].clientY - touchX[1];
+  touchX = null;
+  if (FC.flipped && Math.abs(dx) > 70 && Math.abs(dy) < 50) { e.preventDefault(); fcRate(dx > 0 ? "k" : "l"); }
+}
+
+/* ================================================================ calculations */
+function viewCalc() {
+  const f = ST.prefs.calcTopic || "all", two = !!ST.prefs.calcTwo;
+  const list = D.calc.filter((c) => (f === "all" || c.t === f) && (!two || c.lvl === 2));
+  const ok = list.filter((c) => (ST.calc[c.id] || {}).ok).length;
+  const opts = [["all", "All topics"]].concat(D.topics.filter((t) => D.calc.some((c) => c.t === t.id)).map((t) => [t.id, t.code + " " + t.name]))
+    .map(([v, n]) => `<option value="${v}" ${v === f ? "selected" : ""}>${n}</option>`).join("");
+  const groups = D.topics.map((t) => {
+    const qs = list.filter((c) => c.t === t.id);
+    if (!qs.length) return "";
+    return `<div class="section"><h2>${t.code} ${t.name}</h2><div class="stack">${qs.map((c) => calcHTML(c.id)).join("")}</div></div>`;
+  }).join("");
+  return `<div class="content"><div class="head"><h1>Calculations</h1>
+    <p>Type your answer and press Check. Rounded answers are accepted (for example 9.9 or 9.90). Work it out on paper first, just like in the test.</p></div>
+    <div class="panel spread">
+      <div class="row"><label for="calc-topic">Topic</label><select id="calc-topic">${opts}</select>
+        <label class="row"><input type="checkbox" id="calc-two" ${two ? "checked" : ""}> Two-step (Higher) questions only</label></div>
+      <span class="num"><b>${ok}</b> of ${list.length} right</span></div>
+    ${groups || '<p class="muted">No questions match. Change the topic or untick “Two-step”.</p>'}</div>`;
+}
+function calcChange(e) {
+  if (e.target.id === "calc-topic") { ST.prefs.calcTopic = e.target.value; save("prefs"); render(); }
+  if (e.target.id === "calc-two") { ST.prefs.calcTwo = e.target.checked; save("prefs"); render(); }
+}
+
+/* ================================================================ exam questions */
+function viewExam() {
+  const f = ST.prefs.examTopic || "all";
+  const list = D.exam.filter((q) => f === "all" || q.t === f);
+  const got = list.reduce((a, q) => a + ((ST.exam[q.id] || {}).score || 0), 0);
+  const total = list.reduce((a, q) => a + q.marks, 0);
+  const opts = [["all", "All topics"]].concat(D.topics.map((t) => [t.id, t.code + " " + t.name]))
+    .map(([v, n]) => `<option value="${v}" ${v === f ? "selected" : ""}>${n}</option>`).join("");
+  const blocks = list.map((q) => `<div>${TOPIC[q.t] ? `<p class="small muted" style="margin:0 0 4px">${TOPIC[q.t].code} ${TOPIC[q.t].name}</p>` : ""}${examHTML(q.id)}</div>`).join("");
+  return `<div class="content"><div class="head"><h1>Exam questions</h1>
+    <p>Longer questions like the ones worth the most marks in the test. Write your full answer first, then open the mark scheme and tick each point you made. Roughly one minute per mark.</p></div>
+    <div class="panel spread"><div class="row"><label for="exam-topic">Topic</label><select id="exam-topic">${opts}</select></div>
+      <span class="num">Marked so far: <b>${got}</b> / ${total}</span></div>
+    <div class="stack" style="margin-top:16px">${blocks}</div></div>`;
+}
+function examChange(e) {
+  if (e.target.id === "exam-topic") { ST.prefs.examTopic = e.target.value; save("prefs"); render(); }
+}
+
+/* ================================================================ practice test */
+const TT = { handle: null };
+const TEST_SECS = D.test.minutes * 60;
+function stopTestTimer() { if (TT.handle) clearInterval(TT.handle); TT.handle = null; }
+function allParts() { return D.test.questions.flatMap((q) => q.parts); }
+function startTestTimer() {
+  stopTestTimer();
+  TT.handle = setInterval(() => {
+    const d = ST.draft;
+    if (!d || d.status !== "running") { stopTestTimer(); return; }
+    d.secs += 1;
+    if (d.secs % 5 === 0) save("draft");
+    const el = document.getElementById("ttime");
+    if (el) {
+      const left = TEST_SECS - d.secs;
+      el.textContent = left >= 0 ? mmss(left) + " left" : "Time’s up (" + mmss(-left) + " over)";
+      el.parentElement.classList.toggle("over", left < 0);
+    }
+  }, 1000);
+}
+function partScore(p, d) {
+  const ans = d.answers[p.n] || "";
+  if (p.kind === "calc" && checkNum(ans, [p.ans].concat(p.alt || [])).state === "ok") return { score: p.marks, auto: true };
+  const ticks = (d.ticks[p.n] || []).length;
+  return { score: Math.min(p.marks, ticks), auto: false };
+}
+function testTotal(d) { return allParts().reduce((a, p) => a + partScore(p, d).score, 0); }
+
+function viewTest() {
+  const d = ST.draft;
+  if (!d) {
+    const hist = ST.tests.slice().reverse().map((x) => `<tr><td>${shortDate(new Date(x.date))}</td><td class="num">${x.score}/${x.total}</td><td class="num">${Math.round(x.score / x.total * 100)}%</td><td class="num">${mmss(x.secs)}</td></tr>`).join("");
+    return `<div class="content"><div class="head"><h1>Practice test</h1><p>Energy stores and transfers · Higher tier</p></div>
+      <div class="panel">
+        <p><b>Time allowed: ${D.test.minutes} minutes.</b> Total: ${D.test.marks} marks.</p>
+        <ul><li>Answer all questions.</li><li>You need a calculator, a pen and some paper for working.</li>
+          <li>For calculations, type your final answer in the box. For other questions, write your answer in the box.</li>
+          <li>When you finish, you mark your own test using the mark scheme. Calculations with the right final answer are marked for you.</li></ul>
+        <button class="btn primary" data-t="start">Start the test</button>
+      </div>
+      ${hist ? `<div class="section"><h2>Your results</h2><div class="tablewrap"><table><thead><tr><th>Date</th><th>Score</th><th>Percentage</th><th>Time taken</th></tr></thead><tbody>${hist}</tbody></table></div></div>` : ""}
+    </div>`;
+  }
+  const marking = d.status === "marking";
+  const left = TEST_SECS - d.secs;
+  const bar = marking
+    ? `<div class="testbar spread"><span class="result num">Score: <span id="tscore">${testTotal(d)}</span>/${D.test.marks}</span>
+        <div class="row"><button class="btn primary" data-t="save">Save my result</button><button class="btn" data-t="discard">Delete this attempt</button></div></div>`
+    : `<div class="testbar spread"><span class="timer ${left < 0 ? "over" : ""}"><b id="ttime" style="min-width:auto">${left >= 0 ? mmss(left) + " left" : "Time’s up"}</b></span>
+        <div class="row"><button class="btn" data-t="pause">${d.status === "running" ? "Pause" : "Resume"}</button><button class="btn primary" data-t="mark">Finish and mark</button></div></div>`;
+  const qs = D.test.questions.map((q) => `<div class="qblock"><h3>Question ${q.n}</h3><p class="muted">${q.intro}</p>${q.parts.map((p) => {
+    const ans = d.answers[p.n] || "";
+    const input = p.kind === "calc"
+      ? `<div class="row"><label class="sr" for="tp-${p.n}">Answer to ${p.n}</label><input id="tp-${p.n}" data-part="${p.n}" inputmode="decimal" value="${esc(ans)}" ${marking ? "disabled" : ""}><span class="mono muted">${p.unit}</span></div>`
+      : `<label class="sr" for="tp-${p.n}">Answer to ${p.n}</label><textarea id="tp-${p.n}" data-part="${p.n}" ${marking ? "disabled" : ""}>${esc(ans)}</textarea>`;
+    let mark = "";
+    if (marking) {
+      const ps = partScore(p, d), ticks = d.ticks[p.n] || [];
+      mark = `<div class="scheme"><h4>Mark scheme</h4>${ps.auto ? `<p class="tick">✓ Correct final answer: ${p.marks} marks</p>` : ""}
+        ${p.scheme.map((line, i) => `<label><input type="checkbox" data-tick="${p.n}" data-i="${i}" ${ticks.includes(i) || ps.auto ? "checked" : ""} ${ps.auto ? "disabled" : ""}><span>${line}</span></label>`).join("")}
+        <p class="total">Marks: <span data-ps="${p.n}">${ps.score}</span>/${p.marks}</p></div>`;
+    }
+    return `<div class="part"><div class="qtext"><p><b class="pn">${p.n}</b>${p.q}</p><span class="marks">[${p.marks} mark${p.marks > 1 ? "s" : ""}]</span></div>${input}${mark}</div>`;
+  }).join("")}</div>`).join("");
+  return `<div class="content test"><div class="head"><h1>Practice test</h1><p>${marking ? "Mark each answer. Tick a point only if your answer really says it." : "Work on paper, then type your answers."}</p></div>${bar}${qs}</div>`;
+}
+function testClick(e) {
+  const b = e.target.closest("[data-t]");
+  if (!b) return;
+  const a = b.dataset.t;
+  if (a === "start") { ST.draft = { status: "running", secs: 0, answers: {}, ticks: {}, started: Date.now() }; save("draft"); render(); startTestTimer(); }
+  else if (a === "pause") { ST.draft.status = ST.draft.status === "running" ? "paused" : "running"; save("draft"); render(); if (ST.draft.status === "running") startTestTimer(); else stopTestTimer(); }
+  else if (a === "mark") {
+    const blank = allParts().filter((p) => !(ST.draft.answers[p.n] || "").trim()).length;
+    let ok = true;
+    try { ok = !blank || window.confirm(`You have ${plural(blank, "blank answer")}. Finish and mark anyway?`); } catch (err) { ok = true; }
+    if (!ok) return;
+    stopTestTimer(); ST.draft.status = "marking"; save("draft"); render(); window.scrollTo(0, 0);
+  } else if (a === "save") {
+    ST.tests.push({ date: Date.now(), score: testTotal(ST.draft), total: D.test.marks, secs: ST.draft.secs });
+    save("tests"); ST.draft = null; save("draft"); render(); window.scrollTo(0, 0);
+  } else if (a === "discard") {
+    let ok = true;
+    try { ok = window.confirm("Delete this attempt without saving the score?"); } catch (err) { ok = true; }
+    if (!ok) return;
+    ST.draft = null; save("draft"); render();
+  }
+}
+function testInput(e) {
+  const d = ST.draft;
+  if (!d) return;
+  const inp = e.target.closest("[data-part]");
+  if (inp) { d.answers[inp.dataset.part] = inp.value; save("draft"); return; }
+  const cb = e.target.closest("[data-tick]");
+  if (cb) {
+    const n = cb.dataset.tick, i = +cb.dataset.i;
+    const set = new Set(d.ticks[n] || []);
+    if (cb.checked) set.add(i); else set.delete(i);
+    d.ticks[n] = [...set]; save("draft");
+    const p = allParts().find((x) => x.n === n);
+    document.querySelector(`[data-ps="${n}"]`).textContent = partScore(p, d).score;
+    document.getElementById("tscore").textContent = testTotal(d);
+  }
+}
+
+/* ================================================================ equation quiz engine */
+function makeQuestion(eq, avoid) {
+  const types = ["pick", "gap", "rearr"];
+  if (eq.units.some((u) => u[0] && !u[2].startsWith("no unit"))) types.push("unit");
+  const pool = types.filter((t) => t !== avoid);
+  const type = pool[Math.floor(Math.random() * pool.length)];
+  if (type === "pick") return { eq: eq.id, type, prompt: `Which is the equation for <b>${eq.name.toLowerCase()}</b>?`, answer: eq.plain, options: shuffle([eq.plain].concat(eq.wrong.slice(0, 3))) };
+  if (type === "gap") return { eq: eq.id, type, prompt: `Fill the gap: <span class="mk">${eq.gap.show}</span>`, answer: eq.gap.answer, options: shuffle(eq.gap.options) };
+  if (type === "rearr") {
+    const r = eq.rearr[Math.floor(Math.random() * eq.rearr.length)];
+    return { eq: eq.id, type, prompt: `Rearrange <b>${eq.plain}</b> to find <b>${r.find}</b>.`, answer: r.right, options: shuffle([r.right].concat(r.wrong.slice(0, 3))) };
+  }
+  const rows = eq.units.filter((u) => u[0] && !u[2].startsWith("no unit"));
+  const u = rows[Math.floor(Math.random() * rows.length)];
+  const others = shuffle(D.unitPool.filter((x) => x !== u[2])).slice(0, 3);
+  return { eq: eq.id, type, prompt: `In the ${eq.name.toLowerCase()} equation, what is the unit of <b>${u[1]}</b>?`, answer: u[2], options: shuffle([u[2]].concat(others)) };
+}
+function pickWeighted(ids) {
+  const weights = ids.map((id) => 6 - (ST.eq[id] || 0));
+  let r = Math.random() * weights.reduce((a, b) => a + b, 0);
+  for (let i = 0; i < ids.length; i++) { r -= weights[i]; if (r <= 0) return ids[i]; }
+  return ids[ids.length - 1];
+}
+function startQuiz(box, ids, n) {
+  const Q = { ids, n, i: 0, right: 0, list: [], answered: null };
+  let last = null;
+  for (let k = 0; k < n; k++) { let id = pickWeighted(ids); if (ids.length > 1 && id === last) id = pickWeighted(ids); last = id; Q.list.push(makeQuestion(EQ[id])); }
+  box._quiz = Q;
+  drawQuiz(box);
+}
+function drawQuiz(box) {
+  const Q = box._quiz;
+  if (Q.i >= Q.list.length) {
+    box.innerHTML = `<div class="quiz"><p class="qtitle">${Q.right} out of ${Q.list.length} right</p>
+      <p class="muted">${Q.right === Q.list.length ? "All correct. Come back tomorrow and do it again so it sticks." : "The equations you got wrong will come up more often next time."}</p>
+      <button class="btn primary" data-q="again">Go again</button></div>`;
+    return;
+  }
+  const q = Q.list[Q.i];
+  const opts = q.options.map((o, k) => {
+    let cls = "";
+    if (Q.answered !== null) { if (o === q.answer) cls = "right"; else if (k === Q.answered) cls = "wrong"; }
+    return `<button type="button" data-opt="${k}" class="${cls}" ${Q.answered !== null ? "disabled" : ""}>${o}</button>`;
+  }).join("");
+  const feedback = Q.answered === null ? "" : (q.options[Q.answered] === q.answer
+    ? `<p class="fb ok">✓ Correct.</p>`
+    : `<p class="fb no">✗ The answer is ${q.answer}.</p><p class="hint">${EQ[q.eq].tip}</p><p class="small muted">This equation will come back in a moment.</p>`);
+  box.innerHTML = `<div class="quiz"><div class="spread small muted"><span>Question ${Q.i + 1} of ${Q.list.length}</span><span>${Q.right} right</span></div>
+    <p class="qtitle">${q.prompt}</p><div class="opts">${opts}</div>${feedback}
+    ${Q.answered !== null ? `<div class="row" style="margin-top:12px"><button class="btn primary" data-q="next">Next question</button></div>` : ""}</div>`;
+}
+function quizClick(e) {
+  const box = e.target.closest("[data-quiz]");
+  if (!box || !box._quiz) return false;
+  const Q = box._quiz;
+  const opt = e.target.closest("[data-opt]");
+  if (opt && Q.answered === null) {
+    Q.answered = +opt.dataset.opt;
+    const q = Q.list[Q.i];
+    const ok = q.options[Q.answered] === q.answer;
+    ST.eq[q.eq] = Math.max(0, Math.min(5, (ST.eq[q.eq] || 0) + (ok ? 1 : -1))); save("eq");
+    if (ok) Q.right += 1;
+    else Q.list.splice(Math.min(Q.i + 3, Q.list.length), 0, makeQuestion(EQ[q.eq], q.type));
+    drawQuiz(box); return true;
+  }
+  const b = e.target.closest("[data-q]");
+  if (b && b.dataset.q === "next") { Q.i += 1; Q.answered = null; drawQuiz(box); return true; }
+  if (b && b.dataset.q === "again") { startQuiz(box, Q.ids, Q.n); return true; }
+  return false;
+}
+function mountQuizzes() {
+  $view.querySelectorAll("[data-quiz]").forEach((box) => startQuiz(box, box.dataset.quiz.split(","), +box.dataset.n || 10));
+}
+
+/* ================================================================ equations page */
+function viewEq() {
+  const methods = D.memory.map((m) => `<li><b>${m[0]}.</b> ${m[1]}</li>`).join("");
+  const blank = D.equations.map((q) => `<li class="qlist-item" data-eqshow="${q.id}"><div class="spread"><span><b>${q.name}</b></span>
+      <span class="row"><button class="btn small" data-act="eq-show">Show it</button>
+      <button class="btn small know" data-blank="${q.id}" data-v="1">Got it</button><button class="btn small learn" data-blank="${q.id}" data-v="-1">Missed it</button></span></div>
+      <div class="eqhide" hidden><div class="eqn"><span class="mk">${q.sym}</span></div></div></li>`).join("");
+  const list = D.equations.map((q) => `<div class="eqitem"><div class="top"><h3>${q.name}</h3><span class="row small muted">${q.status} ${dotsHTML(ST.eq[q.id] || 0)}</span></div>
+      <div class="eqn"><span class="mk">${q.sym}</span></div>${q.words ? `<p class="small">${q.words}</p>` : ""}
+      <div class="tablewrap"><table><tbody>${q.units.map((u) => `<tr><td style="width:60px">${u[0]}</td><td>${u[1]}</td><td class="mono">${u[2]}</td></tr>`).join("")}</tbody></table></div>
+      <p class="tipline"><b>Remember:</b> ${q.tip}</p></div>`).join("");
+  return `<div class="content"><div class="head"><h1>Equations</h1>
+    <p>Nine equations for this test. The GCSE exam gives you a sheet, but school tests often don’t, and you still need to choose the right one, rearrange it and use the right units.</p></div>
+    <div class="section"><h2>Drill</h2><p class="muted">Ten quick questions. Equations you get wrong come back more often.</p>
+      <div data-quiz="${D.equations.map((q) => q.id).join(",")}" data-n="10"></div></div>
+    <div class="section"><h2>Blank page check</h2>
+      <p class="muted">Write each equation on paper from memory, then show it and be honest.</p>
+      <ul class="qlist blank">${blank}</ul></div>
+    <div class="section"><h2>How to remember them</h2><ol>${methods}</ol></div>
+    <div class="section"><h2>All nine equations</h2><div class="eqlist">${list}</div></div></div>`;
+}
+function eqClick(e) {
+  const b = e.target.closest("[data-blank]");
+  if (!b) return;
+  const id = b.dataset.blank;
+  ST.eq[id] = Math.max(0, Math.min(5, (ST.eq[id] || 0) + (+b.dataset.v))); save("eq");
+  b.closest("li").querySelector(".eqhide").hidden = false;
+  b.parentElement.innerHTML = `<span class="small ${+b.dataset.v > 0 ? "tick" : "cross"}">${+b.dataset.v > 0 ? "✓ Noted" : "Noted. It will come up more in the drill."}</span>`;
+}
+
+/* ================================================================ mistakes and command words */
+function viewSkills() {
+  const mis = D.mistakes.map((m) => `<tr class="mistake"><td>${m[0]}</td><td>${m[1]}</td></tr>`).join("");
+  const cmd = D.commands.map((c) => `<tr><td><b>${c[0]}</b></td><td>${c[1]}</td><td class="muted">${c[2]}</td></tr>`).join("");
+  return `<div class="content"><div class="head"><h1>Mistakes and command words</h1>
+    <p>Most lost marks come from the same few slips, or from answering a different question to the one asked.</p></div>
+    <div class="section"><div class="spread"><h2>Common mistakes</h2><a class="btn small" href="#/flashcards" data-open-deck="mistakes">Practise as flashcards</a></div>
+      <div class="tablewrap"><table><thead><tr><th>Don’t do this</th><th>Do this instead</th></tr></thead><tbody>${mis}</tbody></table></div></div>
+    <div class="section"><div class="spread"><h2>Command words</h2><a class="btn small" href="#/flashcards" data-open-deck="commands">Practise as flashcards</a></div>
+      <p class="muted">The first word of a question tells you what kind of answer gets the marks.</p>
+      <div class="tablewrap"><table><thead><tr><th>Word</th><th>What it wants</th><th>Example</th></tr></thead><tbody>${cmd}</tbody></table></div></div></div>`;
+}
+
+/* ================================================================ router */
+const ROUTES = [
+  { path: "", label: "Dashboard", view: viewHome },
+  { path: "lessons", label: "Lessons", view: viewLessons },
+  { sep: true },
+  { path: "flashcards", label: "Flashcards", view: viewFlash, click: fcClick, key: fcKey },
+  { path: "calculations", label: "Calculations", view: viewCalc, change: calcChange },
+  { path: "exam", label: "Exam questions", view: viewExam, change: examChange },
+  { path: "test", label: "Practice test", view: viewTest, click: testClick, input: testInput },
+  { sep: true },
+  { path: "equations", label: "Equations", view: viewEq, click: eqClick },
+  { path: "skills", label: "Mistakes and command words", view: viewSkills },
+];
+let current = null;
+function parseHash() {
+  const h = location.hash.replace(/^#\/?/, "");
+  const [a, b] = h.split("/");
+  if (a === "lesson" && b) return { path: "lessons", lesson: b };
+  return { path: ROUTES.some((r) => r.path === a) ? a : "", lesson: null };
+}
+function render() {
+  const r = parseHash();
+  const route = ROUTES.find((x) => x.path === r.path);
+  $view.innerHTML = r.lesson ? viewLesson(r.lesson) : route.view();
+  if (r.lesson) renderTimer();
+  mountQuizzes();
+  document.querySelectorAll(".side a").forEach((a) => { if (a.dataset.path === r.path) a.setAttribute("aria-current", "page"); else a.removeAttribute("aria-current"); });
+  document.title = (r.lesson && LESSON[r.lesson] ? "Lesson " + LESSON[r.lesson].n : route.label) + " · Energy revision";
+  current = { route, lesson: r.lesson };
+}
+function navigate() {
+  const was = current;
+  stopLessonTimer();
+  if (!(parseHash().path === "test")) stopTestTimer();
+  render();
+  if (was) { window.scrollTo(0, 0); $view.focus({ preventScroll: true }); }
+  if (current.route.path === "test" && ST.draft && ST.draft.status === "running" && !TT.handle) startTestTimer();
+}
+
+$view.onclick = (e) => {
+  const open = e.target.closest("[data-open-deck]");
+  if (open) { fcStart(open.dataset.openDeck); return; }
+  if (quizClick(e)) return;
+  if (current.lesson) { if (!commonClick(e)) lessonClick(e, current.lesson); return; }
+  if (commonClick(e)) return;
+  if (current.route.click) current.route.click(e);
+};
+$view.oninput = (e) => { commonInput(e); if (current.route.input) current.route.input(e); };
+$view.onchange = (e) => { commonInput(e); if (current.route.change) current.route.change(e); if (current.route.input && e.target.type === "checkbox") current.route.input(e); };
+$view.onkeydown = commonKey;
+document.addEventListener("keydown", (e) => {
+  if (e.altKey || e.ctrlKey || e.metaKey) return;
+  if (current && !current.lesson && current.route.key) current.route.key(e);
+});
+$view.addEventListener("touchstart", (e) => { if (current && current.route.path === "flashcards") fcTouchStart(e); }, { passive: true });
+$view.addEventListener("touchend", (e) => { if (current && current.route.path === "flashcards") fcTouchEnd(e); });
+
+/* ================================================================ boot */
+document.getElementById("nav").innerHTML = ROUTES.map((r) => r.sep ? '<span class="sep" aria-hidden="true"></span>'
+  : `<a href="#/${r.path}" data-path="${r.path}">${r.label}</a>`).join("");
+(function countdown() {
+  const n = daysLeft();
+  const el = document.getElementById("count");
+  el.innerHTML = n > 0 ? `Test: <b>${shortDate(testDate())}</b><br>${plural(n, "day")} to go` : n === 0 ? "<b>Test today</b><br>Good luck" : `Test was on ${shortDate(testDate())}`;
+})();
+document.getElementById("reset").onclick = () => {
+  let ok = true;
+  try { ok = window.confirm("Reset all your progress on this device? This clears flashcards, lessons, scores and equation practice."); } catch (e) { ok = true; }
+  if (!ok) return;
+  ["marks", "calc", "exam", "eq", "lessons", "rag", "prefs"].forEach((k) => { ST[k] = {}; save(k); });
+  ST.tests = []; save("tests"); ST.draft = null; save("draft");
+  FC.deck = null; render();
+};
+window.addEventListener("hashchange", navigate);
+navigate();
+
+})();
+</script>
+</body>
+</html>
